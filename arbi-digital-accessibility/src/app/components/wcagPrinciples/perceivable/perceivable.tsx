@@ -4,9 +4,8 @@ import Guidlinesone from "./GuidlinesOne";
 import Guidlinestwo from "./GuidlinesTwo";
 import Guidlinesthree from "./GuidlinesThree";
 import Guidlinesfour from "./GuidlinesFour";
-import TrackedLink from "../../TrackedLink";
 
-const perceivable = () => {
+const Perceivable = () => {
   // this code is for back button trigger login line 10 to 50
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -57,13 +56,6 @@ const perceivable = () => {
         interface components must be presented to users in ways they can sense
         whether through sight, hearing, or touch—ensuring that content is
         accessible to individuals with sensory disabilities.
-        <TrackedLink
-          href="/wcagprincipals/perceivable/guidlines-one/meaning-ful-image-name"
-          id="meaningful-image-link4"
-          className="font-bold link-color-blue underline"
-        >
-       just for testing outside
-        </TrackedLink>
       </p>
       <div className="filledAccordion">
         <Accordion
@@ -119,4 +111,4 @@ const perceivable = () => {
   );
 };
 
-export default perceivable;
+export default Perceivable;

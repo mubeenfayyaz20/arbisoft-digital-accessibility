@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Accordion from "../../Accordion";
 import GuidlinesOne from "./guidlinesOne";
 import GuidlinesTwo from "./guidlinesTwo";
@@ -7,45 +7,10 @@ import GuidlinesFour from "./guidlinesFour";
 import GuidlinesFive from "./guidlinesFive";
 
 
-const operable = () => {
+const Operable = () => {
   // this code is for back button trigger login line 10 to 50
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  useEffect(() => {
-    const savedAccordionIndex = localStorage.getItem("accordionIndex");
-    const lastFocusedId = localStorage.getItem("lastFocusedId");
-    const savedTabIndex = localStorage.getItem("activeTabIndex");
-    const backToPath = localStorage.getItem("backToPath");
-
-    // Restore state only if we're on the right page and correct tab (0 = Perceivable)
-    if (backToPath !== window.location.pathname || savedTabIndex !== "0") {
-      localStorage.removeItem("accordionIndex");
-      localStorage.removeItem("lastFocusedId");
-      localStorage.removeItem("backToPath");
-      localStorage.removeItem("activeTabIndex");
-      return;
-    }
-
-    if (savedAccordionIndex !== null) {
-      setOpenIndex(Number(savedAccordionIndex));
-    }
-
-    if (lastFocusedId) {
-      setTimeout(() => {
-        const el = document.getElementById(lastFocusedId);
-        if (el) {
-          el.focus();
-        }
-      }, 200);
-    }
-
-    return () => {
-      localStorage.removeItem("accordionIndex");
-      localStorage.removeItem("lastFocusedId");
-      localStorage.removeItem("backToPath");
-      localStorage.removeItem("activeTabIndex");
-    };
-  }, []);
 
   const handleToggle = (index: number) => {
     setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
@@ -129,4 +94,4 @@ const operable = () => {
   );
 };
 
-export default operable;
+export default Operable;

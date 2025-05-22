@@ -3,9 +3,8 @@ import Accordion from "../../Accordion";
 import GuidlinesOne from "./guidlinesOne";
 import GuidlinesTwo from "./guidlinesTwo";
 import GuidlinesThree from "./guidlinesThree";
-import GuidlinesFour from "./guidlinesFour";
 
-const perceivable = () => {
+const Understandable = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const handleToggle = (index: number) => {
@@ -65,4 +64,4 @@ const perceivable = () => {
   );
 };
 
-export default perceivable;
+export default Understandable;

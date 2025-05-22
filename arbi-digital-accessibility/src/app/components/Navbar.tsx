@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "@/app/styles/globals.scss";
 import Link from "next/link";
 import styles from "@/app/styles/components/Navbar.module.scss";
@@ -20,6 +20,7 @@ const Navbar = () => {
       <div className="flex items-center gap-2 justify-between">
 
       <div className={styles.searchWrapper}>
+        <p style={{ fontSize: "12px" }}>Search Query: {searchQuery}</p>
       <SearchInput onSearch={handleSearch} />
       </div>
       <div className={styles.navContainer}>

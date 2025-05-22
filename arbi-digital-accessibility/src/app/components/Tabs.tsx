@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, {
   useState,
@@ -6,8 +6,8 @@ import React, {
   useEffect,
   KeyboardEvent,
   ReactElement,
-} from 'react';
-import styles from '../styles/components/Tabs.module.scss';
+} from "react";
+import styles from "../styles/components/Tabs.module.scss";
 
 interface TabProps {
   label: string;
@@ -30,15 +30,13 @@ export const Tabs: React.FC<TabsContainerProps> = ({ children }) => {
   }, [activeIndex]);
 
   const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'ArrowRight') {
+    if (e.key === "ArrowRight") {
       e.preventDefault();
       setActiveIndex((prev) => (prev + 1) % children.length);
     }
-    if (e.key === 'ArrowLeft') {
+    if (e.key === "ArrowLeft") {
       e.preventDefault();
-      setActiveIndex((prev) =>
-        prev === 0 ? children.length - 1 : prev - 1
-      );
+      setActiveIndex((prev) => (prev === 0 ? children.length - 1 : prev - 1));
     }
   };
 
@@ -53,12 +51,14 @@ export const Tabs: React.FC<TabsContainerProps> = ({ children }) => {
         {children.map((child, index) => (
           <button
             key={index}
-            ref={(el) => (tabRefs.current[index] = el)}
+            ref={(el) => {
+              tabRefs.current[index] = el;
+            }}
             onClick={() => setActiveIndex(index)}
             className={`py-2 px-4 text-sm font-medium outline-none ${
               index === activeIndex
-                ? 'text-white bg-color'
-                : 'bg-white text-black hover:bg-blue-700 hover:text-white'
+                ? "text-white bg-color"
+                : "bg-white text-black hover:bg-blue-700 hover:text-white"
             }`}
             role="tab"
             aria-selected={index === activeIndex}
