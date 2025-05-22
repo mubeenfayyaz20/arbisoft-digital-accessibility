@@ -1,15 +1,10 @@
 import type { Metadata } from "next";
 import Head from "next/head";
-import { Geist, Roboto_Slab } from "next/font/google";
+import { Roboto_Slab } from "next/font/google";
 import "@/app/styles/globals.scss";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Sidebar from "./components/Sidebar";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
 const roboto_Slab = Roboto_Slab({
   variable: "--font-roboto-slab",
