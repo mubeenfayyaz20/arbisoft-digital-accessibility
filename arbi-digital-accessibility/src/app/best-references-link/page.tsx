@@ -1,7 +1,12 @@
 import React from "react";
+import { Metadata } from "next";
 import AccessibleTable from "../components/Table";
 import Link from "next/link";
 
+export const metadata: Metadata = {
+  title: "Best Reference Links | Arbi Digital Accessibility",
+  description: "Best Reference Links for all user developer and designer where they can easily learn about accessibility"
+};
 const BestReferencesLink = () => {
   return (
     <>
