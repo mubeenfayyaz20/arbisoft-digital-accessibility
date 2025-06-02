@@ -23,7 +23,10 @@ const Navbar = () => {
       </Link>
       <div className="flex items-center gap-2 justify-between">
         <div className={styles.searchWrapper}>
-          <SearchInput onSearch={handleSearch} label="Search" />
+          <SearchInput
+            onSearch={handleSearch}
+            label={`Search ${searchQuery}`}
+          />
         </div>
         <div className={styles.navContainer}>
           <nav>
@@ -51,10 +54,14 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link 
-                      href="/our-certfications"
-                className={isActive("/our-certfications") ? styles.active : ""}
-                >Our Certifications</Link>
+                <Link
+                  href="/our-certfications"
+                  className={
+                    isActive("/our-certfications") ? styles.active : ""
+                  }
+                >
+                  Our Certifications
+                </Link>
               </li>
             </ul>
           </nav>

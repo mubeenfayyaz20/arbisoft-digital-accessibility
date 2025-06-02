@@ -15,6 +15,7 @@ const BestReferencesLink = () => {
           [
             "Magentaa11y",
             <Link
+            key={"magentaa11y"}
               href="https://www.magentaa11y.com/web/"
               target="_blank"
               rel="noopener noreferrer"
@@ -27,6 +28,7 @@ const BestReferencesLink = () => {
           [
             "W3C WAI",
             <Link
+            key={"w3cwai"}
               href="https://www.w3.org/WAI/"
               target="_blank"
               rel="noopener noreferrer"
