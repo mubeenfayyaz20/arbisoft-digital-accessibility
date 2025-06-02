@@ -1,15 +1,16 @@
 @use "../colors" as *;
-.tabsContainer{
+
+.tabsContainer {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  .tabsLinks{
+  .tabsLinks {
     background-color: #f5f6f7;
     padding: 12px;
     gap: 15px;
     border: 1px solid #dadde1;
     display: flex;
-    button{
+    button {
       padding: 10px 20px;
       border: 1px solid $border-color;
       width: 100%;
@@ -17,7 +18,41 @@
       font-weight: 700;
       cursor: pointer;
       border-radius: 0;
-      &:focus{
+      &:focus {
+        outline: 2px dotted;
+        outline-offset: 1.2px;
+        outline-color: $link-color;
+      }
+    }
+  }
+}
+
+// SIMPLE TAB DESIGN
+
+.ourCertficationsTabs {
+  .tabsContainer {
+    flex-direction: column-reverse;
+    padding: 10px;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    img{
+      border-radius: 4px;
+    }
+  }
+  .tabsLinks {
+    border: 0;
+    padding: 0;
+    gap: 5px;
+
+    button {
+      padding: 5px;
+      border: 1px solid $border-color;
+      width: 100%;
+      font-size: 1.4rem;
+      font-weight: 500;
+      cursor: pointer;
+      border-radius: 0;
+      &:focus {
         outline: 2px dotted;
         outline-offset: 1.2px;
         outline-color: $link-color;
