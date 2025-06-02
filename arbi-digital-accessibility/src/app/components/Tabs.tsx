@@ -9,10 +9,13 @@ import React, {
 } from "react";
 import styles from "../styles/components/Tabs.module.scss";
 
+import { ReactNode } from "react";
+
 interface TabProps {
   label: string;
-  children: ReactElement;
+  children: ReactNode;
 }
+
 
 interface TabsContainerProps {
   children: ReactElement<TabProps>[];

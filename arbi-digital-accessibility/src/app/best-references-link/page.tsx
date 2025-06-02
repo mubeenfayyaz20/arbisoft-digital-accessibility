@@ -1,11 +1,45 @@
-import React from 'react'
+import React from "react";
+import AccessibleTable from "../components/Table";
+import Link from "next/link";
 
 const BestReferencesLink = () => {
   return (
-    <div>
-      this is BestReferencesLink
-    </div>
-  )
-}
+    <>
+      <div className="text-center">
+        <h1 className="text-center largeHeading ">Best Reference Links</h1>
+      </div>
+      <AccessibleTable
+        caption="Useful Links for All Developer && Designer "
+        headers={["Website Name", "Website Link", "Description"]}
+        rows={[
+          [
+            "Magentaa11y",
+            <Link
+              href="https://www.magentaa11y.com/web/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline hover:text-blue-800"
+            >
+              Visit Magentaa11y
+            </Link>,
+            "Helps users pause, stop, or hide moving content. Great for cognitive or visual impairments.",
+          ],
+          [
+            "W3C WAI",
+            <Link
+              href="https://www.w3.org/WAI/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline hover:text-blue-800"
+            >
+              Visit W3C WAI
+            </Link>,
+            "Official accessibility standards and guidelines by the W3C.",
+          ],
+        ]}
+      />
+    </>
+  );
+};
 
-export default BestReferencesLink
+export default BestReferencesLink;

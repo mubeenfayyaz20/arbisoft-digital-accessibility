@@ -12,6 +12,8 @@
     outline: 2px dotted;
     outline-offset: 1.2px;
     outline-color: $link-color;
+    background-color: $link-color;
+    padding: 6px 10px;
   }
 }
 
@@ -27,5 +29,6 @@
     outline: 2px dotted;
     outline-offset: 1.2px;
     outline-color: $link-color;
+        padding: 6px 10px;
   }
 }

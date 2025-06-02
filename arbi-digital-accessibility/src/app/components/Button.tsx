@@ -1,44 +1,90 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { cn } from "../lib/utils";
 import style from "../styles/components/Button.module.scss";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "filled" | "outline";
-  icon?: string; // now expects a string name from material symbols
+interface ButtonProps {
   text?: string;
+  icon?: string;
+  variant?: "filled" | "outline";
   rounded?: boolean;
+  className?: string;
+  href?: string;
+  onClick?: () => void;
+  target?: "_blank" | "_self";
 }
 
 const Button = ({
-  variant = "filled",
-  icon,
   text,
+  icon,
+  variant = "filled",
   rounded = false,
   className,
-  ...props
+  href,
+  onClick,
+  target = "_self",
 }: ButtonProps) => {
-  const base =
-    "inline-flex items-center gap-1 transition duration-200";
+  const isExternal = href?.startsWith("http");
+  const base = "inline-flex items-center gap-1 transition duration-200";
   const styles = {
-    filled: `${style.buttonFilled} text-white `,
-    outline: `${style.buttonOutline} text-white `,
+    filled: `${style.buttonFilled} text-white`,
+    outline: `${style.buttonOutline} text-white`,
   };
   const radius = rounded ? "rounded-full" : "rounded-md";
+  const classes = cn(base, styles[variant], radius, className);
 
-  return (
-    <button className={cn(base, styles[variant], radius, className)} {...props}>
+  const content = (
+    <>
       {text && <span>{text}</span>}
-      {icon && (
-        <span className="material-symbols-outlined">{icon}</span>
-      )}
+      {icon && <span className="material-symbols-outlined">{icon}</span>}
+    </>
+  );
+
+  if (href) {
+    if (isExternal) {
+      return (
+        <a
+          href={href}
+          target={target}
+          rel="noopener noreferrer"
+          className={classes}
+        >
+          {content}
+        </a>
+      );
+    }
+
+    // Internal link: use Next.js Link for client-side nav (no reload)
+    return (
+      <Link href={href} className={classes}>
+        {content}
+      </Link>
+    );
+  }
+
+  // Regular button
+  return (
+    <button onClick={onClick} className={classes}>
+      {content}
     </button>
   );
 };
 
 export default Button;
 
+// Internal (Fast, No Reload)
+{
+  /* <Button href="/all-tools" text="See All Tools" icon="chevron_right" /> */
+}
 
-// use code in other files for button
-//   <Button text="Support" rounded={true} variant="filled" icon="arrow_forward" />
+// External (New Tab)
+{
+  /* <Button href="https://example.com" target="_blank" text="Visit Site" /> */
+}
+
+// Clickable Button
+{
+  /* <Button text="Click Me" onClick={() => alert("Hi!")} /> */
+}

@@ -122,17 +122,29 @@ pre {
   scrollbar-color: #4b5563 #1f2937;
 }
 
-.large-heading {
+.largeHeading {
   font-size: 3.2rem;
   font-weight: bold;
   line-height: 40px;
+  margin: 10px 0 30px 0;
 }
 .back-link {
-  background-color: #fff;
+  background-color: $white;
   color: black;
   border-radius: 4px;
-  padding: 8px 15px;
+  padding: 6px 15px;
   border: 1px solid #dadde1;
-  background-color: #4CB3D4;
+  background-color: #4cb3d4;
   cursor: pointer;
 }
+
+.pills {
+  color: $primary-color;
+  background-color: $iron-color;
+  border-radius:2px;
+  padding: 4px 15px;
+  line-height: 30px;
+  font-size: 1.8rem;
+  display: inline-block;
+}
+

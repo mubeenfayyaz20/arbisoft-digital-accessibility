@@ -1,0 +1,18 @@
+@use "../colors" as *;
+
+.tableHeader{
+    color: $primary-color;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: left;
+    padding: 8px;
+}
+.tableData{
+    border-bottom: 1px solid $border-color;
+    padding: 5px 10px;
+    font-size: 1.4rem;
+}
+.tableCaption{
+    margin-bottom: 10px;
+    font-size: 20px;
+}

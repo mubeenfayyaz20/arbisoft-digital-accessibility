@@ -1,16 +1,20 @@
-'use client';
+"use client";
 import React, { useState } from "react";
 import "@/app/styles/globals.scss";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import styles from "@/app/styles/components/Navbar.module.scss";
 import SearchInput from "../components/SearchInput";
-const Navbar = () => {
 
-  const [searchQuery, setSearchQuery] = useState('');
+const Navbar = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const pathname = usePathname();
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);
   };
+
+  const isActive = (href: string) => pathname === href;
 
   return (
     <header className={styles.internalMainNav}>
@@ -18,34 +22,44 @@ const Navbar = () => {
         Skip to main content
       </Link>
       <div className="flex items-center gap-2 justify-between">
+        <div className={styles.searchWrapper}>
+          <SearchInput onSearch={handleSearch} label="Search" />
+        </div>
+        <div className={styles.navContainer}>
+          <nav>
+            <ul>
+              <li>
+                <Link
+                  href="/our-goals"
+                  className={isActive("/our-goals") ? styles.active : ""}
+                >
+                  Our Goals
+                </Link>
+              </li>
 
-      <div className={styles.searchWrapper}>
-        <p style={{ fontSize: "12px" }}>Search Query: {searchQuery}</p>
-      <SearchInput onSearch={handleSearch} />
+              <li>
+                <Link href="https://arbisoft.com/about" target="_blank">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/all-tools"
+                  className={isActive("/all-tools") ? styles.active : ""}
+                >
+                  All Tools
+                </Link>
+              </li>
+              <li>
+                <Link 
+                      href="/our-certfications"
+                className={isActive("/our-certfications") ? styles.active : ""}
+                >Our Certifications</Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
-      <div className={styles.navContainer}>
-        <nav>
-          <ul>
-            <li>
-              <Link href="our-goals.html">Our Goals</Link>
-            </li>
-
-            <li>
-              <Link href="https://arbisoft.com/about" target="_blank">
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link href="all-tools.html">All Tools</Link>
-            </li>
-            <li>
-              <Link href="our-certfications.html">Our Certifications</Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      </div>
-
     </header>
   );
 };

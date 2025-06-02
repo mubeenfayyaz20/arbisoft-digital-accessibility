@@ -1,17 +1,56 @@
 @use "../colors" as *;
 
 // searchField design
+
+.inputLabel {
+  padding: 4px;
+  border-radius: 4px 0 0 4px;
+  font-size: 12px;
+  border: 1px solid $border-color;
+}
 .searchField {
   padding: 4px 10px;
   border: 1px solid $border-color;
-  border-radius: 4px;
+  border-left: 0;
+  border-radius: 0 4px 4px 0;
   width: 100%;
   font-size: 1.4rem;
-  padding-left: 40px;
   color: black;
   &:focus {
     outline-offset: 1px;
     outline-color: #9b2318;
   }
+}
+.searchForm {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
 
+.inputWrapper {
+  position: relative;
+}
+
+.searchField {
+  flex: 1;
+  padding-right: 3rem; // space for button
+}
+
+.searchButton {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  padding: 5px;
+  background-color: $light-gray;
+  &:focus{
+      outline-offset: 1px;
+    outline-color: #9b2318;
+  }
 }
