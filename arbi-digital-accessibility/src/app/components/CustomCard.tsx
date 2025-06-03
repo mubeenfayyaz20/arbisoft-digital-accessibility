@@ -2,26 +2,32 @@
 
 import React from "react";
 import Button from "./Button";
-import styles from "../styles/components/CustomCard.module.scss"; // adjust if needed
+import Image from "next/image";
+import type { StaticImageData } from 'next/image';
+import styles from "../styles/components/CustomCard.module.scss";
 
 interface CardProps {
   title: string;
-  description: string;
-  iconName?: string; // e.g. "school", "check", "star"
+  description?: string;
+imageSrc?: string | StaticImageData // Update this line// Optional image instead of description
+  iconName?: string;
   buttonText?: string;
   buttonHref?: string;
-  buttonTarget?: "_blank" | "_self"; // Optional target
+  buttonTarget?: "_blank" | "_self";
   className?: string;
+  imageAlt?: string; // Optional alt text for image
 }
 
 const Card = ({
   title,
   description,
+  imageSrc,
   iconName,
   buttonText,
   buttonHref,
   buttonTarget,
   className = "",
+  imageAlt = "Card image",
 }: CardProps) => {
   return (
     <div className={`${styles.card} ${className}`}>
@@ -33,7 +39,13 @@ const Card = ({
           </div>
         )}
         <div className={styles.title}>{title}</div>
-        <div className={styles.description}>{description}</div>
+
+        {imageSrc ? (
+          <Image src={imageSrc} alt={imageAlt} className={styles.cardImage} width={400} height={200} />
+        ) : (
+          description && <div className={styles.description}>{description}</div>
+        )}
+
         {buttonText && buttonHref && (
           <Button
             className="mt-4 mb-4"
@@ -42,7 +54,7 @@ const Card = ({
             variant="filled"
             icon="chevron_right"
             href={buttonHref}
-            target={buttonTarget} // optional
+            target={buttonTarget}
           />
         )}
       </div>
@@ -52,23 +64,24 @@ const Card = ({
 
 export default Card;
 
-// this is use without button
-{
-  /* <Card
-  iconName="school"
-  title="Empowered Learning for All"
-  description="We believe accessibility is not just a requirement—it's a responsibility. Our platform serves as a dynamic space for individuals, developers, designers, and organizations to learn how to create digital experiences that are inclusive for everyone."
-/> */
-}
 
-// this is use with button
-{
-  /* <Card
-  iconName="school"
-  title="Empowered Learning for All"
-  description="We believe accessibility is not just a requirement—it's a responsibility. Our platform serves as a dynamic space for individuals, developers, designers, and organizations to learn how to create digital experiences that are inclusive for everyone."
-  buttonText="Start Learning"
-    buttonTarget="_blank"
-  buttonHref="https://your-link-here.com"
-/> */
-}
+
+// With description
+
+{/* <Card
+  title="ARC Toolkit"
+  description="The ARC Toolkit is a comprehensive suite for assessing and improving web accessibility..."
+  buttonText="ARC Toolkit Download"
+  buttonTarget="_blank"
+  buttonHref="https://chromewebstore.google.com/detail/arc-toolkit/chdkkkccnlfncngelccgbgfmjebmkmce"
+/> */}
+
+// with image
+{/* <Card
+  title="New Feature"
+  imageSrc="/images/feature-screenshot.png"
+  imageAlt="Screenshot of the new feature"
+  buttonText="Learn More"
+  buttonTarget="_blank"
+  buttonHref="https://example.com/feature"
+/> */}
