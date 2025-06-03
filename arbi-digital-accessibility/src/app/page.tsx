@@ -2,7 +2,7 @@
 import Image from "next/image";
 import "@/app/styles/globals.scss";
 import Link from "next/link";
-import WCAGImage from "../../public/WCAG.jpeg";
+import WCAGImage from "../../public/WCAG.svg";
 import { Tabs, Tab } from "./components/Tabs";
 import Perceivable from "./components/wcagPrinciples/perceivable/perceivable";
 import Operable from "./components/wcagPrinciples/operable/operable";

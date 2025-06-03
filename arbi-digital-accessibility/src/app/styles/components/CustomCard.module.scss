@@ -42,3 +42,18 @@
       position: absolute;
     top: 0;
 }
+
+
+.ourCertficationsWrapper{
+  .contentCard{
+    padding: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .title{
+    background-color: $iron-color;
+    padding: 10px;
+    color: $primary-color;
+    border-radius: 4px 4px 0 0;
+  }
+}

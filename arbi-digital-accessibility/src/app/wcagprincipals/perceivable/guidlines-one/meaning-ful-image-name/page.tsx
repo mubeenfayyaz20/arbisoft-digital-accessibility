@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import CodeSnippet from "@/app/components/CodeSnippet";
 import ImageWithCaption from "@/app/components/ImageWithCaption";
 import GoBackButton from "@/app/components/BackButton";
-import Logo from "../../../../../../public/WCAG.jpeg";
+import Logo from "../../../../../../public/WCAG.svg";
 
 export const metadata: Metadata = {
   title: "1.1 Guideline - Meaningful Image Name | Arbi Digital Accessibility",
