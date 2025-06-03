@@ -1,6 +1,4 @@
 import React from "react";
-import Image from "next/image";
-import { Tabs, Tab } from "../components/Tabs";
 import styles from "../styles/components/CustomCard.module.scss";
 import MubeenCertificate from "../../../public/mubeen-certificate.png";
 import Card from "../components/CustomCard";
