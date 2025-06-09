@@ -33,7 +33,6 @@ export default function Home() {
               href="/highest-lowest-priority"
               className="link-color-blue mt-2 underline font-semibold hover:no-underline"
             >
-              {" "}
               WCAG 2.2 AA Guidelines (Highest to Lowest Priority)
             </Link>
           </div>
@@ -59,8 +58,7 @@ export default function Home() {
         <strong className="red-color">Note*</strong>: The following
         documentation does not cover all of the WCAG AAA requirements. For all
         compliance, you can visit the provided links given in front of all four
-        major principles:
-        <strong>Perceivable, Operable, Understandable, and Robust</strong>.
+        major principles: <strong>Perceivable, Operable, Understandable, and Robust</strong>.
       </p>
 
       <Tabs>

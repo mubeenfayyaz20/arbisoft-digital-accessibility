@@ -33,7 +33,7 @@ const Sidebar = () => {
             Resources
           </span>
           <Accordion
-            title="Section 1"
+            title="Common checks"
             isOpen={openIndex === 0}
             onToggle={() => handleToggle(0)}
           >
@@ -41,7 +41,7 @@ const Sidebar = () => {
           </Accordion>
 
           <Accordion
-            title="Section 2"
+            title="Audio/Visual Checks"
             isOpen={openIndex === 1}
             onToggle={() => handleToggle(1)}
           >
@@ -49,7 +49,7 @@ const Sidebar = () => {
           </Accordion>
 
           <Accordion
-            title="Section 3"
+            title="Form Checks"
             isOpen={openIndex === 2}
             onToggle={() => handleToggle(2)}
           >

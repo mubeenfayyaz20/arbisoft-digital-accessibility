@@ -3,8 +3,7 @@ import React from "react";
 const guidlinesFour = () => {
   return (
     <div className="plainText">
-    <strong>Guideline 1.4 - Distinguishable</strong>
-    ensures users can easily perceive and differentiate
+    <strong>Guideline 1.4 - Distinguishable</strong> ensures users can easily perceive and differentiate
     content, emphasizing color contrast, text spacing, and
     visibility to enhance accessibility.
     <ul className="innerList">
@@ -58,8 +57,7 @@ const guidlinesFour = () => {
         content or functionality.
       </li>
       <li>
-        <strong>1.4.13 Content on Hover or Focus</strong>
-        requires that any content displayed on hover or
+        <strong>1.4.13 Content on Hover or Focus</strong> requires that any content displayed on hover or
         focus (like tooltips or menus) must be accessible
         and not obscure other content.
       </li>

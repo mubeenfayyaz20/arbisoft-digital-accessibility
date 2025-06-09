@@ -1,18 +1,39 @@
 @use "../colors" as *;
 
-.tableHeader{
-    color: $primary-color;
-    font-size: 1.8rem;
-    font-weight: 600;
-    text-align: left;
-    padding: 8px;
+.tableHeader {
+  color: $primary-color;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: left;
+  padding: 8px;
 }
-.tableData{
-    border-bottom: 1px solid $border-color;
-    padding: 5px 10px;
-    font-size: 1.4rem;
+.tableData {
+  border-bottom: 1px solid $border-color;
+  padding: 5px 10px;
+  font-size: 1.4rem;
 }
-.tableCaption{
-    margin-bottom: 10px;
-    font-size: 20px;
+.tableCaption {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+.threeeColTableWrapper {
+  th {
+    padding: 10px;
+    &:nth-child(1) {
+      width: 20%;
+    }
+    &:nth-child(2) {
+      width: 20%;
+    }
+    &:nth-child(3) {
+      width: 60%;
+    }
+  }
+  td {
+    padding: 10px;
+    a{
+      text-align: start;
+      padding: 0;
+    }
+  }
 }

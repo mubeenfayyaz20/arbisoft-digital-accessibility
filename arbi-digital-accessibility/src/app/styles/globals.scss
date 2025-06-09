@@ -21,14 +21,14 @@ body {
 }
 
 a {
-  padding: 1px 6px;
+  padding: 1px 4px;
   &:focus {
     outline: 2px dotted;
     outline-offset: 1.2px;
     outline-color: $link-color;
     color: $white !important;
     background-color: $link-color;
-    padding: 1px 6px;
+    padding: 1px 4px;
     text-decoration: none;
     border-radius: 2px;
   }
