@@ -45,12 +45,14 @@ export default function Home() {
             accessible content.
           </p>
         </div>
-        <div className="md:w-1/3 mt-4 md:mt-0">
+        <div className="md:w-1/3 mt-4 md:mt-0 margin-bottom-20">
           <Image
             src={WCAGImage}
             alt="Web Content Accessibility Guidelines (WCAG)"
             priority
             className="rounded"
+            width={400}
+            height={400}
           />
         </div>
       </div>

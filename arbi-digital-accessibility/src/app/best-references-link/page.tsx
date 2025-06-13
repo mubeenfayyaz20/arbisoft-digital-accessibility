@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 const BestReferencesLink = () => {
   return (
-    <div className={styles.threeeColTableWrapper}>
+    <div className={styles.threeColTableWrapper}>
       <div className="text-center">
         <h1 className="text-center largeHeading ">Best Reference Links</h1>
       </div>

@@ -25,7 +25,7 @@ const Navbar = () => {
         <div className={styles.searchWrapper}>
           <SearchInput
             onSearch={handleSearch}
-            label={`Search ${searchQuery}`}
+            label={`Search Docs ${searchQuery}`}
           />
         </div>
         <div className={styles.navContainer}>

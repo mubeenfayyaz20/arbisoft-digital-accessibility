@@ -77,3 +77,23 @@ export const Tabs: React.FC<TabsContainerProps> = ({ children }) => {
     </div>
   );
 };
+
+
+
+// use of tabs
+
+
+      // <Tabs>
+      //   <Tab label="Perceivable">
+      //     <Perceivable />
+      //   </Tab>
+      //   <Tab label="Operable">
+      //     <Operable />
+      //   </Tab>
+      //   <Tab label="Understandable">
+      //     <Understandable />
+      //   </Tab>
+      //   <Tab label="Robust">
+      //     <Robust />
+      //   </Tab>
+      // </Tabs>

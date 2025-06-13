@@ -16,7 +16,7 @@
   margin-bottom: 10px;
   font-size: 20px;
 }
-.threeeColTableWrapper {
+.threeColTableWrapper {
   th {
     padding: 10px;
     &:nth-child(1) {
@@ -31,6 +31,7 @@
   }
   td {
     padding: 10px;
+      font-size: 1.6rem;
     a{
       text-align: start;
       padding: 0;
