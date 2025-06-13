@@ -23,10 +23,7 @@ const Navbar = () => {
       </Link>
       <div className="flex items-center gap-2 justify-between">
         <div className={styles.searchWrapper}>
-          <SearchInput
-            onSearch={handleSearch}
-            label={`Search ${searchQuery}`}
-          />
+          <SearchInput />
         </div>
         <div className={styles.navContainer}>
           <nav>
