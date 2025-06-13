@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import "@/app/styles/globals.scss";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -7,12 +7,8 @@ import styles from "@/app/styles/components/Navbar.module.scss";
 import SearchInput from "../components/SearchInput";
 
 const Navbar = () => {
-  const [searchQuery, setSearchQuery] = useState("");
   const pathname = usePathname();
 
-  const handleSearch = (query: string) => {
-    setSearchQuery(query);
-  };
 
   const isActive = (href: string) => pathname === href;
 
