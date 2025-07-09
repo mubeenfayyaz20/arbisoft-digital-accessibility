@@ -3,11 +3,22 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import styles from "../styles/components/CustomCard.module.scss";
-export default function SliderCarousel({ employeeName, certificates }) {
+
+// Define the type for certificate
+type Certificate = {
+  title: string;
+  image: string;
+};
+
+// Define props for the component
+type SliderCarouselProps = {
+  employeeName: string;
+  certificates: Certificate[];
+};
+
+export default function SliderCarousel({ employeeName, certificates }: SliderCarouselProps) {
   const [current, setCurrent] = useState(0);
-  const titleRef = useRef(null);
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
+  const titleRef = useRef<HTMLDivElement | null>(null);
 
   const prevSlide = () => {
     setCurrent((prev) => (prev === 0 ? certificates.length - 1 : prev - 1));
@@ -23,22 +34,6 @@ export default function SliderCarousel({ employeeName, certificates }) {
     }
   }, [current]);
 
-  const handleTouchStart = (e: TouchEvent) => {
-    touchStartX.current = e.changedTouches[0].screenX;
-  };
-
-  const handleTouchEnd = (e: TouchEvent) => {
-    touchEndX.current = e.changedTouches[0].screenX;
-    handleSwipeGesture();
-  };
-
-  const handleSwipeGesture = () => {
-    const distance = touchStartX.current - touchEndX.current;
-    if (Math.abs(distance) > 50) {
-      distance > 0 ? nextSlide() : prevSlide();
-    }
-  };
-
   return (
     <div
       role="region"
@@ -49,11 +44,7 @@ export default function SliderCarousel({ employeeName, certificates }) {
       <div className={`${styles.contentCard} flex-col`}>
         <h2 className={styles.title}>{employeeName}</h2>
 
-        <div
-          className="relative overflow-hidden rounded-xl shadow"
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-        >
+        <div className="relative overflow-hidden rounded-xl shadow">
           {certificates.map((item, index) => (
             <div
               key={index}
@@ -62,7 +53,7 @@ export default function SliderCarousel({ employeeName, certificates }) {
               }`}
               aria-hidden={index !== current}
             >
-              <div className="bg-white text-center p-4  m-t-b-10">
+              <div className="bg-white text-center p-4 m-t-b-10">
                 <div
                   ref={index === current ? titleRef : null}
                   tabIndex={-1}

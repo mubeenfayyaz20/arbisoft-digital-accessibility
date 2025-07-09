@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function SearchBar() {
   const [query, setQuery] = useState("");
-  const [filtered, setFiltered] = useState([]);
+ const [filtered, setFiltered] = useState<{ title: string; href: string; }[]>([]);
   const [submitted, setSubmitted] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1); // for arrow navigation
   const wrapperRef = useRef<HTMLFormElement>(null);

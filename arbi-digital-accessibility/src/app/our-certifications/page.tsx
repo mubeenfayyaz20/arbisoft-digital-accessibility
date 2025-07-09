@@ -1,26 +1,5 @@
 import React from "react";
 import styles from "../styles/components/CustomCard.module.scss";
-import SamiCPACC from "../../../public/Sami-CPACC.png";
-import SamiMsWord from "../../../public/Sami-MS-Word.png";
-import SamiSection508 from "../../../public/Sami-Section508.png";
-
-import QasimPDF from "../../../public/Qasim-Pdf.png";
-import QasimMsWord from "../../../public/Qasim-MS-Word.png";
-import QasimSection508 from "../../../public/Qasim-Section508.png";
-
-import JamilWord from "../../../public/Jamil-MS-Word.png";
-import JamilSection508 from "../../../public/Jamil-Section508.jpg";
-
-import MubeenSection508 from "../../../public/Mubeen-Section508.png";
-
-import AhmedSection508 from "../../../public/Ahmed-Section508.png";
-
-import IqraSection508 from "../../../public/Iqra-Section508.png";
-
-import TanveerMsWord from "../../../public/Tanveer-MS-Word.png";
-import TanveerSection508 from "../../../public/Tanveer-Section508.png";
-
-import Card from "../components/CustomCard";
 import Link from "next/link";
 import SliderCarousel from "../components/SliderCarousel";
 import { employees } from "../data/certificates";
@@ -40,7 +19,7 @@ const OurCertfications = () => {
           Note*
         </strong>{" "}
         We are CPACC Certified – You Can Be Too! Our team holds CPACC
-        certification to ensure accessibility expertise. if you're interested in
+        certification to ensure accessibility expertise. if you are interested in
         becoming CPACC certified.
         <Link href="/cpacc-exam-guidelines" className="link-color-blue">
           Click here
