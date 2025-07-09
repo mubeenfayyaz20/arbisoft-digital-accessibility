@@ -1,15 +1,14 @@
-"use client";
 import Image from "next/image";
-import "@/app/styles/globals.scss";
 import Link from "next/link";
+import type { Metadata } from "next";
+import "@/app/styles/globals.scss";
 import WCAGImage from "../../public/WCAG.svg";
-import { Tabs, Tab } from "./components/Tabs";
-import Perceivable from "./components/wcagPrinciples/perceivable/perceivable";
-import Operable from "./components/wcagPrinciples/operable/operable";
-import Understandable from "./components/wcagPrinciples/understandable/understandable";
-import Robust from "./components/wcagPrinciples/robust/robust";
+import WcagPrinciples from "./components/wcagPrinciples/WcagPrinciples";
 
-
+export const metadata: Metadata = {
+  title: "Home | Arbi Digital Accessibility",
+  description: "A11y - Make it Work for Everyone.",
+};
 
 export default function Home() {
   return (
@@ -60,23 +59,10 @@ export default function Home() {
         <strong className="red-color">Note*</strong>: The following
         documentation does not cover all of the WCAG AAA requirements. For all
         compliance, you can visit the provided links given in front of all four
-        major principles: <strong>Perceivable, Operable, Understandable, and Robust</strong>.
+        major principles:{" "}
+        <strong>Perceivable, Operable, Understandable, and Robust</strong>.
       </p>
-
-      <Tabs>
-        <Tab label="Perceivable">
-          <Perceivable />
-        </Tab>
-        <Tab label="Operable">
-          <Operable />
-        </Tab>
-        <Tab label="Understandable">
-          <Understandable />
-        </Tab>
-        <Tab label="Robust">
-          <Robust />
-        </Tab>
-      </Tabs>
+      <WcagPrinciples />
     </>
   );
 }

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Head from "next/head";
 import { Roboto_Slab } from 'next/font/google';
 import "@/app/styles/globals.scss";
@@ -12,11 +11,6 @@ const roboto_Slab = Roboto_Slab({
     display: 'swap',
 });
 
-
-export const metadata: Metadata = {
-  title: "Home | Arbi Digital Accessibility",
-  description: "A11y - Make it Work for Everyone.",
-};
 
 export default function RootLayout({
   children,

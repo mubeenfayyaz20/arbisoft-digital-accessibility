@@ -1,10 +1,12 @@
 // data/searchIndex.ts
 export const searchIndex = [
   { title: "Home", href: "/" },
-  { title: "About Us", href: "/about" },
-  { title: "Contact", href: "/contact" },
-  { title: "Products", href: "/products" },
+  { title: "Our Goals", href: "/our-goals" },
+  { title: "All Tools", href: "/all-tools" },
+  { title: "Our Certfication", href: "/our-certfications" },
   { title: "Best Reference Links", href: "/best-references-link" },
-
-  // Add more static routes as needed
+  { title: "Mac Shortcut Keys", href: "/mac-shortcut-keys" },
+  { title: "Highest Lowest Priority", href: "/highest-lowest-priority" },
+  { title: "CPACC Exam & Credit Hours Guide", href: "/cpacc-exam-guidelines" },
 ];
+

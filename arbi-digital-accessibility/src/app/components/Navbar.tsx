@@ -48,9 +48,9 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  href="/our-certfications"
+                  href="/our-certifications"
                   className={
-                    isActive("/our-certfications") ? styles.active : ""
+                    isActive("/our-certifications") ? styles.active : ""
                   }
                 >
                   Our Certifications
