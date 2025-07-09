@@ -41,7 +41,7 @@ const Card = ({
         <div className={styles.title}>{title}</div>
 
         {imageSrc ? (
-          <Image src={imageSrc} alt={imageAlt} className={styles.cardImage} width={400} height={200} />
+          <Image src={imageSrc} alt={imageAlt} className={styles.cardImage} width={400} height={300} />
         ) : (
           description && <div className={styles.description}>{description}</div>
         )}

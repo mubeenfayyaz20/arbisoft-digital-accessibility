@@ -2,7 +2,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 
-const UseClient = () => {
+const UseClientGoBack = () => {
   const router = useRouter();
   return (
     <>
@@ -13,4 +13,4 @@ const UseClient = () => {
   );
 };
 
-export default UseClient;
+export default UseClientGoBack;

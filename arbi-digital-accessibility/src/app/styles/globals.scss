@@ -7,9 +7,11 @@
   padding: 0;
   font-family: var(--font-roboto-slab);
 }
+
 .bodyWrapper {
   background-color: $body-bg;
 }
+
 html {
   font-size: 10px;
   scroll-behavior: smooth;
@@ -22,6 +24,7 @@ body {
 
 a {
   padding: 1px 4px;
+
   &:focus {
     outline: 2px dotted;
     outline-offset: 1.2px;
@@ -33,24 +36,38 @@ a {
     border-radius: 2px;
   }
 }
+
 .margin-bottom-20 {
-margin-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.margin-top-20 {
+  margin-top: 20px;
+}
+
+.m-t-b-10 {
+  margin: 10px 0;
 }
 .icon-color {
   color: $icon-color;
 }
+
 .red-color {
   color: $tamarillo;
 }
+
 .bg-color {
   background-color: $primary-color;
 }
+
 .link-color-blue {
   color: $shakespeare;
+
   &:hover {
     color: $tamarillo;
   }
 }
+
 .mainContent {
   padding-left: 310px;
   padding-top: 80px;
@@ -63,6 +80,7 @@ margin-bottom: 20px;
   font-size: 2.5rem;
   background-image: none;
   margin: 15px 0;
+
   a {
     color: $link-blue-color;
     display: flex;
@@ -84,8 +102,10 @@ margin-bottom: 20px;
   padding: 14px;
   margin-bottom: 20px;
 }
+
 .filledAccordion {
   padding: 10px 0;
+
   .accordionInner {
     border: 1px solid $shakespeare !important;
     border-radius: 0 !important;
@@ -96,6 +116,7 @@ margin-bottom: 20px;
     button {
       padding: 10px;
     }
+
     span {
       color: $primary-color;
       font-size: 1.8rem;
@@ -106,12 +127,15 @@ margin-bottom: 20px;
 ul.innerList {
   list-style-type: disc;
   padding-left: 20px;
+
   li {
     padding-top: 6px;
+
     &:last-child {
       padding-top: 6px;
       padding-bottom: 5px;
     }
+
     ul.innerList {
       list-style-type: circle;
       padding-left: 20px;
@@ -130,23 +154,46 @@ pre {
   line-height: 40px;
   margin: 10px 0 30px 0;
 }
+
 .back-link {
   background-color: $white;
   color: black;
   border-radius: 4px;
   padding: 6px 15px;
-  border: 1px solid #dadde1;
-  background-color: #4cb3d4;
+  border: 1px solid $iron-color;
+  background-color: $iron-color;
   cursor: pointer;
+  &:focus{
+    outline: 2px dotted;
+    outline-offset: 1.2px;
+    outline-color: $link-color;
+    background-color: $link-color;
+    padding: 6px 15px;
+    color: white;
+  }
 }
+
 
 .pills {
   color: $primary-color;
   background-color: $iron-color;
-  border-radius:2px;
+  border-radius: 2px;
   padding: 4px 15px;
   line-height: 30px;
   font-size: 1.8rem;
   display: inline-block;
 }
 
+#search-results {
+  padding: 10px;
+  margin-top: 4px;
+  border: 1px solid $border-color;
+
+  li {
+    border: 1px solid $border-color;
+    margin: 5px;
+    border-radius: 4px;
+    font-size: 1.4rem;
+
+  }
+}
