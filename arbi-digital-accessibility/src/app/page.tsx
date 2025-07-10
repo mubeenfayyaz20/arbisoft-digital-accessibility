@@ -1,7 +1,7 @@
+import "@/app/styles/globals.scss";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import "@/app/styles/globals.scss";
 import WCAGImage from "../../public/WCAG.svg";
 import WcagPrinciples from "./components/wcagPrinciples/WcagPrinciples";
 
