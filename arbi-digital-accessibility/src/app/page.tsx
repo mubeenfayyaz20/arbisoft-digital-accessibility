@@ -1,5 +1,5 @@
-import "@/app/styles/globals.scss";
 import Image from "next/image";
+import "@/app/styles/globals.scss";
 import Link from "next/link";
 import type { Metadata } from "next";
 import WCAGImage from "../../public/WCAG.svg";

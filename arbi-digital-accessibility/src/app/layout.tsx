@@ -1,6 +1,6 @@
 import Head from "next/head";
+import { Roboto_Slab } from 'next/font/google';
 import "@/app/styles/globals.scss";
-import { Roboto_Slab } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Sidebar from "./components/Sidebar";
