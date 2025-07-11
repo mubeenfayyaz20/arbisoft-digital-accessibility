@@ -365,7 +365,7 @@ const OurGoals = () => {
           After completing the CPACC Exam, you will have to wait around 6 weeks
           for the results. You will get an email from IAAP about the result
           status. Once you have successfully passed the CPACC exam
-          (Insha'Allah), your CPACC certification will be listed on your IAAP
+          (Insha&#39;Allah), your CPACC certification will be listed on your IAAP
           dashboard.
         </p>
       </section>
