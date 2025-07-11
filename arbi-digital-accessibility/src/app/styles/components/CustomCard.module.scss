@@ -1,4 +1,5 @@
 @use "../colors" as *;
+
 .card {
   display: flex;
   flex-direction: column;
@@ -9,18 +10,23 @@
   border-radius: 4px;
   background-color: $white;
   border: 1px solid $border-color;
+
   .contentCard {
     padding: 30px 15px;
     min-height: 220px;
+
     span {
       font-size: 80px;
     }
+
     a {
       margin-top: 20px;
-      span{
+
+      span {
         font-size: 1.6rem;
       }
     }
+
     .title {
       font-weight: 800;
       text-transform: uppercase;
@@ -28,37 +34,47 @@
       line-height: 30px;
       font-size: 1.8rem;
     }
+
     .description {
       margin-top: 10px;
       font-size: 1.7rem;
     }
   }
 }
+
 .topBar {
   border-radius: 2px 2px 0 0;
   height: 6px;
   width: 100%;
   background-image: linear-gradient(-71deg, #4cb3d4, #1f2937 95%);
-      position: absolute;
-    top: 0;
+  position: absolute;
+  top: 0;
 }
 
 
-.ourCertficationsWrapper{
-  .contentCard{
+.ourCertficationsWrapper {
+  .contentCard {
     padding: 10px;
     display: flex;
     flex-direction: column;
   }
-  .title{
+
+  .title {
     background-color: $iron-color;
     padding: 10px;
     color: $primary-color;
     border-radius: 4px 4px 0 0;
   }
-  .cardImage{
+
+  .cardImage {
     height: 280px;
     object-fit: contain;
     width: 100%;
+  }
+
+  .cardDescription {
+    font-size: 1.4rem;
+    padding: 10px 20px;
+    line-height: 20px;
   }
 }
