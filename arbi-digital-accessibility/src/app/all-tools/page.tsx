@@ -1,6 +1,12 @@
 import React from "react";
+import type { Metadata } from "next";
 import Card from "../components/CustomCard";
 
+export const metadata: Metadata = {
+  title: "All Tools | Arbi Digital Accessibility",
+  description:
+    "Explore a comprehensive list of digital accessibility tools for developers, designers, and testers. Includes screen readers, color contrast analyzers, browser extensions, WCAG checkers, and more — all in one place to help build inclusive, compliant digital experiences.",
+};
 const AllTools = () => {
   return (
     <>
@@ -202,7 +208,7 @@ Increasing touch target size, Improving text contrast etc."
           buttonHref="https://play.google.com/store/apps/details?id=com.google.android.apps.accessibility.auditor"
           buttonTarget="_blank"
         />
-         <Card
+        <Card
           title="TalkBack Build In (Android)"
           description="TalkBack is the Android screen reader that gives spoken feedback for everything on the screen, making the device accessible for users with low or no vision. Reads all visible UI elements: buttons, headings, form inputs, etc. Gesture-based navigation: swipe gestures to move between items, double-tap to activate. Provides feedback on focus, selection, and errors. How to Enable Settings → Accessibility → TalkBack"
         />
@@ -210,8 +216,6 @@ Increasing touch target size, Improving text contrast etc."
           title="VoiceOver Build In (iOS)"
           description="VoiceOver is a built-in screen reader on all Apple devices, including iPhone and iPad. It allows visually impaired users to use their device without seeing the screen. Speaks aloud everything on the screen: buttons, text, icons, and more. Users navigate by swiping and tapping.Supports gestures like swipe left/right to move focus and double-tap to activate. How to Enable go to Settings → Accessibility → VoiceOver"
         />
-       
-     
       </div>
     </>
   );

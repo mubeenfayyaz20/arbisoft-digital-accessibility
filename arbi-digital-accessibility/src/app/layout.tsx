@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Roboto_Slab } from 'next/font/google';
+import { Roboto_Slab } from "next/font/google";
 import "@/app/styles/globals.scss";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -20,10 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <Head>
         <link rel="icon" href="../../public/favicon.ico" />
-      <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-          rel="stylesheet"
-        />
+        
       </Head>
       <body className={`${roboto_Slab.variable}`}>
         <div className="bodyWrapper">

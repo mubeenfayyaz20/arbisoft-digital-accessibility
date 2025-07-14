@@ -24,7 +24,7 @@ const BackButton = ({ label = "Go Back" }: BackButtonProps) => {
     <button
       ref={buttonRef}
       onClick={handleBack}
-      className="inline-flex items-center px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300"
+      className="back-link"
       aria-label={label}
     >
       ← {label}

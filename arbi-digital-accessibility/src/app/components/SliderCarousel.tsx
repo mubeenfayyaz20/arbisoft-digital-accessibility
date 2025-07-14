@@ -37,7 +37,7 @@ export default function SliderCarousel({
 
   useEffect(() => {
     if (titleRef.current) {
-      titleRef.current.focus();
+      titleRef.current.focus({ preventScroll: true });
     }
   }, [current]);
 

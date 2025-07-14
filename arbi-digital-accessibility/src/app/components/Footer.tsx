@@ -6,7 +6,7 @@ import ScrollToTopButton from "./ScrollToTopButton";
 const Footer = () => {
   return (
     <div className={styles.bottomList}>
-      <Link href="mailto:contact@arbisoft.com"> <span className="material-symbols-outlined">mail</span>Our Support</Link>
+      <Link href="https://arbisoft.com/contact" target="_blank"> <span className="material-symbols-outlined" aria-hidden="true">mail</span>Our Support <span className="sr-only">(opens in a new tab)</span></Link>
       <ScrollToTopButton />
     </div>
   );

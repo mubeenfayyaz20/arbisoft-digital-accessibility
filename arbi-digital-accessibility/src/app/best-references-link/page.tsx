@@ -13,7 +13,7 @@ const BestReferencesLink = () => {
   return (
     <div className={styles.threeColTableWrapper}>
       <div className="text-center">
-        <h1 className="text-center largeHeading ">Best Reference Links</h1>
+        <h1 className="text-center largeHeading ">  Best Reference Links</h1>
       </div>
       <AccessibleTable
         caption="Useful Links for All Developer & Designer "
