@@ -21,8 +21,7 @@ export default function Page() {
       </div>
         <h2 className="sub-title">Who Benefits</h2>
 
-      <p className="importantNote">
-        <ul className="unListType plainText">
+        <ul className="importantNote unListType plainText">
           <li>Improves accessibility for screen reader users.</li>
           <li>
             Helps SEO by making content more understandable to search engines.
@@ -33,7 +32,6 @@ export default function Page() {
           </li>
           <li>Supports better content organization and maintenance.</li>
         </ul>
-      </p>
       <ImageWithCaption
         src={Logo}
         alt="Arbisoft brand logo"

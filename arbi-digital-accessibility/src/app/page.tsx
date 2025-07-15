@@ -14,6 +14,7 @@ export default function Home() {
   return (
     <>
       <div className="d-flex gap-2 align-items-center">
+        <span className="material-icons">home</span>
         <h2 className="sub-title">WCAG Document</h2>
       </div>
       <p className="plainText">

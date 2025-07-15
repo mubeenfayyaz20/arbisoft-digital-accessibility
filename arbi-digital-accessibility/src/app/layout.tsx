@@ -20,13 +20,22 @@ export default function RootLayout({
     <html lang="en">
       <Head>
         <link rel="icon" href="../../public/favicon.ico" />
-        
+
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+          rel="stylesheet"
+        />
       </Head>
       <body className={`${roboto_Slab.variable}`}>
         <div className="bodyWrapper">
           <Navbar />
           <div className="mainWrapper d-flex">
             <Sidebar />
+
             <main className="mainContent" id="main-content">
               {children}
             </main>
