@@ -6,9 +6,15 @@ interface CodeSnippetProps {
   code: string;
   language?: string;
   label?: string; // optional aria-label
+  showCopyButton?: boolean; // NEW prop
 }
 
-const CodeSnippet = ({ code, language = "text", label }: CodeSnippetProps) => {
+const CodeSnippet = ({
+  code,
+  language = "text",
+  label,
+  showCopyButton = true,
+}: CodeSnippetProps) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -23,24 +29,26 @@ const CodeSnippet = ({ code, language = "text", label }: CodeSnippetProps) => {
 
   return (
     <div className={styles.codeSnippet}>
-      <div className={styles.labelWrapper}>
-        {label && <label>{label}</label>}
-        <button
-        onClick={handleCopy}
-        aria-label="Copy code"
-        className="absolute top-2 right-2 back-link"
-      >
-        {copied ? "Copied!" : "Copy"}
-      </button>
-      </div>
-      <pre
-        className={styles.preCodeSinppet}
-        aria-label={label || "Code snippet"}
-        tabIndex={0}
-      >
+      {/* 1. Visible label for screen readers and sighted users */}
+      {label && (
+        <p id="code-label" className={styles.labelWrapper}>
+          {label}
+        </p>
+      )}
+
+      <pre className={styles.preCodeSinppet}>
         <code className={`language-${language}`}>{code}</code>
       </pre>
-     
+
+      {showCopyButton && code.trim() && (
+        <button
+          onClick={handleCopy}
+          aria-live="polite"
+          className="absolute top-2 right-2 back-link"
+        >
+          {copied ? "Copied!" : "Copy"}
+        </button>
+      )}
     </div>
   );
 };

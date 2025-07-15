@@ -1,5 +1,12 @@
 import React from "react";
+import { Metadata } from "next";
 import Card from "../components/CustomCard";
+
+export const metadata: Metadata = {
+  title: "Our Goals | Arbi Digital Accessibility",
+  description:
+    "Discover our core goals and mission focused on advancing digital accessibility, promoting inclusive design, and empowering all users through accessible technology.",
+};
 
 const OurGoals = () => {
   return (

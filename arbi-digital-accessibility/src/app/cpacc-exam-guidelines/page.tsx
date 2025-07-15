@@ -1,5 +1,14 @@
 import React from "react";
+import { Metadata } from "next";
 import Link from "next/link";
+
+
+export const metadata: Metadata = {
+  title: "CPACC Exam Guidelines | Arbi Digital Accessibility",
+  description:
+    "A complete guide to the CPACC exam, including essential accessibility principles, best practices, and study resources to support your certification journey.",
+};
+
 
 const OurGoals = () => {
   return (

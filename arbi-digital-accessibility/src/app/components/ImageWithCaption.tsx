@@ -31,7 +31,7 @@ const ImageWithCaption = ({
         className={styles.demoImage}
       />
       <figcaption className={styles.figCaption}>
-        <span className="material-symbols-outlined">{icon}</span>
+        <span className="material-symbols-outlined" ar-aria-hidden="true">{icon}</span>
         Fig: {caption}
       </figcaption>
     </figure>

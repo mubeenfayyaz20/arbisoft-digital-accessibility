@@ -8,5 +8,6 @@ export const searchIndex = [
   { title: "Mac Shortcut Keys", href: "/mac-shortcut-keys" },
   { title: "Highest Lowest Priority", href: "/highest-lowest-priority" },
   { title: "CPACC Exam & Credit Hours Guide", href: "/cpacc-exam-guidelines" },
+  
 ];
 

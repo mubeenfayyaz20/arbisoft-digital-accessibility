@@ -1,6 +1,12 @@
 import React from "react";
+import { Metadata } from "next";
 import AccessibleTable from "../components/Table";
 
+export const metadata: Metadata = {
+  title: "Mac Shortcut Keys | Arbi Digital Accessibility",
+  description:
+    "A complete list of accessibility keyboard shortcuts for Mac, helping users navigate, control, and interact with macOS using VoiceOver and other assistive features.",
+};
 const AllTools = () => {
   return (
     <>
