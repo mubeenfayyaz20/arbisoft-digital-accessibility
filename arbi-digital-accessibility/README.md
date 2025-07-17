@@ -39,3 +39,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ##  for eslint check errors
 npm run lint
+
+
+## Google icons uses
+npm install @mui/icons-material @mui/material @emotion/react @emotion/styled
+https://mui.com/material-ui/material-icons/

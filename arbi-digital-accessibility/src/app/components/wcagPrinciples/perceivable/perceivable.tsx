@@ -61,7 +61,7 @@ const Perceivable = () => {
         <Accordion
           title={
             <>
-              <span className="material-symbols-outlined">task_alt</span>
+              <span className="material-symbols-outlined" aria-hidden="true">task_alt</span>
               Guideline 1.1 – Text Alternatives
             </>
           }

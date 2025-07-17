@@ -21,44 +21,39 @@ const guidlinesOne = () => {
               descriptions.
               <TrackedLink
                 href="/wcagprincipals/perceivable/guidlines-one/meaning-ful-image-name"
-                id="meaningful-image-link3"
+                id="meaningful-image-link1"
                 accordionIndex={0}
                 className="font-bold link-color-blue underline"
               >
                 Meaningful Image Name Demo
               </TrackedLink>
-           
             </li>
             <li>
               <strong> Decorative-image</strong> All decorative images that are
               presented to the user do not have alternate text.
-              <Link
-                href="wcagprincipals/perceivable/guidlines-one/meaning-ful-image-name"
+              <TrackedLink
+                href="/wcagprincipals/perceivable/guidlines-one/decorative-Image"
+                id="decorative-image1"
+                accordionIndex={0}
                 className="font-bold link-color-blue underline"
-                scroll={false}
-                id="meaningful-image-link2"
               >
-                Decorative Images Demo
-              </Link>
-              {/* <Link
-                id="decorative-image"
-                className="font-bold link-color-blue underline"
-                href="./Perceivable/1.1-guideline-text-alternatives/decorative-image.html"
-              >
-                Decorative Images Demo
-              </Link> */}
+                Decorative Image Demo
+              </TrackedLink>
             </li>
             <li>
               <strong> Decorative-background-image</strong>
               requires that important information provided by background images
               is also included by other methods.
-              <Link
-                id="decorative-background-image"
+                 <TrackedLink
+                href="/wcagprincipals/perceivable/guidlines-one/decorative-background-Image"
+                id="decorative-bg-image1"
+                accordionIndex={0}
                 className="font-bold link-color-blue underline"
-                href="./Perceivable/1.1-guideline-text-alternatives/decorative-background-image.html"
               >
                 Decorative Background Images Demo
-              </Link>
+
+              </TrackedLink>
+           
             </li>
             <li>
               <strong> Captcha-alternative</strong> requires that CAPTCHA

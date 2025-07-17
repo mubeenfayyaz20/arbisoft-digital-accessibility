@@ -2,8 +2,8 @@ import Image from "next/image";
 import "@/app/styles/globals.scss";
 import Link from "next/link";
 import type { Metadata } from "next";
-import WCAGImage from "../../public/WCAG.svg";
 import WcagPrinciples from "./components/wcagPrinciples/WcagPrinciples";
+
 
 export const metadata: Metadata = {
   title: "Home | Arbi Digital Accessibility",
@@ -14,7 +14,6 @@ export default function Home() {
   return (
     <>
       <div className="d-flex gap-2 align-items-center">
-        <span className="material-icons">home</span>
         <h2 className="sub-title">WCAG Document</h2>
       </div>
       <p className="plainText">
@@ -47,7 +46,7 @@ export default function Home() {
         </div>
         <div className="md:w-1/3 mt-4 md:mt-0 margin-bottom-20">
           <Image
-            src={WCAGImage}
+            src="/WCAG.svg"
             alt="Web Content Accessibility Guidelines (WCAG)"
             priority
             className="rounded"

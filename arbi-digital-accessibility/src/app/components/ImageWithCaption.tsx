@@ -1,7 +1,7 @@
 "use client";
+
 import Image from "next/image";
-import React from "react";
-import type { StaticImageData } from 'next/image';
+import type { StaticImageData } from "next/image";
 import styles from "../styles/components/Common.module.scss";
 
 interface ImageWithCaptionProps {
@@ -21,17 +21,27 @@ const ImageWithCaption = ({
   height = 300,
   icon = "photo_camera",
 }: ImageWithCaptionProps) => {
+  const normalizedSrc =
+    typeof src === "string" && src.startsWith(".")
+      ? src.replace(/^\.\/+/, "/")
+      : src;
+
   return (
     <figure className={styles.demoFigure}>
       <Image
-        src={src}
+        src={normalizedSrc}
         alt={alt}
         width={width}
         height={height}
         className={styles.demoImage}
       />
       <figcaption className={styles.figCaption}>
-        <span className="material-symbols-outlined" ar-aria-hidden="true">{icon}</span>
+        <span
+          className="material-symbols-outlined"
+          aria-hidden="true"
+        >
+          {icon}
+        </span>
         Fig: {caption}
       </figcaption>
     </figure>

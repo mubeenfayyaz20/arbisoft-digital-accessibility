@@ -1,11 +1,11 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/components/Sidebar.module.scss";
 import Accordion from "./Accordion";
-import Logo from "../../../public/accessibility-logo.svg";
 import Button from "../components/Button";
-import Link from "next/link";
+import DnsOutlinedIcon from '@mui/icons-material/DnsOutlined';
 
 const Sidebar = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -17,7 +17,7 @@ const Sidebar = () => {
     <div className={styles.sidebar}>
       <Link href="/" className={styles.logoWrap}>
         <Image
-          src={Logo}
+          src="/accessibility-logo.svg"
           className={styles.logo}
           alt="Arbi Digital Accessibility logo"
           width={180}
@@ -29,7 +29,7 @@ const Sidebar = () => {
         <div className={styles.sidebarLinksWrap}>
           <span className={styles.demoLabel}>
             {" "}
-            <span className="material-symbols-outlined">ad_group</span> Demo
+           <DnsOutlinedIcon aria-hidden="true" /> Demo
             Resources
           </span>
           <Accordion
