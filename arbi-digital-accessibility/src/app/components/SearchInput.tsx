@@ -1,8 +1,10 @@
 "use client";
-import styles from "../styles/components/Formfields.module.scss";
+import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { searchIndex } from "../data/searchIndex";
-import Link from "next/link";
+import { SearchSharp } from "@mui/icons-material";
+import styles from "../styles/components/Formfields.module.scss";
+
 
 export default function SearchBar() {
   const [query, setQuery] = useState("");
@@ -113,12 +115,7 @@ export default function SearchBar() {
           aria-label="Search"
           type="submit"
         >
-          <span
-            className="material-symbols-outlined icon-color"
-            aria-hidden="true"
-          >
-            search
-          </span>
+          <SearchSharp className="icon-color"  aria-hidden="true" fontSize="large" />
         </button>
       </div>
 

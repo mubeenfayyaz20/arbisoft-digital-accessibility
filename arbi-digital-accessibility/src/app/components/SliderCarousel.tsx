@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { ArrowBack, ArrowForward } from "@mui/icons-material";
 import styles from "../styles/components/CustomCard.module.scss";
 
 type Certificate = {
@@ -92,14 +93,14 @@ export default function SliderCarousel({
                 aria-label="Next certificate"
                 className="back-link"
               >
-                Next →
+                Next <ArrowForward aria-hidden="true" />
               </button>
               <button
                 onClick={prevSlide}
                 aria-label="Previous certificate"
                 className="back-link"
               >
-                ← Prev
+                <ArrowBack aria-hidden="true" /> Prev
               </button>
             </>
           ) : (

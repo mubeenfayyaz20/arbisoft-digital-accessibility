@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import TrackedLink from "../../TrackedLink";
 
-const guidlinesTwo = () => {
+const GuidlinesTwo = () => {
   return (
     <div className="plainText">
       <strong>Guideline 1.2 - Time-based Media</strong>
@@ -97,4 +97,4 @@ const guidlinesTwo = () => {
   );
 };
 
-export default guidlinesTwo;
+export default GuidlinesTwo;

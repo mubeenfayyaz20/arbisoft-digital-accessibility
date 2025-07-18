@@ -1,6 +1,6 @@
 import React from "react";
 
-const guidlinesTwo = () => {
+const GuidlinesTwo = () => {
   return (
     <div className="plainText">
       <strong>Guideline 2.2 - Enough Time</strong> ensures that users have
@@ -34,4 +34,4 @@ const guidlinesTwo = () => {
   );
 };
 
-export default guidlinesTwo;
+export default GuidlinesTwo;

@@ -1,31 +1,32 @@
 "use client";
 
 import React from "react";
-import Button from "./Button";
 import Image from "next/image";
-import type { StaticImageData } from 'next/image';
+import type { StaticImageData } from "next/image";
+import Button from "./Button";
 import styles from "../styles/components/CustomCard.module.scss";
+import { ChevronRightOutlined } from "@mui/icons-material";
 
 interface CardProps {
   title: string;
   description?: string;
-imageSrc?: string | StaticImageData // Update this line// Optional image instead of description
-  iconName?: string;
+  imageSrc?: string | StaticImageData;
+  icon?: React.ReactNode; // MUI icon component
   buttonText?: string;
   buttonHref?: string;
   buttonTarget?: "_blank" | "_self";
   className?: string;
-  imageAlt?: string; // Optional alt text for image
+  imageAlt?: string;
 }
 
 const Card = ({
   title,
   description,
   imageSrc,
-  iconName,
+  icon,
   buttonText,
   buttonHref,
-  buttonTarget,
+  buttonTarget = "_self",
   className = "",
   imageAlt = "Card image",
 }: CardProps) => {
@@ -33,15 +34,22 @@ const Card = ({
     <div className={`${styles.card} ${className}`}>
       <div className={styles.topBar}></div>
       <div className={styles.contentCard}>
-        {iconName && (
+        {icon && (
           <div className={styles.cardIcon}>
-            <span className="material-symbols-outlined">{iconName}</span>
+            {icon}
           </div>
         )}
+
         <div className={styles.title}>{title}</div>
 
         {imageSrc ? (
-          <Image src={imageSrc} alt={imageAlt} className={styles.cardImage} width={400} height={300} />
+          <Image
+            src={imageSrc}
+            alt={imageAlt}
+            className={styles.cardImage}
+            width={400}
+            height={300}
+          />
         ) : (
           description && <div className={styles.description}>{description}</div>
         )}
@@ -52,7 +60,7 @@ const Card = ({
             text={buttonText}
             rounded={false}
             variant="filled"
-            icon="chevron_right"
+            icon={<ChevronRightOutlined fontSize="large" />}
             href={buttonHref}
             target={buttonTarget}
           />
@@ -63,25 +71,3 @@ const Card = ({
 };
 
 export default Card;
-
-
-
-// With description
-
-{/* <Card
-  title="ARC Toolkit"
-  description="The ARC Toolkit is a comprehensive suite for assessing and improving web accessibility..."
-  buttonText="ARC Toolkit Download"
-  buttonTarget="_blank"
-  buttonHref="https://chromewebstore.google.com/detail/arc-toolkit/chdkkkccnlfncngelccgbgfmjebmkmce"
-/> */}
-
-// with image
-{/* <Card
-  title="New Feature"
-  imageSrc="/images/feature-screenshot.png"
-  imageAlt="Screenshot of the new feature"
-  buttonText="Learn More"
-  buttonTarget="_blank"
-  buttonHref="https://example.com/feature"
-/> */}

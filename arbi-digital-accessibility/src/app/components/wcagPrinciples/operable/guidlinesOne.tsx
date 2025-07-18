@@ -1,7 +1,7 @@
 import React from "react";
 import TrackedLink from "../../TrackedLink";
 
-const guidlinesOne = () => {
+const GuidlinesOne = () => {
   return (
     <div className="plainText">
       <strong> Guideline 2.1 – Keyboard Accessible </strong>
@@ -37,4 +37,4 @@ const guidlinesOne = () => {
   );
 };
 
-export default guidlinesOne;
+export default GuidlinesOne;

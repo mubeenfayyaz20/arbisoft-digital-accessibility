@@ -1,9 +1,10 @@
 import { Metadata } from "next";
 import CodeSnippet from "@/app/components/CodeSnippet";
 import GoBackButton from "@/app/components/BackButton";
-import WindowImage from "@/app/components/SVGs/Window"
+import WindowIcon from "@/app/components/icons/WindowIcon"
 import ImageWithCaption from "@/app/components/ImageWithCaption";
 import SvgWithCaption from "@/app/components/SvgWithCaption";
+import PageScrollTop from "@/app/components/PageScrollTop";
 
 
 export const metadata: Metadata = {
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+    <PageScrollTop />
       <div className="text-center">
         <div className="text-start absolute">
           <GoBackButton />
@@ -143,9 +145,12 @@ export default function Page() {
         showCopyButton={false}
       />
         <SvgWithCaption
-          icon={WindowImage}
+          icon={WindowIcon}
           caption="Window Decorative image without aria-hidden and focusable attribute"
         />
+            <div className="text-start ">
+          <GoBackButton />
+        </div>
     </>
   );
 }

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Accordion from "../../Accordion";
-import GuidlinesOne from "./guidlinesOne";
-import GuidlinesTwo from "./guidlinesTwo";
-import GuidlinesThree from "./guidlinesThree";
-import GuidlinesFour from "./guidlinesFour";
-import GuidlinesFive from "./guidlinesFive";
+import GuidlinesOne from "./GuidlinesOne";
+import GuidlinesTwo from "./GuidlinesTwo";
+import GuidlinesThree from "./GuidlinesThree";
+import GuidlinesFour from "./GuidlinesFour";
+import GuidlinesFive from "./GuidlinesFive";
+import { TaskAltOutlined } from "@mui/icons-material";
 
 
 const Operable = () => {
@@ -31,7 +32,7 @@ const Operable = () => {
         <Accordion
           title={
             <>
-              <span className="material-symbols-outlined">task_alt</span>
+              <TaskAltOutlined fontSize="large" aria-hidden="true" />
               Guideline 2.1 – Keyboard Accessible
             </>
           }
@@ -43,7 +44,7 @@ const Operable = () => {
         <Accordion
           title={
             <>
-              <span className="material-symbols-outlined">task_alt</span>
+              <TaskAltOutlined fontSize="large" aria-hidden="true" />
               Guideline 2.2 - Enough Time
             </>
           }
@@ -55,7 +56,7 @@ const Operable = () => {
         <Accordion
           title={
             <>
-              <span className="material-symbols-outlined">task_alt</span>
+              <TaskAltOutlined fontSize="large" aria-hidden="true" />
               Guideline 2.3 - Seizures and Physical Reactions
             </>
           }
@@ -67,7 +68,7 @@ const Operable = () => {
         <Accordion
           title={
             <>
-              <span className="material-symbols-outlined">task_alt</span>
+              <TaskAltOutlined fontSize="large" aria-hidden="true" />
               Guideline 2.4 - Navigable
             </>
           }
@@ -80,7 +81,7 @@ const Operable = () => {
         <Accordion
           title={
             <>
-              <span className="material-symbols-outlined">task_alt</span>
+              <TaskAltOutlined fontSize="large" aria-hidden="true" />
               Guideline 2.5 - Input Modalities
             </>
           }

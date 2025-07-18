@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import CodeSnippet from "@/app/components/CodeSnippet";
 import ImageWithCaption from "@/app/components/ImageWithCaption";
 import GoBackButton from "@/app/components/BackButton";
+import PageScrollTop from "@/app/components/PageScrollTop";
 
 export const metadata: Metadata = {
   title: "1.1 Guideline - Meaningful Image Name | Arbi Digital Accessibility",
@@ -9,11 +10,14 @@ export const metadata: Metadata = {
     "Learn how to use meaningful image names and alt text to improve web accessibility, comply with WCAG 1.1 guidelines, and enhance screen reader support.",
 };
 export default function Page() {
+  
   return (
     <>
+  <PageScrollTop />
+
       <div className="text-center">
         <div className="text-start absolute">
-          <GoBackButton />
+          <GoBackButton  />
         </div>
         <h1 className="text-center dark-color largeHeading">
           Meaningful Image Name
@@ -61,6 +65,9 @@ export default function Page() {
         label="Alt Incorrect Code Usage"
         showCopyButton={false}
       />
+        <div className="text-start ">
+          <GoBackButton />
+        </div>
     </>
   );
 }

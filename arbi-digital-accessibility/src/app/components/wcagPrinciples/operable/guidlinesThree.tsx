@@ -1,6 +1,6 @@
 import React from "react";
 
-const guidlinesThree = () => {
+const GuidlinesThree = () => {
   return (
     <div className="plainText">
       <strong>Guideline 2.3 - Seizures and Physical Reactions</strong>
@@ -17,4 +17,4 @@ const guidlinesThree = () => {
   );
 };
 
-export default guidlinesThree;
+export default GuidlinesThree;

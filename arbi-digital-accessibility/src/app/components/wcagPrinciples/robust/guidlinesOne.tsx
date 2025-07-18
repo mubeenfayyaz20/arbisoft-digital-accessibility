@@ -1,6 +1,6 @@
 import React from "react";
 
-const guidlinesOne = () => {
+const GuidlinesOne = () => {
   return (
     <div className="plainText">
     <strong> Guideline 4.1 - Compatible </strong> ensures
@@ -47,4 +47,4 @@ const guidlinesOne = () => {
   );
 };
 
-export default guidlinesOne;
+export default GuidlinesOne;

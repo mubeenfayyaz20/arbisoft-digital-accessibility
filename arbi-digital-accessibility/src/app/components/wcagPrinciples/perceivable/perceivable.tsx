@@ -4,6 +4,7 @@ import Guidlinesone from "./GuidlinesOne";
 import Guidlinestwo from "./GuidlinesTwo";
 import Guidlinesthree from "./GuidlinesThree";
 import Guidlinesfour from "./GuidlinesFour";
+import { TaskAltOutlined } from "@mui/icons-material";
 
 const Perceivable = () => {
   // this code is for back button trigger login line 10 to 50
@@ -61,7 +62,7 @@ const Perceivable = () => {
         <Accordion
           title={
             <>
-              <span className="material-symbols-outlined" aria-hidden="true">task_alt</span>
+              <TaskAltOutlined fontSize="large" aria-hidden="true" />
               Guideline 1.1 – Text Alternatives
             </>
           }
@@ -73,7 +74,7 @@ const Perceivable = () => {
         <Accordion
           title={
             <>
-              <span className="material-symbols-outlined">task_alt</span>
+              <TaskAltOutlined fontSize="large" aria-hidden="true" />
               Guideline 1.2 - Time-based Media
             </>
           }
@@ -85,7 +86,7 @@ const Perceivable = () => {
         <Accordion
           title={
             <>
-              <span className="material-symbols-outlined">task_alt</span>
+              <TaskAltOutlined fontSize="large" aria-hidden="true" />
               Guideline 1.3 - Adaptable
             </>
           }
@@ -97,7 +98,7 @@ const Perceivable = () => {
         <Accordion
           title={
             <>
-              <span className="material-symbols-outlined">task_alt</span>
+              <TaskAltOutlined fontSize="large" aria-hidden="true" />
               Guideline 1.4 - Distinguishable
             </>
           }

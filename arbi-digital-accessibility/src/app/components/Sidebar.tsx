@@ -5,7 +5,8 @@ import Image from "next/image";
 import styles from "../styles/components/Sidebar.module.scss";
 import Accordion from "./Accordion";
 import Button from "../components/Button";
-import DnsOutlinedIcon from '@mui/icons-material/DnsOutlined';
+import ListAltIcon from '@mui/icons-material/ListAlt';
+import { ChevronRightOutlined } from "@mui/icons-material";
 
 const Sidebar = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -28,8 +29,7 @@ const Sidebar = () => {
       <div className={styles.sidebarMenuWrap}>
         <div className={styles.sidebarLinksWrap}>
           <span className={styles.demoLabel}>
-            {" "}
-           <DnsOutlinedIcon aria-hidden="true" /> Demo
+           <ListAltIcon fontSize="large" aria-hidden="true" /> Demo
             Resources
           </span>
           <Accordion
@@ -63,8 +63,9 @@ const Sidebar = () => {
             text="Best Reference Links"
             rounded={false}
             variant="filled"
-            icon="chevron_right"
+            icon={<ChevronRightOutlined  fontSize="large"/>}
             href="/best-references-link"
+            
           />
         </div>
       </div>

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Accordion from "../../Accordion";
-import GuidlinesOne from "./guidlinesOne";
-import GuidlinesTwo from "./guidlinesTwo";
-import GuidlinesThree from "./guidlinesThree";
+import GuidlinesOne from "./GuidlinesOne";
+import GuidlinesTwo from "./GuidlinesTwo";
+import GuidlinesThree from "./GuidlinesThree";
+import { TaskAltOutlined } from "@mui/icons-material";
 
 const Understandable = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -25,7 +26,7 @@ const Understandable = () => {
         <Accordion
           title={
             <>
-              <span className="material-symbols-outlined">task_alt</span>
+              <TaskAltOutlined fontSize="large" aria-hidden="true" />
               Guideline 3.1 - Readable
             </>
           }
@@ -37,7 +38,7 @@ const Understandable = () => {
         <Accordion
           title={
             <>
-              <span className="material-symbols-outlined">task_alt</span>
+              <TaskAltOutlined fontSize="large" aria-hidden="true" />
               Guideline 3.2 - Predictable
             </>
           }
@@ -49,7 +50,7 @@ const Understandable = () => {
         <Accordion
           title={
             <>
-              <span className="material-symbols-outlined">task_alt</span>
+              <TaskAltOutlined fontSize="large" aria-hidden="true" />
               Guideline 3.3 - Input Assistance
             </>
           }

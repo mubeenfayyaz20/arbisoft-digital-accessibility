@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const guidlinesThree = () => {
+const GuidlinesThree = () => {
   return (
     <div className="plainText">
     <strong>Guideline 1.3 - Adaptable</strong> ensures
@@ -127,4 +127,4 @@ const guidlinesThree = () => {
   );
 };
 
-export default guidlinesThree;
+export default GuidlinesThree;

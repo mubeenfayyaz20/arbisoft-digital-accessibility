@@ -7,7 +7,8 @@ import style from "../styles/components/Button.module.scss";
 
 interface ButtonProps {
   text?: string;
-  icon?: string;
+  icon?: React.ReactNode; // now accepts real MUI icon component
+  iconPosition?: "left" | "right";
   variant?: "filled" | "outline";
   rounded?: boolean;
   className?: string;
@@ -19,6 +20,7 @@ interface ButtonProps {
 const Button = ({
   text,
   icon,
+  iconPosition = "right",
   variant = "filled",
   rounded = false,
   className,
@@ -37,8 +39,9 @@ const Button = ({
 
   const content = (
     <>
+      {icon && iconPosition === "left" && <span aria-hidden="true">{icon}</span>}
       {text && <span>{text}</span>}
-      {icon && <span className="material-symbols-outlined">{icon}</span>}
+      {icon && iconPosition === "right" && <span aria-hidden="true">{icon}</span>}
     </>
   );
 
@@ -56,7 +59,6 @@ const Button = ({
       );
     }
 
-    // Internal link: use Next.js Link for client-side nav (no reload)
     return (
       <Link href={href} className={classes}>
         {content}
@@ -64,7 +66,6 @@ const Button = ({
     );
   }
 
-  // Regular button
   return (
     <button onClick={onClick} className={classes}>
       {content}
@@ -73,18 +74,3 @@ const Button = ({
 };
 
 export default Button;
-
-// Internal (Fast, No Reload)
-{
-  /* <Button href="/all-tools" text="See All Tools" icon="chevron_right" /> */
-}
-
-// External (New Tab)
-{
-  /* <Button href="https://example.com" target="_blank" text="Visit Site" /> */
-}
-
-// Clickable Button
-{
-  /* <Button text="Click Me" onClick={() => alert("Hi!")} /> */
-}

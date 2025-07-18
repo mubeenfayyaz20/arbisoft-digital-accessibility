@@ -1,5 +1,6 @@
 "use client";
-import React, {type JSX} from "react";
+import React, { type JSX } from "react";
+import { PhotoCamera } from "@mui/icons-material";
 import styles from "../styles/components/Common.module.scss";
 
 type SvgWithCaptionProps = {
@@ -22,9 +23,7 @@ const SvgWithCaption = ({
       <Icon {...iconProps} className={styles.demoImage} />
       {caption && (
         <figcaption className={`${styles.figCaption} ${captionClassName}`}>
-          <span className="material-symbols-outlined" aria-hidden="true">
-            photo_camera
-          </span>
+          <PhotoCamera aria-hidden="true" />
           Fig: {caption}
         </figcaption>
       )}

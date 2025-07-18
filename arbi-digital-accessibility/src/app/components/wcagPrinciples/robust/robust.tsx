@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Accordion from "../../Accordion";
-import GuidlinesOne from "./guidlinesOne";
+import GuidlinesOne from "./GuidlinesOne";
+import { TaskAltOutlined } from "@mui/icons-material";
 
 const Robust = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -23,7 +24,7 @@ const Robust = () => {
         <Accordion
           title={
             <>
-              <span className="material-symbols-outlined">task_alt</span>
+             <TaskAltOutlined fontSize="large" aria-hidden="true" />
               Guideline 4.1 - Compatible
             </>
           }
