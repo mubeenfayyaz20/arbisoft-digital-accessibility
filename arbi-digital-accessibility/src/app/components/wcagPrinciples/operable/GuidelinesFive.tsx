@@ -1,6 +1,6 @@
 import React from "react";
 
-const GuidlinesFive = () => {
+const GuidelinesFive = () => {
   return (
     <div className="plainText">
       <li>
@@ -47,4 +47,4 @@ const GuidlinesFive = () => {
   );
 };
 
-export default GuidlinesFive;
+export default GuidelinesFive;

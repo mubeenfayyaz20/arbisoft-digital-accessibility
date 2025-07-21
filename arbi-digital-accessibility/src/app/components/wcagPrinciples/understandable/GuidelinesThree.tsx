@@ -1,6 +1,6 @@
 import React from "react";
 
-const GuidlinesThree = () => {
+const GuidelinesThree = () => {
   return (
     <div className="plainText">
       <strong> Guideline 3.3 - Input Assistance </strong>
@@ -53,4 +53,4 @@ const GuidlinesThree = () => {
   );
 };
 
-export default GuidlinesThree;
+export default GuidelinesThree;

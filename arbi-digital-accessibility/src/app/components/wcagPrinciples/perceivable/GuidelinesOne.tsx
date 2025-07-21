@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import TrackedLink from "../../TrackedLink";
 
-const GuidlinesOne = () => {
+const GuidelinesOne = () => {
   return (
     <div className="plainText">
       <strong> Guideline 1.1 – Text Alternatives </strong>Provide text
@@ -20,7 +20,7 @@ const GuidlinesOne = () => {
               are presented to the user have equivalent, accessible
               descriptions.
               <TrackedLink
-                href="/wcagprincipals/perceivable/guidlines-one/meaning-ful-image-name"
+                href="/wcagprincipals/perceivable/guidelines-one/meaning-ful-image-name"
                 id="meaningful-image-link1"
                 accordionIndex={0}
                 className="font-bold link-color-blue underline"
@@ -32,7 +32,7 @@ const GuidlinesOne = () => {
               <strong> Decorative-image</strong> All decorative images that are
               presented to the user do not have alternate text.
               <TrackedLink
-                href="/wcagprincipals/perceivable/guidlines-one/decorative-Image"
+                href="/wcagprincipals/perceivable/guidelines-one/decorative-image"
                 id="decorative-image1"
                 accordionIndex={0}
                 className="font-bold link-color-blue underline"
@@ -42,10 +42,10 @@ const GuidlinesOne = () => {
             </li>
             <li>
               <strong> Decorative-background-image</strong>
-              requires that important information provided by background images
+              &nbsp;requires that important information provided by background images
               is also included by other methods.
                  <TrackedLink
-                href="/wcagprincipals/perceivable/guidlines-one/decorative-background-Image"
+                href="/wcagprincipals/perceivable/guidelines-one/decorative-background-image"
                 id="decorative-bg-image1"
                 accordionIndex={0}
                 className="font-bold link-color-blue underline"
@@ -59,13 +59,16 @@ const GuidlinesOne = () => {
               <strong> Captcha-alternative</strong> requires that CAPTCHA
               provides formats for users without vision and users without
               hearing.
-              <Link
-                id="captcha-alternative"
+                       <TrackedLink
+                href="/wcagprincipals/perceivable/guidelines-one/captcha-alternative"
+                id="captcha-alternative1"
+                accordionIndex={0}
                 className="font-bold link-color-blue underline"
-                href="./Perceivable/1.1-guideline-text-alternatives/captcha-alternative.html"
               >
-                Captcha Alternatives Demo
-              </Link>
+                  Captcha Alternatives Demo
+
+              </TrackedLink>
+       
             </li>
           </ul>
         </li>
@@ -74,4 +77,4 @@ const GuidlinesOne = () => {
   );
 };
 
-export default GuidlinesOne;
+export default GuidelinesOne;

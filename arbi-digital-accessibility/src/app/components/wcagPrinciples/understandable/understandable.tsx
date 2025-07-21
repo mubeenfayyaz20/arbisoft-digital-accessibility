@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Accordion from "../../Accordion";
-import GuidlinesOne from "./GuidlinesOne";
-import GuidlinesTwo from "./GuidlinesTwo";
-import GuidlinesThree from "./GuidlinesThree";
+import GuidelinesOne from "./GuidelinesOne";
+import GuidelinesTwo from "./GuidelinesTwo";
+import GuidelinesThree from "./GuidelinesThree";
 import { TaskAltOutlined } from "@mui/icons-material";
 
 const Understandable = () => {
@@ -33,7 +33,7 @@ const Understandable = () => {
           isOpen={openIndex === 0}
           onToggle={() => handleToggle(0)}
         >
-          <GuidlinesOne />
+          <GuidelinesOne />
         </Accordion>
         <Accordion
           title={
@@ -45,7 +45,7 @@ const Understandable = () => {
           isOpen={openIndex === 1}
           onToggle={() => handleToggle(1)}
         >
-          <GuidlinesTwo />
+          <GuidelinesTwo />
         </Accordion>
         <Accordion
           title={
@@ -57,7 +57,7 @@ const Understandable = () => {
           isOpen={openIndex === 2}
           onToggle={() => handleToggle(2)}
         >
-          <GuidlinesThree />
+          <GuidelinesThree />
         </Accordion>
     
       </div>

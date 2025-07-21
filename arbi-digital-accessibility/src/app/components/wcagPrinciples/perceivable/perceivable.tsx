@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Accordion from "../../Accordion";
-import Guidlinesone from "./GuidlinesOne";
-import Guidlinestwo from "./GuidlinesTwo";
-import Guidlinesthree from "./GuidlinesThree";
-import Guidlinesfour from "./GuidlinesFour";
+import GuidelinesOne from "./GuidelinesOne";
+import GuidelinesTwo from "./GuidelinesTwo";
+import GuidelinesThree from "./GuidelinesThree";
+import GuidelinesFour from "./GuidelinesFour";
 import { TaskAltOutlined } from "@mui/icons-material";
 
 const Perceivable = () => {
@@ -69,7 +69,7 @@ const Perceivable = () => {
           isOpen={openIndex === 0}
           onToggle={() => handleToggle(0)}
         >
-          <Guidlinesone />
+          <GuidelinesOne />
         </Accordion>
         <Accordion
           title={
@@ -81,7 +81,7 @@ const Perceivable = () => {
           isOpen={openIndex === 1}
           onToggle={() => handleToggle(1)}
         >
-          <Guidlinestwo />
+          <GuidelinesTwo />
         </Accordion>
         <Accordion
           title={
@@ -93,7 +93,7 @@ const Perceivable = () => {
           isOpen={openIndex === 2}
           onToggle={() => handleToggle(2)}
         >
-          <Guidlinesthree />
+          <GuidelinesThree />
         </Accordion>
         <Accordion
           title={
@@ -105,7 +105,7 @@ const Perceivable = () => {
           isOpen={openIndex === 3}
           onToggle={() => handleToggle(3)}
         >
-          <Guidlinesfour />
+          <GuidelinesFour />
         </Accordion>
       </div>
     </div>

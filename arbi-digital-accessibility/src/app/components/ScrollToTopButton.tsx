@@ -1,4 +1,3 @@
-// components/ScrollToTopButton.js
 "use client";
 import { useEffect, useState } from "react";
 import { ArrowCircleUpOutlined } from "@mui/icons-material";

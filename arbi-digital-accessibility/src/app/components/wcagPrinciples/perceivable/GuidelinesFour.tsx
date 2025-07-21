@@ -1,6 +1,6 @@
 import React from "react";
 
-const GuidlinesFour = () => {
+const GuidelinesFour = () => {
   return (
     <div className="plainText">
     <strong>Guideline 1.4 - Distinguishable</strong> ensures users can easily perceive and differentiate
@@ -66,4 +66,4 @@ const GuidlinesFour = () => {
   );
 };
 
-export default GuidlinesFour;
+export default GuidelinesFour;

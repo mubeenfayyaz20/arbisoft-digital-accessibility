@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Accordion from "../../Accordion";
-import GuidlinesOne from "./GuidlinesOne";
+import GuidelinesOne from "./GuidelinesOne";
 import { TaskAltOutlined } from "@mui/icons-material";
 
 const Robust = () => {
@@ -31,7 +31,7 @@ const Robust = () => {
           isOpen={openIndex === 0}
           onToggle={() => handleToggle(0)}
         >
-          <GuidlinesOne />
+          <GuidelinesOne />
         </Accordion>
       </div>
     </div>

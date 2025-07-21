@@ -1,6 +1,6 @@
 import React from "react";
 
-const GuidlinesFour = () => {
+const GuidelinesFour = () => {
   return (
     <div className="plainText">
     <strong>Guideline 2.4 - Navigable</strong> ensures
@@ -93,4 +93,4 @@ const GuidlinesFour = () => {
   );
 };
 
-export default GuidlinesFour;
+export default GuidelinesFour;

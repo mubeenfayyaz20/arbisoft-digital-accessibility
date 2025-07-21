@@ -1,6 +1,6 @@
 import React from "react";
 
-const GuidlinesOne = () => {
+const GuidelinesOne = () => {
   return (
     <div className="plainText">
     <strong> Guideline 3.1 - Readable </strong> focuses on
@@ -23,4 +23,4 @@ const GuidlinesOne = () => {
   );
 };
 
-export default GuidlinesOne;
+export default GuidelinesOne;
