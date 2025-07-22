@@ -1,9 +1,7 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import CodeSnippet from "@/app/components/CodeSnippet";
 import GoBackButton from "@/app/components/BackButton";
 import PageScrollTop from "@/app/components/PageScrollTop";
-import styles from "../../../../styles/components/Common.module.scss";
 
 export const metadata: Metadata = {
   title: "CAPTCHA Alternatives | Arbi Digital Accessibility",
