@@ -69,6 +69,11 @@ const Sidebar = () => {
                   Date Input Field
                 </Link>
               </li>
+              <li>
+                <Link href="/demo-resources/forms-checks/age-input-field">
+                  Age Field
+                </Link>
+              </li>
             </ul>
           </Accordion>
         </div>
