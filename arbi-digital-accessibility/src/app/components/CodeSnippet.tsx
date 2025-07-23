@@ -7,6 +7,9 @@ interface CodeSnippetProps {
   language?: string;
   label?: string; // optional aria-label
   showCopyButton?: boolean; // NEW prop
+  caption?: string | React.ReactNode; // optional caption for the code snippet
+  captionHeading?: string; // optional heading for the caption
+  captionColor?: "default" | "green" | "red"; // add more if needed
 }
 
 const CodeSnippet = ({
@@ -14,6 +17,9 @@ const CodeSnippet = ({
   language = "text",
   label,
   showCopyButton = true,
+  caption,
+  captionHeading,
+  captionColor = "default", // default color
 }: CodeSnippetProps) => {
   const [copied, setCopied] = useState(false);
 
@@ -26,6 +32,12 @@ const CodeSnippet = ({
       console.error("Failed to copy!", err);
     }
   };
+  const colorClass =
+    captionColor === "green"
+      ? styles.captionGreen
+      : captionColor === "red"
+      ? styles.captionRed
+      : "";
 
   return (
     <div className={styles.codeSnippet}>
@@ -39,6 +51,15 @@ const CodeSnippet = ({
       <pre className={styles.preCodeSinppet}>
         <code className={`language-${language}`}>{code}</code>
       </pre>
+      <h6 className={`${styles.captionHeading} ${colorClass}`}>
+        {captionHeading}
+      </h6>
+
+      {caption && (
+        <div className={`${styles.caption} ${colorClass}`}>
+          {typeof caption === "string" ? <p>{caption}</p> : caption}
+        </div>
+      )}
 
       {showCopyButton && code.trim() && (
         <button

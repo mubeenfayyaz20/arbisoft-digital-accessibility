@@ -14,6 +14,7 @@
   .logo {
     padding-bottom: 12px;
   }
+
   .demoLabel {
     color: $primary-color;
     margin: 8px 0;
@@ -24,10 +25,12 @@
     display: flex;
     gap: 10px;
     align-items: center;
+
     span {
       font-size: 2rem;
     }
   }
+
   .sidebarNotification {
     background-color: $body-bg;
     border-radius: 8px;
@@ -38,15 +41,18 @@
     margin-bottom: 60px;
     margin-top: auto;
   }
+
   .sidebarMenuWrap {
     display: flex;
     flex-direction: column;
     gap: 12px;
     height: 100%;
   }
+
   .logoWrap {
     padding: 0;
     display: flex;
+
     &:focus {
       background-color: transparent;
       width: fit-content;
@@ -55,9 +61,37 @@
 
 }
 
-  .sidebarLinksWrap {
-    overflow-y: auto;
-    height: 500px;
-    scrollbar-width: thin;
-    scrollbar-color: #4b5563 #1f2937;
+.sidebarLinksWrap {
+  overflow-y: auto;
+  height: 500px;
+  scrollbar-width: thin;
+  scrollbar-color: #4b5563 #1f2937;
+
+  .generalFormAccordion {
+    padding: 10px !important;
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      li {
+        margin-bottom: 5px;
+
+        a {
+          border: 1px solid $border-color;
+          width: 100%;
+          color: $primary-color;
+          text-decoration: none;
+          font-size: 1.4rem;
+          display: block;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
   }
+
+}

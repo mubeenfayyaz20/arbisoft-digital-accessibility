@@ -1,9 +1,9 @@
 "use client";
 import { Tabs, Tab } from "../Tabs";
-import Perceivable from "../wcagPrinciples/perceivable/perceivable";
-import Operable from "../wcagPrinciples/operable/operable";
-import Understandable from "../wcagPrinciples/understandable/understandable";
-import Robust from "../wcagPrinciples/robust/robust";
+import Perceivable from "./perceivable/Perceivable";
+import Operable from "./operable/Operable";
+import Understandable from "./understandable/Understandable";
+import Robust from "./robust/Robust";
 import React from "react";
 
 const WcagPrinciples = () => {

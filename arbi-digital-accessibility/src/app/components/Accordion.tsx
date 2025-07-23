@@ -7,9 +7,10 @@ interface AccordionProps {
   isOpen: boolean;
   onToggle: () => void;
   children: React.ReactNode;
+  className?: string;
 }
 
-const Accordion = ({ title, isOpen, onToggle, children }: AccordionProps) => {
+const Accordion = ({ title, isOpen, onToggle, children, className }: AccordionProps) => {
   return (
     <div
       className={`mb-3 overflow-hidden transition-all accordionInner duration-300 ${styles.accordionWrap}`}
@@ -48,7 +49,7 @@ const Accordion = ({ title, isOpen, onToggle, children }: AccordionProps) => {
           isOpen ? "opacity-100 max-h-full" : "max-h-0 opacity-0"
         }`}
       >
-        {isOpen && <div className={styles.accordionContent}>{children}</div>}
+     {isOpen && <div className={`${styles.accordionContent} ${className}`}>{children}</div>}
       </div>
     </div>
   );

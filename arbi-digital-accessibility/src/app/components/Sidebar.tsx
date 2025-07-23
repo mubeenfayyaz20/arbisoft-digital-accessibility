@@ -5,7 +5,7 @@ import Image from "next/image";
 import styles from "../styles/components/Sidebar.module.scss";
 import Accordion from "./Accordion";
 import Button from "../components/Button";
-import ListAltIcon from '@mui/icons-material/ListAlt';
+import ListAltIcon from "@mui/icons-material/ListAlt";
 import { ChevronRightOutlined } from "@mui/icons-material";
 
 const Sidebar = () => {
@@ -29,8 +29,7 @@ const Sidebar = () => {
       <div className={styles.sidebarMenuWrap}>
         <div className={styles.sidebarLinksWrap}>
           <span className={styles.demoLabel}>
-           <ListAltIcon fontSize="large" aria-hidden="true" /> Demo
-            Resources
+            <ListAltIcon fontSize="large" aria-hidden="true" /> Demo Resources
           </span>
           <Accordion
             title="Common checks"
@@ -52,8 +51,25 @@ const Sidebar = () => {
             title="Form Checks"
             isOpen={openIndex === 2}
             onToggle={() => handleToggle(2)}
+            className={styles.generalFormAccordion}
           >
-            Content for section 3.
+            <ul>
+              <li>
+                <Link href="/demo-resources/forms-checks/general-form-patterns">
+                  General Form Patterns
+                </Link>
+              </li>
+              <li>
+                <Link href="/demo-resources/forms-checks/top-line-error-form">
+                  Top Line Error Form
+                </Link>
+              </li>
+              <li>
+                <Link href="/demo-resources/forms-checks/date-input-field">
+                  Date Input Field
+                </Link>
+              </li>
+            </ul>
           </Accordion>
         </div>
         <div className={styles.sidebarNotification}>
@@ -63,9 +79,8 @@ const Sidebar = () => {
             text="Best Reference Links"
             rounded={false}
             variant="filled"
-            icon={<ChevronRightOutlined  fontSize="large"/>}
+            icon={<ChevronRightOutlined fontSize="large" />}
             href="/best-references-link"
-            
           />
         </div>
       </div>
