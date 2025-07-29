@@ -5,8 +5,7 @@ import GoBackButton from "@/app/components/BackButton";
 import PageScrollTop from "@/app/components/PageScrollTop";
 
 export const metadata: Metadata = {
-  title:
-    "Best Practices and Common Mistakes | Arbi Digital Accessibility",
+  title: "Best Practices and Common Mistakes | Arbi Digital Accessibility",
   description:
     "Explore accessible and inaccessible form examples, covering required fields, labels, validation, error messages, placeholder usage, and grouping. Learn how to build forms that are usable, inclusive, and WCAG-compliant.",
 };
@@ -45,6 +44,20 @@ const page = () => {
 </label>
 <input type="email" id="email" name="email" required aria-required="true">
 `}
+          preview={
+            <>
+              <label htmlFor="email">
+                Email <span aria-hidden="true">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                aria-required="true"
+              />
+            </>
+          }
           language="html"
           label="Required Fields Correct Code Usage"
           captionHeading="Why it's good:"
@@ -60,6 +73,9 @@ const page = () => {
         />
         <CodeSnippet
           code={`<input type="email" placeholder="Enter your email" required>`}
+          preview={
+            <input type="email" placeholder="Enter your email" required />
+          }
           language="html"
           label="Required Fields Incorrect Code Usage"
           showCopyButton={false}
@@ -68,8 +84,8 @@ const page = () => {
           caption={
             <ul className="importantNote unListType  margin-0">
               <li>
-                No &lt;label&gt; (screen readers can&#39;t associate the input with
-                its purpose)
+                No &lt;label&gt; (screen readers can&#39;t associate the input
+                with its purpose)
               </li>
               <li>
                 Placeholder disappears on focus, which affects memory and
@@ -244,7 +260,7 @@ is required.</span>
           }
         />
       </div>
-             <GoBackButton />
+      <GoBackButton />
     </>
   );
 };

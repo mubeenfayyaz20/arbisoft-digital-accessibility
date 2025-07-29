@@ -60,8 +60,8 @@ const Sidebar = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/demo-resources/forms-checks/top-line-error-form">
-                  Top Line Error Form
+                <Link href="/demo-resources/forms-checks/top-error-summary">
+                  Top Error Summary
                 </Link>
               </li>
               <li>

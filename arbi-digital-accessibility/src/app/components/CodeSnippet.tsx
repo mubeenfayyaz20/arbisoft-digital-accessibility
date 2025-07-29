@@ -10,6 +10,7 @@ interface CodeSnippetProps {
   caption?: string | React.ReactNode; // optional caption for the code snippet
   captionHeading?: string; // optional heading for the caption
   captionColor?: "default" | "green" | "red"; // add more if needed
+  preview?: React.ReactNode; // NEW!
 }
 
 const CodeSnippet = ({
@@ -20,6 +21,7 @@ const CodeSnippet = ({
   caption,
   captionHeading,
   captionColor = "default", // default color
+  preview, // NEW prop for preview content
 }: CodeSnippetProps) => {
   const [copied, setCopied] = useState(false);
 
@@ -46,6 +48,15 @@ const CodeSnippet = ({
         <p id="code-label" className={styles.labelWrapper}>
           {label}
         </p>
+      )}
+
+      {preview && (
+        <div className={styles.previewContainer}>
+          <h6 className={`${styles.captionHeading} ${colorClass}`}>
+            Preview Code
+          </h6>
+          <div className={styles.previewCode}>{preview}</div>
+        </div>
       )}
 
       <pre className={styles.preCodeSinppet}>

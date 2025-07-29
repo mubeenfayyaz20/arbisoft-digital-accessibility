@@ -25,7 +25,6 @@
   .figCaption {
     font-size: 16px;
     display: flex;
-    font-family: ui-monospace;
     align-items: center;
     gap: 5px;
     justify-content: center;
@@ -51,6 +50,25 @@
     font-weight: 700;
   }
 
+  .previewContainer {
+    padding: 20px;
+    border: 1px solid $iron-color;
+    border-left: 4px solid $iron-color;
+    background: $porcelain;
+    padding: 14px;
+    margin: 10px;
+    margin-bottom: 0;
+
+    .captionHeading {
+      padding:0 0 5px 0;
+    }
+
+    input {
+      border: 1px solid $border-color;
+    }
+  }
+
+
   .preCodeSinppet {
     scrollbar-width: thin;
     scrollbar-color: #4b5563 #1f2937;
@@ -72,7 +90,7 @@
   }
 
   .captionGreen {
-    color: $teal-green; 
+    color: $teal-green;
   }
 
   .captionRed {
