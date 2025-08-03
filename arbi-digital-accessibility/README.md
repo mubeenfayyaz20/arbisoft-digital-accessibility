@@ -44,3 +44,7 @@ npm run lint
 ## Google icons uses
 npm install @mui/icons-material @mui/material @emotion/react @emotion/styled
 https://mui.com/material-ui/material-icons/
+
+
+## dataopicker plugin
+npm install react-datepicker

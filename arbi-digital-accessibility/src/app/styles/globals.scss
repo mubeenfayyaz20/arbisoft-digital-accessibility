@@ -1,5 +1,7 @@
 @use "../styles/colors.scss" as *;
 @use "tailwindcss";
+@import "react-datepicker/dist/react-datepicker.css";
+
 
 * {
   margin: 0;
