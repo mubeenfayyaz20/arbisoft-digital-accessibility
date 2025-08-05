@@ -3,10 +3,27 @@
 .accordionWrap {
   border: 1px solid $border-color;
   margin-bottom: 5px;
-  button[aria-expanded="true"] {
-  border-bottom: 1px solid $border-color;
 
-}
+  button {
+    width: 100%;
+    cursor: pointer;
+  }
+
+  button[aria-expanded="true"] {
+    border-bottom: 1px solid $border-color;
+    background-color: $link-blue-color;
+
+    span {
+      color: $white;
+
+    }
+
+    svg {
+      color: $white;
+    }
+
+  }
+
   .accordionTitle {
     font-size: 1.6rem;
     padding: 10px;
@@ -17,10 +34,13 @@
     align-items: center;
     cursor: pointer;
   }
+
   .accordionContent {
     padding: 10px 20px;
   }
+
   svg {
     cursor: pointer;
+    margin-right: 5px;
   }
 }

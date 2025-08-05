@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import { Metadata } from "next";
 import CodeSnippet from "@/app/components/CodeSnippet";
 import GoBackButton from "@/app/components/BackButton";
@@ -69,7 +68,7 @@ const page = () => {
                 VoiceOver
               </li>
               <li>
-                Uses <code>aria-describedby</code> and <code>role="alert"</code>{" "}
+                Uses <code>aria-describedby</code> and <code>role=&quot;alert&quot;</code>{" "}
                 for accessible error messages
               </li>
               <li>Clearly defines min/max expectations in hint text</li>
@@ -103,7 +102,7 @@ const page = () => {
                 <code>aria-describedby</code>)
               </li>
               <li>
-                No <code>role="alert"</code> means screen reader users may not
+                No <code>role=&quot;alert&quot;</code> means screen reader users may not
                 know what went wrong
               </li>
               <li>

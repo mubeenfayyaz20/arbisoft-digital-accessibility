@@ -31,52 +31,54 @@ const Sidebar = () => {
           <span className={styles.demoLabel}>
             <ListAltIcon fontSize="large" aria-hidden="true" /> Demo Resources
           </span>
-          <Accordion
-            title="Common checks"
-            isOpen={openIndex === 0}
-            onToggle={() => handleToggle(0)}
-          >
-            Content for section 1.
-          </Accordion>
+          <div className="sidebarInnerLinks">
+            <Accordion
+              title="Common checks"
+              isOpen={openIndex === 0}
+              onToggle={() => handleToggle(0)}
+            >
+              Content for section 1.
+            </Accordion>
 
-          <Accordion
-            title="Audio/Visual Checks"
-            isOpen={openIndex === 1}
-            onToggle={() => handleToggle(1)}
-          >
-            Content for section 2.
-          </Accordion>
+            <Accordion
+              title="Audio/Visual Checks"
+              isOpen={openIndex === 1}
+              onToggle={() => handleToggle(1)}
+            >
+              Content for section 2.
+            </Accordion>
 
-          <Accordion
-            title="Form Checks"
-            isOpen={openIndex === 2}
-            onToggle={() => handleToggle(2)}
-            className={styles.generalFormAccordion}
-          >
-            <ul>
-              <li>
-                <Link href="/demo-resources/forms-checks/general-form-patterns">
-                  General Form Patterns
-                </Link>
-              </li>
-              <li>
-                <Link href="/demo-resources/forms-checks/top-error-summary">
-                  Top Error Summary
-                </Link>
-              </li>
-              <li>
-                <Link href="/demo-resources/forms-checks/date-input-field">
-                  Date Input Field
-                </Link>
-              </li>
-              <li>
-                <Link href="/demo-resources/forms-checks/age-input-field">
-                  Age Field
-                </Link>
-              </li>
-            </ul>
-          </Accordion>
-        </div>
+            <Accordion
+              title="Form Checks"
+              isOpen={openIndex === 2}
+              onToggle={() => handleToggle(2)}
+              className={styles.generalFormAccordion}
+            >
+              <ul>
+                <li>
+                  <Link href="/demo-resources/forms-checks/general-form-patterns">
+                    General Form Patterns
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/demo-resources/forms-checks/top-error-summary">
+                    Top Error Summary
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/demo-resources/forms-checks/date-input-field">
+                    Date Input Field
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/demo-resources/forms-checks/age-input-field">
+                    Age Field
+                  </Link>
+                </li>
+              </ul>
+            </Accordion>
+            </div>
+          </div>
         <div className={styles.sidebarNotification}>
           Click this button to learn web accessibility in the best way.
           <Button

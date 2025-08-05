@@ -42,7 +42,7 @@ const page = () => {
           </Link>
           <br />
           <Link
-          target="_blank"
+            target="_blank"
             href="https://flatpickr.js.org/instance-methods-properties-elements/"
             className="link-color-blue mt-2 underline font-semibold hover:no-underline"
           >
@@ -68,8 +68,8 @@ const page = () => {
         </li>
         <li>
           Plugin-based date pickers support consistent cross-browser behavior,
-          unlike native <code>type="date"</code> which may be unsupported or
-          inaccessible.
+          unlike native <code>type=&quot;date&quot;</code> which may be
+          unsupported or inaccessible.
         </li>
         <li>
           Enhanced keyboard navigation allows users to select dates without
@@ -111,7 +111,7 @@ const page = () => {
               <li>Descriptive hint explains interaction and format</li>
               <li>
                 Better browser compatibility than native{" "}
-                <code>type="date"</code>
+                <code>type=&quot;date&quot;</code>
               </li>
             </ul>
           }
@@ -133,8 +133,8 @@ const page = () => {
           caption={
             <ul className="importantNote unListType  margin-0">
               <li>
-                <code>type="date"</code> is not supported consistently across
-                browsers (e.g., Firefox, Safari)
+                <code>type=&quot;date&quot;</code> is not supported consistently
+                across browsers (e.g., Firefox, Safari)
               </li>
               <li>Default date picker UIs may not be keyboard accessible</li>
               <li>

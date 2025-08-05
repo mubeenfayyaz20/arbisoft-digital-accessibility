@@ -67,6 +67,11 @@
   scrollbar-width: thin;
   scrollbar-color: #4b5563 #1f2937;
 
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+
   .generalFormAccordion {
     padding: 10px !important;
 
@@ -79,14 +84,18 @@
         margin-bottom: 5px;
 
         a {
-          border: 1px solid $border-color;
+          padding: 5px 10px;
+          background-color: $body-bg;
           width: 100%;
           color: $primary-color;
           text-decoration: none;
           font-size: 1.4rem;
           display: block;
+          border-radius: 4px;
 
           &:hover {
+            color: $link-blue-color;
+            background-color: $polar;
             text-decoration: underline;
           }
         }
@@ -95,3 +104,6 @@
   }
 
 }
+
+
+
