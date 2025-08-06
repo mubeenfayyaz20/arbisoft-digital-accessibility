@@ -3,7 +3,9 @@ import "@/app/styles/globals.scss";
 import Link from "next/link";
 import type { Metadata } from "next";
 import WcagPrinciples from "./components/wcagPrinciples/WcagPrinciples";
-
+import { AccessibleOutlined } from "@mui/icons-material";
+import Button from "@/app/components/Button";
+import { LaunchOutlined } from "@mui/icons-material";
 
 export const metadata: Metadata = {
   title: "Home | Arbi Digital Accessibility",
@@ -13,17 +15,28 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <div className="d-flex gap-2 align-items-center">
-        <h2 className="sub-title">WCAG Document</h2>
+      <div className="mainIconCard">
+          <AccessibleOutlined className="mainIcon" />
+          <div className="mainIconCard__inner">
+            <h2 className="sub-title">WCAG Document</h2>
+            <p className="plainText">
+              These guidelines explain how to make web content more accessible
+              to people with various abilities and disabilities. People involved
+              in web development should know and follow these guidelines. They
+              are especially important for designers, developers, content
+              creators, and people who test websites. Following these guidelines
+              makes sure websites meet the minimum accessibility standards.
+            </p>
+            <Button
+              className="margin-top-20 mt-0 customButton"
+              text="Full Guidlines"
+              rounded={false}
+              variant="outline"
+              icon={<LaunchOutlined fontSize="large" />}
+              href="/"
+            />
+          </div>
       </div>
-      <p className="plainText">
-        These guidelines explain how to make web content more accessible to
-        people with various abilities and disabilities. People involved in web
-        development should know and follow these guidelines. They are especially
-        important for designers, developers, content creators, and people who
-        test websites. Following these guidelines makes sure websites meet the
-        minimum accessibility standards.
-      </p>
       <div className="flex flex-col md:flex-row md:gap-8">
         <div className="md:w-2/3">
           <div className="flex flex-col sm:flex-row sm:items-center gap-2">

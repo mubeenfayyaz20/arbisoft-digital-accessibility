@@ -76,14 +76,14 @@ a {
 
 .mainContent {
   padding-left: 310px;
-  padding-top: 80px;
+  padding-top: 95px;
   width: 100%;
   padding-right: 30px;
 }
 
 .sub-title {
   font-weight: 600;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   background-image: none;
   margin: 15px 0;
 
@@ -262,5 +262,28 @@ pre {
     &:hover {
       background-color: $body-bg;
     }
+  }
+}
+
+.mainIconCard {
+  display: flex;
+  background-color: $polar;
+  border: 1px solid $border-color;
+  border-radius: 10px;
+  padding:10px 20px 20px 20px;
+  margin-bottom: 20px;
+  gap: 20px;
+  .mainIcon {
+    background-color: #d5dff9;
+    font-size: 80px;
+    color: $link-blue-color;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 15px;
+
+  }
+
+  button {
+    width: fit-content;
   }
 }

@@ -86,7 +86,7 @@ const Sidebar = () => {
           </p>
           <Button
             className="mt-2"
-            text="Best Reference Links"
+            text="View Reference Materials"
             rounded={false}
             variant="filled"
             icon={<ChevronRightOutlined fontSize="large" />}
