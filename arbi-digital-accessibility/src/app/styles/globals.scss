@@ -138,11 +138,11 @@ a {
   padding: 10px 0;
 
   .accordionInner {
-    border: 1px solid $shakespeare !important;
-    background-color: $polar !important;
+    border: 1px solid $border-color !important;
     margin-bottom: 15px;
     width: 100%;
     border-radius: 8px;
+    background-color: #fff;
 
     button {
       padding: 10px;

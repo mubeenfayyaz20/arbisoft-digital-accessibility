@@ -3,13 +3,11 @@ import CodeSnippet from "@/app/components/CodeSnippet";
 import ImageWithCaption from "@/app/components/ImageWithCaption";
 import GoBackButton from "@/app/components/BackButton";
 import PageScrollTop from "@/app/components/PageScrollTop";
-import { GoodExample, BadExample } from "./GoodBadExamples";
-
 
 export const metadata: Metadata = {
-  title: "1.2.1 Guideline - Audio Transcript Text of Complaints | Arbi Digital Accessibility",
+  title: "Table Identification Compliance | Arbi Digital Accessibility",
   description:
-    "Ensure audio content has synchronized transcripts to meet WCAG 1.2.1 compliance. Improve accessibility for Deaf and hard of hearing users by providing meaningful text alternatives.",
+    "Ensure all data tables are properly identified with <table> and have captions or summaries for assistive technology. WCAG 1.3.1 compliant.",
 };
 
 export default function Page() {
@@ -22,81 +20,92 @@ export default function Page() {
           <GoBackButton />
         </div>
         <h1 className="text-center dark-color largeHeading">
-          Audio Transcript Text of Complaints
+          Table Identification
         </h1>
       </div>
 
       <h2 className="sub-title">Who Benefits</h2>
       <ul className="importantNote unListType plainText">
-        <li>Improves accessibility for Deaf and hard of hearing users.</li>
-        <li>Helps users in sound-sensitive environments consume content silently.</li>
-        <li>Supports search engine indexing of audio content.</li>
-        <li>Improves usability for users with cognitive or learning disabilities.</li>
+        <li>Screen reader users needing context for tabular data.</li>
+        <li>Users with cognitive disabilities who benefit from structured data.</li>
+        <li>Assistive technology users who rely on semantic HTML.</li>
+        <li>Developers who want to ensure content is accessible and WCAG compliant.</li>
       </ul>
 
+      {/* GOOD EXAMPLE */}
       <h2 className="sub-title">Correct Example</h2>
+      <CodeSnippet
+        code={`<table>
+  <caption>Monthly Sales Report</caption>
+  <thead>
+    <tr>
+      <th>Month</th>
+      <th>Sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>January</td>
+      <td>$10,000</td>
+    </tr>
+    <tr>
+      <td>February</td>
+      <td>$12,500</td>
+    </tr>
+  </tbody>
+</table>`}
+        captionHeading="Why it's good:"
+        captionColor="green"
+        language="html"
+        label="Data Table with Caption and Semantic Elements"
+        caption={
+          <ul className="importantNote unListType margin-0">
+            <li>Uses semantic <code>&lt;table&gt;</code> for tabular data.</li>
+            <li>Includes a <code>&lt;caption&gt;</code> for accessible context.</li>
+            <li>Screen reader announces the caption first, then table contents.</li>
+            <li>Improves understanding and navigation within data.</li>
+            <li>Complies with WCAG 1.3.1 (Info and Relationships).</li>
+          </ul>
+        }
+      />
 
-<CodeSnippet
-  code={`<audio controls aria-describedby="transcript">
-  <source src="complaint-audio.mp3" type="audio/mpeg" />
-  Your browser does not support the audio element.
-</audio>
-<div id="transcript">
-  <h3>Transcript</h3>
-  <p>
-    Hello, I want to report an issue with the mobile app. The screen keeps
-    freezing whenever I try to upload a document. Please look into this.
-  </p>
-</div>`}
-preview={<GoodExample />}
-  captionHeading="Why it's good:"
-  captionColor="green"
-  language="html"
-  label="Audio With Transcript (Good Example)"
-  caption={
-    <ul className="importantNote unListType margin-0">
-      <li>Provides a full transcript of the audio content.</li>
-      <li>Ensures access for deaf or hard of hearing users.</li>
-      <li>Transcript is programmatically associated via <code>aria-describedby</code>.</li>
-      <li>Complies with WCAG 1.2.1 Audio-only (Prerecorded).</li>
-    </ul>
-  }
-/>
+      {/* BAD EXAMPLE */}
       <h2 className="sub-title">Incorrect Example</h2>
-   <CodeSnippet
-  code={`<audio controls>
-  <source src="complaint-audio.mp3" type="audio/mpeg" />
-  Your browser does not support the audio element.
-</audio>`}
-preview={<BadExample />}
-  captionHeading="Why it's bad:"
-  captionColor="red"
-  language="html"
-  label="Audio Without Transcript (Bad Example)"
-  caption={
-    <ul className="importantNote unListType margin-0">
-      <li>No transcript provided for the audio content.</li>
-      <li>Users who are deaf or hard of hearing cannot access the information.</li>
-      <li>No accessible alternative or descriptive summary available.</li>
-      <li>Fails WCAG 1.2.1 Audio-only (Prerecorded) compliance.</li>
-    </ul>
-  }
-/>
-
+      <CodeSnippet
+        code={`<div>
+  <p>Monthly Sales Report</p>
+  <div>January - $10,000</div>
+  <div>February - $12,500</div>
+</div>`}
+        captionHeading="Why it's bad:"
+        captionColor="red"
+        language="html"
+        label="Non-semantic Table Using Divs"
+        caption={
+          <ul className="importantNote unListType margin-0">
+            <li>Uses <code>&lt;div&gt;</code> and <code>&lt;p&gt;</code> to simulate a table.</li>
+            <li>No semantic meaning or relationship for assistive tech.</li>
+            <li>Screen readers won’t recognize it as tabular data.</li>
+            <li>Fails WCAG 1.3.1, creating confusion for screen reader users.</li>
+            <li>Not navigable using table-specific keyboard shortcuts.</li>
+          </ul>
+        }
+      />
 
       <h2 className="sub-title">Why This Matters</h2>
       <ul className="importantNote unListType margin-0">
-        <li>Transcripts are required for WCAG 1.2.1 compliance.</li>
-        <li>They ensure content is perceivable by all users regardless of ability.</li>
-        <li>Essential for users relying on text-based alternatives to audio.</li>
+        <li>Tables provide essential structure to complex data.</li>
+        <li>Semantic elements like <code>&lt;table&gt;</code>, <code>&lt;caption&gt;</code>, <code>&lt;thead&gt;</code>, and <code>&lt;th&gt;</code> improve comprehension.</li>
+        <li>Required under WCAG 1.3.1 (Info and Relationships).</li>
+        <li>Captions give context for screen reader users before hearing the data.</li>
       </ul>
 
       <ImageWithCaption
-        src="/audio-transcript.png"
-        alt="Visual representation of an audio clip with transcript alongside"
-        caption="Audio content paired with its textual transcript for accessibility"
-        width={500}
-        height={300}
+        src="/table-identification.png"
+        alt="VoiceOver announcing caption and column headers in a table"
+        caption="VoiceOver announces 'Monthly Sales Report, table with 2 columns and 2 rows'"
+        width={600}
+        height={350}
       />
 
       <div className="text-start">

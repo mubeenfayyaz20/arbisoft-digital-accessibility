@@ -3,12 +3,11 @@ import CodeSnippet from "@/app/components/CodeSnippet";
 import ImageWithCaption from "@/app/components/ImageWithCaption";
 import GoBackButton from "@/app/components/BackButton";
 import PageScrollTop from "@/app/components/PageScrollTop";
-import LiveCaptionedYouTube from "@/app/components/LiveCaptionedYouTube";
 
 export const metadata: Metadata = {
-  title: "1.2.4 Guideline - Captions (Live) | Arbi Digital Accessibility",
+  title: "Layout Table Structure Compliance | Arbi Digital Accessibility",
   description:
-    "Ensure all live multimedia content includes synchronized captions to comply with WCAG 1.2.4 for accessibility.",
+    "Ensure tables are not misused for layout purposes. Use CSS for layout and reserve <table> elements for data only. WCAG 1.3.1 compliant.",
 };
 
 export default function Page() {
@@ -21,73 +20,130 @@ export default function Page() {
           <GoBackButton />
         </div>
         <h1 className="text-center dark-color largeHeading">
-          Captions (Live)
+          Layout Table Structure
         </h1>
       </div>
 
       <h2 className="sub-title">Who Benefits</h2>
       <ul className="importantNote unListType plainText">
-        <li>Deaf and hard of hearing users who rely on captions to understand spoken content.</li>
-        <li>Viewers in noisy environments (e.g., public transport, events).</li>
-        <li>People in quiet settings where sound is not appropriate (e.g., libraries, meetings).</li>
-        <li>Non-native speakers who benefit from reading along with audio.</li>
+        <li>Screen reader users who rely on tables for data, not layout.</li>
+        <li>Keyboard-only users who need predictable navigation.</li>
+        <li>Developers and designers building responsive, accessible websites.</li>
+        <li>Complies with WCAG 1.3.1 – Info and Relationships.</li>
       </ul>
 
+      {/* GOOD EXAMPLE */}
       <h2 className="sub-title">Correct Example</h2>
       <CodeSnippet
-        code={`<iframe
-  title="Live Stream with Captions"
-  src="https://youtu.be/O3DPVlynUM0"
-  allow="autoplay; encrypted-media"
-  allowFullScreen
-></iframe>
-<p>Live captions are automatically enabled during the stream.</p>`}
-        preview={<LiveCaptionedYouTube videoId="O3DPVlynUM0" />}
+        code={`<div class="layout-grid">
+  <div class="left-column">
+    <h2>Profile</h2>
+    <p>Alice Smith</p>
+  </div>
+  <div class="right-column">
+    <h2>Details</h2>
+    <p>Occupation: Designer</p>
+  </div>
+</div>`}
         captionHeading="Why it's good:"
         captionColor="green"
         language="html"
-        label="Live Video with Captions (Good Example)"
+        label="Layout with Semantic Elements and CSS"
         caption={
           <ul className="importantNote unListType margin-0">
-            <li>Synchronized captions are available during the live stream.</li>
-            <li>Ensures real-time accessibility for deaf and hard of hearing users.</li>
-            <li>Complies with WCAG 1.2.4 by supporting live multimedia accessibility.</li>
+            <li>Uses <code>&lt;div&gt;</code> elements with CSS for layout structure.</li>
+            <li>No misuse of <code>&lt;table&gt;</code> elements for visual placement.</li>
+            <li>Clear separation of layout from content.</li>
+            <li>Responsive design compatible and assistive tech-friendly.</li>
           </ul>
         }
       />
 
+      {/* BAD EXAMPLE */}
       <h2 className="sub-title">Incorrect Example</h2>
       <CodeSnippet
-        code={`<iframe
-  title="Live Stream Without Captions"
-  src="https://www.example.com/live"
-  allow="autoplay; encrypted-media"
-  allowFullScreen
-></iframe>`}
+        code={`<table>
+  <tr>
+    <td><h2>Profile</h2><p>Alice Smith</p></td>
+    <td><h2>Details</h2><p>Occupation: Designer</p></td>
+  </tr>
+</table>`}
         captionHeading="Why it's bad:"
         captionColor="red"
         language="html"
-        label="Live Video Without Captions (Bad Example)"
+        label="Table Used for Visual Layout"
         caption={
           <ul className="importantNote unListType margin-0">
-            <li>No live captions provided, making the content inaccessible to deaf users.</li>
-            <li>Fails to meet WCAG 1.2.4 guidelines for live multimedia.</li>
-            <li>Excludes users who cannot hear or are in sound-restricted environments.</li>
+            <li>Uses a <code>&lt;table&gt;</code> for visual layout instead of data presentation.</li>
+            <li>Screen readers interpret this as data, causing confusion.</li>
+            <li>No real data relationships exist between rows/columns.</li>
+            <li>Fails WCAG 1.3.1 by not conveying correct semantic meaning.</li>
+          </ul>
+        }
+      />
+
+      {/* GOOD EXAMPLE 2 */}
+      <h2 className="sub-title">Correct Example – Common Layout</h2>
+      <CodeSnippet
+        code={`<header>
+  <nav>
+    <ul class="flex space-x-4">
+      <li><a href="/home">Home</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>`}
+        captionHeading="Why it's good:"
+        captionColor="green"
+        language="html"
+        label="Header Navigation with Flexbox"
+        caption={
+          <ul className="importantNote unListType margin-0">
+            <li>Uses semantic <code>&lt;header&gt;</code> and <code>&lt;nav&gt;</code> for structural layout.</li>
+            <li>CSS Flexbox handles horizontal arrangement.</li>
+            <li>No need to misuse tables for menu layout.</li>
+            <li>Accessible and easily navigable by assistive tech.</li>
+          </ul>
+        }
+      />
+
+      {/* BAD EXAMPLE 2 */}
+      <h2 className="sub-title">Incorrect Example – Menu with Table</h2>
+      <CodeSnippet
+        code={`<table>
+  <tr>
+    <td><a href="/home">Home</a></td>
+    <td><a href="/services">Services</a></td>
+    <td><a href="/contact">Contact</a></td>
+  </tr>
+</table>`}
+        captionHeading="Why it's bad:"
+        captionColor="red"
+        language="html"
+        label="Menu Built Using Table Layout"
+        caption={
+          <ul className="importantNote unListType margin-0">
+            <li>Misuses table elements to control layout of links.</li>
+            <li>Confuses screen readers and users expecting tabular data.</li>
+            <li>No semantic value for a navigation list.</li>
+            <li>Harder to style responsively than CSS layout options.</li>
           </ul>
         }
       />
 
       <h2 className="sub-title">Why This Matters</h2>
       <ul className="importantNote unListType margin-0">
-        <li>Live captions provide equal access in real time for people with hearing loss.</li>
-        <li>They promote inclusion during events, meetings, webinars, and broadcasts.</li>
-        <li>Compliance with WCAG 1.2.4 is essential for accessible live content delivery.</li>
+        <li>Layout tables confuse screen readers that expect real data relationships.</li>
+        <li>Using CSS and semantic HTML ensures better accessibility and responsiveness.</li>
+        <li>Helps AT users understand the actual meaning of content and sections.</li>
+        <li>Required by WCAG 1.3.1 – separating structure from presentation.</li>
       </ul>
 
       <ImageWithCaption
-        src="/live-stream.png"
-        alt="Live broadcast with real-time captions at the bottom of the screen"
-        caption="Live stream showing synchronized captions during a broadcast."
+        src="/table-layout-structure.png"
+        alt="VoiceOver mistakenly announces layout table as data"
+        caption="Bad Example – VoiceOver announces row and column structure in layout tables, causing confusion"
         width={600}
         height={350}
       />

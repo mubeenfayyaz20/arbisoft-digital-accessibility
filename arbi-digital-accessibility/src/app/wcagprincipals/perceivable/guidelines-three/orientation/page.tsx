@@ -3,13 +3,11 @@ import CodeSnippet from "@/app/components/CodeSnippet";
 import ImageWithCaption from "@/app/components/ImageWithCaption";
 import GoBackButton from "@/app/components/BackButton";
 import PageScrollTop from "@/app/components/PageScrollTop";
-import VideoWithCaptions from "../../../../components/VideoWithCaptions";
 
 export const metadata: Metadata = {
-  title:
-    "1.2.2 Guideline - Captions for Prerecorded Video | Arbi Digital Accessibility",
+  title: "Orientation | Arbi Digital Accessibility",
   description:
-    "Ensure that all prerecorded videos include synchronized captions to meet WCAG 1.2.2 compliance. Improve accessibility for Deaf and hard of hearing users by providing equivalent text alternatives for spoken content.",
+    "Ensure content and functionality are not restricted to a single display orientation. Compliant with WCAG 1.3.4.",
 };
 
 export default function Page() {
@@ -22,98 +20,71 @@ export default function Page() {
           <GoBackButton />
         </div>
         <h1 className="text-center dark-color largeHeading">
-          Captions for Prerecorded Video
+          Orientation
         </h1>
       </div>
 
       <h2 className="sub-title">Who Benefits</h2>
       <ul className="importantNote unListType plainText">
-        <li>
-          People who are Deaf or hard of hearing and need text alternatives to
-          spoken content.
-        </li>
-        <li>
-          Users in noisy or quiet environments where audio cannot be heard
-          properly.
-        </li>
-        <li>
-          Individuals with cognitive or learning disabilities who benefit from
-          reading and listening together.
-        </li>
-        <li>
-          Non-native language speakers who find it easier to understand written
-          text.
-        </li>
+        <li>People with motor disabilities using mounted or fixed devices.</li>
+        <li>Users with devices mounted in a specific orientation (e.g. wheelchair users).</li>
+        <li>Complies with WCAG 1.3.4 – Orientation.</li>
       </ul>
 
+      {/* GOOD EXAMPLE */}
       <h2 className="sub-title">Correct Example</h2>
       <CodeSnippet
-        code={`<video controls>
-  <source src="complaint-video.mp4" type="video/mp4" />
-  <track src="complaint-captions.vtt" kind="captions" srclang="en" label="English" default />
-  Your browser does not support the video tag.
-</video>`}
-        // preview={<GoodExample />}
+        code={`@media screen and (orientation: landscape), screen and (orientation: portrait) {
+  .content {
+    display: block;
+  }
+}`}
         captionHeading="Why it's good:"
         captionColor="green"
-        language="html"
-        preview={<VideoWithCaptions />}
-        label="Video With Captions (Good Example)"
+        language="css"
+        label="Responsive Design for All Orientations"
         caption={
           <ul className="importantNote unListType margin-0">
-            <li>Provides synchronized captions for all spoken content.</li>
-            <li>
-              Captions are embedded using a <code>&lt;track&gt;</code> element.
-            </li>
-            <li>Allows users to turn captions on or off as needed.</li>
-            <li>Complies with WCAG 1.2.2 Captions (Prerecorded).</li>
+            <li>Supports both portrait and landscape orientations.</li>
+            <li>Content is accessible regardless of device orientation.</li>
+            <li>Fulfills WCAG guideline for orientation independence.</li>
           </ul>
         }
       />
 
+      {/* BAD EXAMPLE */}
       <h2 className="sub-title">Incorrect Example</h2>
       <CodeSnippet
-        code={`<video controls>
-  <source src="complaint-video.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>`}
+        code={`if (window.orientation !== 90) {
+  alert("Please rotate your device to landscape mode.");
+}`}
         captionHeading="Why it's bad:"
         captionColor="red"
-        language="html"
-        label="Video Without Captions (Bad Example)"
+        language="javascript"
+        label="Restricted to Landscape Orientation"
         caption={
           <ul className="importantNote unListType margin-0">
-            <li>No captions are provided for spoken dialogue.</li>
-            <li>Deaf or hard of hearing users miss critical information.</li>
-            <li>
-              Fails to meet WCAG 1.2.2 Captions (Prerecorded) requirement.
-            </li>
+            <li>Forces users to switch to a specific orientation.</li>
+            <li>Not accessible for users who cannot rotate their devices.</li>
+            <li>Fails WCAG 1.3.4 – restricts content to one orientation.</li>
           </ul>
         }
       />
 
       <h2 className="sub-title">Why This Matters</h2>
       <ul className="importantNote unListType margin-0">
-        <li>
-          Captions provide an equal experience for users who cannot hear the
-          audio.
-        </li>
-        <li>
-          They improve understanding, retention, and accessibility for all
-          users.
-        </li>
-        <li>
-          Captions are a WCAG Level A requirement for all prerecorded video
-          content with speech.
-        </li>
+        <li>Users should access content in any orientation.</li>
+        <li>Important for users with fixed or mounted devices.</li>
+        <li>Promotes inclusive and flexible design.</li>
+        <li>Supports WCAG 1.3.4 compliance for orientation.</li>
       </ul>
 
       <ImageWithCaption
-        src="/pre-record-captions.jpg"
-        alt="Video player showing captions at the bottom"
-        caption="Synchronized captions make videos accessible for Deaf and hard of hearing users"
-        width={500}
-        height={300}
+        src="/orientation.png"
+        alt="Mobile device locked in portrait mode showing inaccessible message asking user to rotate."
+        caption="Bad Example – Content restricted to landscape orientation."
+        width={600}
+        height={350}
       />
 
       <div className="text-start">

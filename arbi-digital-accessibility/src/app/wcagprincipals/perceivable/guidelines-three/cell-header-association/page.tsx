@@ -3,12 +3,11 @@ import CodeSnippet from "@/app/components/CodeSnippet";
 import ImageWithCaption from "@/app/components/ImageWithCaption";
 import GoBackButton from "@/app/components/BackButton";
 import PageScrollTop from "@/app/components/PageScrollTop";
-import LiveCaptionedYouTube from "@/app/components/LiveCaptionedYouTube";
 
 export const metadata: Metadata = {
-  title: "1.2.4 Guideline - Captions (Live) | Arbi Digital Accessibility",
+  title: "Cell-Header Association Compliance | Arbi Digital Accessibility",
   description:
-    "Ensure all live multimedia content includes synchronized captions to comply with WCAG 1.2.4 for accessibility.",
+    "Ensure every data cell in a table is associated with its correct header using scope or headers attributes. WCAG 1.3.1 compliant.",
 };
 
 export default function Page() {
@@ -21,73 +20,155 @@ export default function Page() {
           <GoBackButton />
         </div>
         <h1 className="text-center dark-color largeHeading">
-          Captions (Live)
+          Cell-Header Association
         </h1>
       </div>
 
       <h2 className="sub-title">Who Benefits</h2>
       <ul className="importantNote unListType plainText">
-        <li>Deaf and hard of hearing users who rely on captions to understand spoken content.</li>
-        <li>Viewers in noisy environments (e.g., public transport, events).</li>
-        <li>People in quiet settings where sound is not appropriate (e.g., libraries, meetings).</li>
-        <li>Non-native speakers who benefit from reading along with audio.</li>
+        <li>
+          Screen reader users who rely on header associations for table context.
+        </li>
+        <li>
+          Users navigating data with keyboard shortcuts (row/column
+          relationships).
+        </li>
+        <li>Developers ensuring semantic data structures.</li>
+        <li>Anyone interpreting complex or multidimensional data.</li>
       </ul>
 
-      <h2 className="sub-title">Correct Example</h2>
+      {/* GOOD EXAMPLE 1: Simple Table with scope */}
+      <h2 className="sub-title">Correct Example: Simple Table</h2>
       <CodeSnippet
-        code={`<iframe
-  title="Live Stream with Captions"
-  src="https://youtu.be/O3DPVlynUM0"
-  allow="autoplay; encrypted-media"
-  allowFullScreen
-></iframe>
-<p>Live captions are automatically enabled during the stream.</p>`}
-        preview={<LiveCaptionedYouTube videoId="O3DPVlynUM0" />}
+        code={`<table>
+  <caption>Product Prices</caption>
+  <thead>
+    <tr>
+      <th scope="col">Product</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Notebook</td>
+      <td>$5.99</td>
+    </tr>
+    <tr>
+      <td>Pen</td>
+      <td>$1.49</td>
+    </tr>
+  </tbody>
+</table>`}
         captionHeading="Why it's good:"
         captionColor="green"
         language="html"
-        label="Live Video with Captions (Good Example)"
+        label="Simple Table Using scope= col for Column Headers"
         caption={
           <ul className="importantNote unListType margin-0">
-            <li>Synchronized captions are available during the live stream.</li>
-            <li>Ensures real-time accessibility for deaf and hard of hearing users.</li>
-            <li>Complies with WCAG 1.2.4 by supporting live multimedia accessibility.</li>
+            <li>
+              Uses <code>scope=&quot;col&quot;</code> to associate headers with data cells
+              in columns.
+            </li>
+            <li>
+              Improves navigation and comprehension for assistive technology
+              users.
+            </li>
+            <li>Works well for simple, one-level tables.</li>
           </ul>
         }
       />
 
+      {/* BAD EXAMPLE */}
       <h2 className="sub-title">Incorrect Example</h2>
       <CodeSnippet
-        code={`<iframe
-  title="Live Stream Without Captions"
-  src="https://www.example.com/live"
-  allow="autoplay; encrypted-media"
-  allowFullScreen
-></iframe>`}
+        code={`<table>
+  <tr>
+    <td>Product</td>
+    <td>Price</td>
+  </tr>
+  <tr>
+    <td>Notebook</td>
+    <td>$5.99</td>
+  </tr>
+</table>`}
         captionHeading="Why it's bad:"
         captionColor="red"
         language="html"
-        label="Live Video Without Captions (Bad Example)"
+        label="Table Without Proper Header Association"
         caption={
           <ul className="importantNote unListType margin-0">
-            <li>No live captions provided, making the content inaccessible to deaf users.</li>
-            <li>Fails to meet WCAG 1.2.4 guidelines for live multimedia.</li>
-            <li>Excludes users who cannot hear or are in sound-restricted environments.</li>
+            <li>
+              Fails to use <code>&lt;th&gt;</code> or <code>scope</code>/
+              <code>headers</code> attributes.
+            </li>
+            <li>
+              Screen readers can&apos;t determine relationships between data cells.
+            </li>
+            <li>Users may not understand the meaning of each value.</li>
+            <li>Fails WCAG 1.3.1 for Info and Relationships.</li>
+          </ul>
+        }
+      />
+      {/* GOOD EXAMPLE 2: Complex Table with headers/id */}
+      <h2 className="sub-title">Correct Example: Complex Table</h2>
+      <CodeSnippet
+        code={`<table>
+  <caption>Employee Work Hours</caption>
+  <thead>
+    <tr>
+      <th id="name">Name</th>
+      <th id="monday">Monday</th>
+      <th id="tuesday">Tuesday</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td headers="name">Alice</td>
+      <td headers="monday">8</td>
+      <td headers="tuesday">7</td>
+    </tr>
+    <tr>
+      <td headers="name">Bob</td>
+      <td headers="monday">6</td>
+      <td headers="tuesday">8</td>
+    </tr>
+  </tbody>
+</table>`}
+        captionHeading="Why it's good:"
+        captionColor="green"
+        language="html"
+        label="Complex Table Using headers/id for Explicit Association"
+        caption={
+          <ul className="importantNote unListType margin-0">
+            <li>
+              Uses <code>id</code> on headers and <code>headers</code> on data
+              cells to form clear relationships.
+            </li>
+            <li>
+              Essential for complex tables with multiple headers per cell.
+            </li>
+            <li>
+              Ensures assistive tech reads the correct context for each data
+              point.
+            </li>
           </ul>
         }
       />
 
       <h2 className="sub-title">Why This Matters</h2>
       <ul className="importantNote unListType margin-0">
-        <li>Live captions provide equal access in real time for people with hearing loss.</li>
-        <li>They promote inclusion during events, meetings, webinars, and broadcasts.</li>
-        <li>Compliance with WCAG 1.2.4 is essential for accessible live content delivery.</li>
+        <li>
+          Screen readers announce associated headers when reading table cells.
+        </li>
+        <li>Improves understanding of relationships between data.</li>
+        <li>Complies with WCAG 1.3.1 (Info and Relationships).</li>
+        <li>Prevents confusion in complex tabular content.</li>
       </ul>
 
       <ImageWithCaption
-        src="/live-stream.png"
-        alt="Live broadcast with real-time captions at the bottom of the screen"
-        caption="Live stream showing synchronized captions during a broadcast."
+        src="/cell-header-association.png"
+        alt="VoiceOver reading column header and cell value in a complex table"
+        caption="VoiceOver reads: 'Name: Alice, Monday: 8, Tuesday: 7'"
         width={600}
         height={350}
       />

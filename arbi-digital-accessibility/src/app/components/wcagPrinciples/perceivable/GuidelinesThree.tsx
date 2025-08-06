@@ -81,7 +81,7 @@ const GuidelinesThree = () => {
         <strong>Layout-table-structure</strong> requires that layout tables are not coded as data
         tables. No data table semantics should be detected.{" "}
         <TrackedLink
-          href="/wcagprincipals/perceivable/guidelines-three/layout-table"
+          href="/wcagprincipals/perceivable/guidelines-three/layout-table-structure"
           id="layout-table-structure"
           accordionIndex={2}
           className="font-bold link-color-blue underline"
@@ -100,7 +100,7 @@ const GuidelinesThree = () => {
         <strong>Content-order-meaning-CSS-position</strong> ensures that the visual layout does not
         change the meaning of content, allowing assistive technologies to interpret it correctly.{" "}
         <TrackedLink
-          href="/wcagprincipals/perceivable/guidelines-three/content-order-meaning-css-position"
+          href="/wcagprincipals/perceivable/guidelines-three/content-order-meaning-css"
           id="content-order-meaning-css-position"
           accordionIndex={2}
           className="font-bold link-color-blue underline"

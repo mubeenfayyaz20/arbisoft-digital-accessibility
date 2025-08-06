@@ -77,10 +77,13 @@ const Sidebar = () => {
                 </li>
               </ul>
             </Accordion>
-            </div>
           </div>
+        </div>
         <div className={styles.sidebarNotification}>
-          Click this button to learn web accessibility in the best way.
+          <span className={styles.learnMore}>Learn More</span>
+          <p className={styles.notificationText}>
+            Click this button to learn web accessibility in the best way.
+          </p>
           <Button
             className="mt-2"
             text="Best Reference Links"
