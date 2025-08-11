@@ -3,6 +3,7 @@ import CodeSnippet from "@/app/components/CodeSnippet";
 import ImageWithCaption from "@/app/components/ImageWithCaption";
 import GoBackButton from "@/app/components/BackButton";
 import PageScrollTop from "@/app/components/PageScrollTop";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "1.4.5 Guideline - Images of Text | Arbi Digital Accessibility",
@@ -53,7 +54,8 @@ export default function Page() {
         code={`<img src="/image-text-special-offer.png" alt="Special Offer: 50% Off!" />`}
         captionHeading="Why it's bad:"
         preview={
-          <img src="/image-text-special-offer.png" width="200px" alt="Special Offer: 50% Off!" />
+          <Image src="/image-text-special-offer.png"    width={400}
+            height={400}  alt="Special Offer: 50% Off!" />
         }
         captionColor="red"
         language="html"
@@ -74,7 +76,8 @@ export default function Page() {
         code={`<img src="/quote-image-of-text.png" alt="Inspiration quote: Never give up." />`}
         captionHeading="Why it's bad:"
          preview={
-          <img src="/quote-image-of-text.png" width="200px" alt="Inspiration quote: Never give up." />
+          <Image src="/quote-image-of-text.png"  width={400}
+            height={400} alt="Inspiration quote: Never give up." />
           }
         captionColor="red"
         language="html"

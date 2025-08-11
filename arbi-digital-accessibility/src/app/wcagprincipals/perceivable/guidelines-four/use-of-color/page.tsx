@@ -42,7 +42,7 @@ export default function Page() {
         caption={
           <ul className="importantNote unListType margin-0">
             <li>
-              Color is used, but it's not the only way information is conveyed.
+              Color is used, but it&apso;s not the only way information is conveyed.
             </li>
             <li>Each strength level is also described using visible text.</li>
             <li>
@@ -90,7 +90,7 @@ export default function Page() {
               Symbols are combined with color to reinforce meaning visually.
             </li>
             <li>
-              Users who can’t perceive color still understand success/failure
+              Users who can&apso;t perceive color still understand success/failure
               via icons and text.
             </li>
           </ul>
@@ -113,7 +113,7 @@ export default function Page() {
           <ul className="importantNote unListType margin-0">
             <li>Availability is only shown by background color.</li>
             <li>
-              No accompanying icon or text label for users who can't perceive
+              No accompanying icon or text label for users who can&apos;t perceive
               color.
             </li>
             <li>

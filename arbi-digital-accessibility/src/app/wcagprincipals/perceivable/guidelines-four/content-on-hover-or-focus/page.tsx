@@ -126,7 +126,7 @@ export default function Page() {
         caption={
           <ul className="importantNote unListType margin-0">
             <li>Help text is tied to input via <code>aria-describedby</code>.</li>
-            <li>Visible on focus — users don't have to hover to see it.</li>
+            <li>Visible on focus — users don&apso;t have to hover to see it.</li>
             <li>Works for screen reader users.</li>
           </ul>
         }

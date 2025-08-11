@@ -104,7 +104,7 @@ export default function Page() {
           3:1 for large text.
         </li>
         <li>
-          It's critical in forms, navigation, buttons, and instructional text.
+          It&apso;s critical in forms, navigation, buttons, and instructional text.
         </li>
         <li>Improves readability for all users, especially mobile users.</li>
       </ul>

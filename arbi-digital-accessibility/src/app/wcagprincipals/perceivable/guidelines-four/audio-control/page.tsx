@@ -65,7 +65,7 @@ preview={<AudioSlider src="https://ia801303.us.archive.org/11/items/1970-1979Rad
           <ul className="importantNote unListType margin-0">
             <li>Audio plays automatically without giving the user control to pause or stop it.</li>
             <li>Interferes with screen readers or user experience.</li>
-            <li>Fails WCAG 1.4.2 unless there's an alternative method to stop the sound.</li>
+            <li>Fails WCAG 1.4.2 unless there&apos;s an alternative method to stop the sound.</li>
           </ul>
         }
       />

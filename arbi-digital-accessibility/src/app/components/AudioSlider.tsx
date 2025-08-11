@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState, useEffect, ChangeEvent, use } from 'react';
+import { useRef, useState, useEffect, ChangeEvent } from 'react';
 
 interface AudioSliderProps {
   src: string;
