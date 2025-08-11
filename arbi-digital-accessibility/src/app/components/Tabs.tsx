@@ -6,16 +6,14 @@ import React, {
   useEffect,
   KeyboardEvent,
   ReactElement,
+  ReactNode,
 } from "react";
 import styles from "../styles/components/Tabs.module.scss";
-
-import { ReactNode } from "react";
 
 interface TabProps {
   label: string;
   children: ReactNode;
 }
-
 
 interface TabsContainerProps {
   children: ReactElement<TabProps>[];
@@ -27,9 +25,9 @@ export const Tabs: React.FC<TabsContainerProps> = ({ children }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  // Focus the active tab when it changes
+  // Focus the active tab when it changes without scrolling
   useEffect(() => {
-    tabRefs.current[activeIndex]?.focus();
+    tabRefs.current[activeIndex]?.focus({ preventScroll: true });
   }, [activeIndex]);
 
   const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
@@ -78,22 +76,19 @@ export const Tabs: React.FC<TabsContainerProps> = ({ children }) => {
   );
 };
 
-
-
 // use of tabs
 
-
-      // <Tabs>
-      //   <Tab label="Perceivable">
-      //     <Perceivable />
-      //   </Tab>
-      //   <Tab label="Operable">
-      //     <Operable />
-      //   </Tab>
-      //   <Tab label="Understandable">
-      //     <Understandable />
-      //   </Tab>
-      //   <Tab label="Robust">
-      //     <Robust />
-      //   </Tab>
-      // </Tabs>
+// <Tabs>
+//   <Tab label="Perceivable">
+//     <Perceivable />
+//   </Tab>
+//   <Tab label="Operable">
+//     <Operable />
+//   </Tab>
+//   <Tab label="Understandable">
+//     <Understandable />
+//   </Tab>
+//   <Tab label="Robust">
+//     <Robust />
+//   </Tab>
+// </Tabs>
