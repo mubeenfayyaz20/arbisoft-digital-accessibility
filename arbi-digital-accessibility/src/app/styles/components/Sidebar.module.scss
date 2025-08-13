@@ -32,24 +32,28 @@
   }
 
   .sidebarNotification {
-    background-color:$polar;
+    background-color: $polar;
     border-radius: 10px;
     padding: 15px;
     font-size: 1.4rem;
     margin-bottom: 60px;
     margin-top: auto;
     border: 1px solid $border-color;
+
     .learnMore {
       color: $primary-color;
       font-weight: bold;
       cursor: pointer;
     }
+
     .notificationText {
       margin: 5px 0;
       font-size: 1.4rem;
       color: $primary-color;
     }
-    button, a{
+
+    button,
+    a {
       text-align: center;
       width: 100%;
     }
@@ -98,7 +102,7 @@
 
         a {
           padding: 5px 10px;
-          background-color: $body-bg;
+          background-color: $polar;
           width: 100%;
           color: $primary-color;
           text-decoration: none;
@@ -106,10 +110,16 @@
           display: block;
           border-radius: 4px;
 
-          &:hover {
-            color: $link-blue-color;
-            background-color: $polar;
+          &:hover,
+          &:focus {
+            color: $link-blue-color !important;
+            background-color: $body-bg;
+
             text-decoration: underline;
+          }
+          &:focus{
+            color: $white !important;
+            background-color: $link-color;
           }
         }
       }
@@ -117,6 +127,3 @@
   }
 
 }
-
-
-

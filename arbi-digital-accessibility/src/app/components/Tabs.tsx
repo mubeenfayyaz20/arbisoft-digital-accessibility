@@ -24,13 +24,27 @@ export const Tab = ({ children }: TabProps) => children;
 export const Tabs: React.FC<TabsContainerProps> = ({ children }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const hasUserInteracted = useRef(false); // Track user interaction
 
-  // Focus the active tab when it changes without scrolling
+  // Restore tab index if saved in localStorage
   useEffect(() => {
-    tabRefs.current[activeIndex]?.focus({ preventScroll: true });
+    const savedIndex = localStorage.getItem("activeTabIndex");
+    if (savedIndex !== null) {
+      setActiveIndex(parseInt(savedIndex, 10));
+    }
+  }, []);
+
+  // Save active tab index when it changes
+  useEffect(() => {
+    localStorage.setItem("activeTabIndex", activeIndex.toString());
+    // Only focus if the user has interacted (avoid scroll on page load/refresh)
+    if (hasUserInteracted.current) {
+      tabRefs.current[activeIndex]?.focus({ preventScroll: true });
+    }
   }, [activeIndex]);
 
   const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+    hasUserInteracted.current = true;
     if (e.key === "ArrowRight") {
       e.preventDefault();
       setActiveIndex((prev) => (prev + 1) % children.length);
@@ -39,6 +53,11 @@ export const Tabs: React.FC<TabsContainerProps> = ({ children }) => {
       e.preventDefault();
       setActiveIndex((prev) => (prev === 0 ? children.length - 1 : prev - 1));
     }
+  };
+
+  const handleClick = (index: number) => {
+    hasUserInteracted.current = true;
+    setActiveIndex(index);
   };
 
   return (
@@ -55,7 +74,7 @@ export const Tabs: React.FC<TabsContainerProps> = ({ children }) => {
             ref={(el) => {
               tabRefs.current[index] = el;
             }}
-            onClick={() => setActiveIndex(index)}
+            onClick={() => handleClick(index)}
             className={`py-2 px-4 text-sm font-medium outline-none ${
               index === activeIndex
                 ? "text-white bg-color"
@@ -69,12 +88,13 @@ export const Tabs: React.FC<TabsContainerProps> = ({ children }) => {
           </button>
         ))}
       </div>
-      <div className="p-4 " role="tabpanel">
+      <div className="p-4" role="tabpanel">
         {children[activeIndex]}
       </div>
     </div>
   );
 };
+
 
 // use of tabs
 
