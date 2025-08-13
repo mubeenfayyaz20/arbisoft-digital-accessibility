@@ -45,9 +45,11 @@ const CodeSnippet = ({
     <div className={styles.codeSnippet}>
       {/* 1. Visible label for screen readers and sighted users */}
       {label && (
-        <p id="code-label" className={styles.labelWrapper}>
-          {label}
-        </p>
+        <div className={`${styles.labelWrapper} ${colorClass}`}>
+          <p id="code-label" className={styles.labelMainWrapper}>
+            {label}
+          </p>
+        </div>
       )}
 
       {preview && (

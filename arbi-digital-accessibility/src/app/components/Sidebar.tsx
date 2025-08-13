@@ -33,19 +33,83 @@ const Sidebar = () => {
           </span>
           <div className="sidebarInnerLinks">
             <Accordion
-              title="Common checks"
+              title="Common Checks"
               isOpen={openIndex === 0}
               onToggle={() => handleToggle(0)}
+              className={styles.generalFormAccordion}
             >
-              Content for section 1.
+              <ul>
+                <li>
+                  <Link href="/demo-resources/common-checks/image-alternative-text">
+                    Image Alternative Text
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/demo-resources/common-checks/page-title">
+                    Page Title
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/demo-resources/common-checks/heading-structure">
+                    Heading Structure
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/demo-resources/common-checks/color-contrast">
+                    Color Contrast
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/demo-resources/common-checks/skip-link">
+                    Skip Link
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/demo-resources/common-checks/keyboard-focus">
+                    Keyboard Focus
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/demo-resources/common-checks/language-of-page">
+                    Language of Page
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/demo-resources/common-checks/zoom">
+                    Zoom
+                  </Link>
+                </li>
+              </ul>
             </Accordion>
 
             <Accordion
               title="Audio/Visual Checks"
               isOpen={openIndex === 1}
               onToggle={() => handleToggle(1)}
+              className={styles.generalFormAccordion}
             >
-              Content for section 2.
+              <ul>
+                <li>
+                  <Link href="/demo-resources/forms-checks/general-form-patterns">
+                    Captions
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/demo-resources/forms-checks/top-error-summary">
+                    Transcripts
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/demo-resources/forms-checks/date-input-field">
+                    Audio Description
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/demo-resources/forms-checks/age-input-field">
+                    Video Structure
+                  </Link>
+                </li>
+              </ul>
             </Accordion>
 
             <Accordion

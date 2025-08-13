@@ -12,7 +12,7 @@
   z-index: 1;
 
   .logo {
-    width: 100%;
+    width: 80%;
   }
 
   .demoLabel {
@@ -96,9 +96,11 @@
       padding: 0;
       margin: 0;
       list-style: none;
+      overflow-y: auto;
+    max-height: 190px;
 
       li {
-        margin-bottom: 5px;
+        margin: 5px;
 
         a {
           padding: 5px 10px;
