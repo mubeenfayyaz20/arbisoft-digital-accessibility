@@ -1,7 +1,6 @@
 "use client"; // <-- This is required for hooks inside preview
 
 import React, { useState, useRef } from "react";
-import { Metadata } from "next";
 import CodeSnippet from "@/app/components/CodeSnippet";
 import PageScrollTop from "@/app/components/PageScrollTop";
 

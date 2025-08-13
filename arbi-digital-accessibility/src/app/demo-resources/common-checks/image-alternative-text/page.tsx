@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import CodeSnippet from "@/app/components/CodeSnippet";
 import PageScrollTop from "@/app/components/PageScrollTop";
 import Image from "next/image";
-Image;
+
 export const metadata: Metadata = {
   title: "Image Alternative Text? | Arbi Digital Accessibility",
   description:
@@ -60,7 +60,7 @@ captionColor="green"
             <ul className="importantNote unListType margin-0">
               <li>Clearly describes the image for screen reader users.</li>
               <li>
-                Provides meaningful context, not just keywords ("apple").
+                Provides meaningful context, not just keywords (&quot;apple&quot;).
               </li>
               <li>
                 Allows users who cannot see the image to understand its content.
@@ -72,7 +72,7 @@ captionColor="green"
         {/* BAD EXAMPLE - Missing Alt Attribute */}
         <CodeSnippet
           code={`<img src="/red-apple.jpg">`}
-             preview={<img src="/red-apple.jpg" width={120} height={120} style={{border: "1px solid #ccc", padding: "4px" }} />}
+             preview={<Image src="/red-apple.jpg" alt="" width={120} height={120} style={{border: "1px solid #ccc", padding: "4px" }} />}
           language="html"
           label="Bad Example – Missing Alt Attribute"
           showCopyButton={false}
@@ -118,7 +118,7 @@ captionColor="green"
         {/* BAD EXAMPLE - Keyword Stuffing in Alt */}
         <CodeSnippet
           code={`<img src="/red-apple.jpg" alt="apple fruit fresh apple healthy food organic apple red apple" />`}
-            preview={<img src="/image-placeholder.png" alt="apple fruit fresh apple healthy food organic apple red apple" role="presentation"  width={300} height={300} style={{border: "1px solid #ccc", padding: "4px" }} />}
+            preview={<Image src="/image-placeholder.png" alt="apple fruit fresh apple healthy food organic apple red apple" role="presentation"  width={300} height={300} style={{border: "1px solid #ccc", padding: "4px" }} />}
           language="html"
           label="Bad Example – Keyword Stuffing"
           showCopyButton={false}
