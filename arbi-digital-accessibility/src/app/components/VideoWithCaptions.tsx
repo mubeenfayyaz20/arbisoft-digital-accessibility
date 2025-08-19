@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from 'react';
 
-
 const captions = [
   { start: 0.859, end: 3.179, text: "hi everyone this is Paul J. Adam" },
   { start: 3.179, end: 6.779, text: "and I'm recording a demonstration video" },
@@ -38,8 +37,11 @@ const captions = [
   { start: 114.0, end: 117.0, text: "SR: VoiceOver off" }
 ];
 
+type VideoWithCaptionsProps = {
+  showCaptions?: boolean; // optional prop
+};
 
-export default function VideoWithCaptions() {
+export default function VideoWithCaptions({ showCaptions = true }: VideoWithCaptionsProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -102,28 +104,30 @@ export default function VideoWithCaptions() {
         </button>
       </div>
 
-      {/* Captions Container */}
-      <div className="bg-gray-100 p-4 rounded-lg">
-        <h2 className="text-xl font-bold mb-3">Video Captions</h2>
-        <div className="space-y-2">
-          {captions.map((caption, index) => (
-            <div
-              key={index}
-              onClick={() => handleCaptionClick(caption.start)}
-              className={`p-3 rounded cursor-pointer transition-all ${
-                currentTime >= caption.start && currentTime < caption.end
-                  ? 'bg-blue-500 text-white shadow-md transform -translate-y-0.5'
-                  : 'bg-white hover:bg-gray-200'
-              }`}
-            >
-              <span className="text-sm text-gray-500 mr-2">
-                {formatTime(caption.start)} → {formatTime(caption.end)}:
-              </span>
-              {caption.text}
-            </div>
-          ))}
+      {/* Captions Container (conditionally rendered) */}
+      {showCaptions && (
+        <div className="bg-gray-100 p-4 rounded-lg">
+          <h2 className="text-xl font-bold mb-3">Video Captions</h2>
+          <div className="space-y-2">
+            {captions.map((caption, index) => (
+              <div
+                key={index}
+                onClick={() => handleCaptionClick(caption.start)}
+                className={`p-3 rounded cursor-pointer transition-all ${
+                  currentTime >= caption.start && currentTime < caption.end
+                    ? 'bg-blue-500 text-white shadow-md transform -translate-y-0.5'
+                    : 'bg-white hover:bg-gray-200'
+                }`}
+              >
+                <span className="text-sm text-gray-500 mr-2">
+                  {formatTime(caption.start)} → {formatTime(caption.end)}:
+                </span>
+                {caption.text}
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

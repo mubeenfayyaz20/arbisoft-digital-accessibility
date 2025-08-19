@@ -1,57 +1,22 @@
-"use client"; // <-- This is required for hooks inside preview
-
-import React, { useState, useRef } from "react";
+import React from "react";
+import { Metadata } from "next";
 import CodeSnippet from "@/app/components/CodeSnippet";
 import PageScrollTop from "@/app/components/PageScrollTop";
+import {
+  ModalExample,
+  DropdownExample,
+  FormExample,
+  MouseOnlyDropdown,
+  BadErrorHandling,
+} from "@/app/components/KeyboardFocus";
 
-// export const metadata: Metadata = {
-//   title: "Keyboard Focus | Arbi Digital Accessibility",
-//   description:
-//     "Learn what keyboard focus is, why it is important for accessibility, and see real-world good and bad examples. Covers WCAG compliance, usability for keyboard users, and best practices for visible and logical focus order.",
-// };
+export const metadata: Metadata = {
+  title: "Keyboard Focus | Arbi Digital Accessibility",
+  description:
+    "Learn what keyboard focus is, why it is important for accessibility, and see real-world good and bad examples. Covers WCAG compliance, usability for keyboard users, and best practices for visible and logical focus order.",
+};
 
 const page = () => {
-  // Local modal component for live preview
-  const ModalExample = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const openBtnRef = useRef<HTMLButtonElement>(null);
-    const closeBtnRef = useRef<HTMLButtonElement>(null);
-
-    const openModal = () => {
-      setIsOpen(true);
-      setTimeout(() => closeBtnRef.current?.focus(), 0);
-    };
-
-    const closeModal = () => {
-      setIsOpen(false);
-      setTimeout(() => openBtnRef.current?.focus(), 0);
-    };
-
-    return (
-      <>
-        <button ref={openBtnRef} onClick={openModal}>
-          Open Modal
-        </button>
-        {isOpen && (
-          <div
-            role="dialog"
-            aria-modal="true"
-            style={{
-              padding: "20px",
-              background: "#eee",
-              marginTop: "10px",
-            }}
-          >
-            <p>Modal Content</p>
-            <button ref={closeBtnRef} onClick={closeModal}>
-              Close
-            </button>
-          </div>
-        )}
-      </>
-    );
-  };
-
   return (
     <>
       <PageScrollTop />
@@ -256,6 +221,111 @@ closeBtn.addEventListener('click', () => {
                 Keyboard users may have to start navigation from the top again.
               </li>
               <li>Interrupts workflow and increases cognitive load.</li>
+            </ul>
+          }
+        />
+
+        {/* GOOD EXAMPLE – Accessible Dropdown */}
+        <CodeSnippet
+          code={`<button aria-haspopup="listbox" aria-expanded="true">Options</button>
+<ul role="listbox">
+  <li tabIndex="0">Profile</li>
+  <li tabIndex="0">Settings</li>
+  <li tabIndex="0">Logout</li>
+</ul>`}
+          preview={
+            <div style={{ border: "1px solid #ccc", padding: "8px" }}>
+              <DropdownExample />
+            </div>
+          }
+          language="html"
+          label="Good Example – Accessible Dropdown"
+          captionHeading="Why it's good:"
+          captionColor="green"
+          caption={
+            <ul className="importantNote unListType margin-0">
+              <li>Supports keyboard navigation with Tab/Arrow keys.</li>
+              <li>Announced correctly to screen readers via ARIA roles.</li>
+              <li>Matches expected behavior of native select menus.</li>
+            </ul>
+          }
+        />
+
+        {/* BAD EXAMPLE 1 – Mouse-only Dropdown */}
+        <CodeSnippet
+          code={`<div onClick="openMenu()">⚙ Options</div>
+<div>
+  <p>Profile</p>
+  <p>Settings</p>
+  <p>Logout</p>
+</div>`}
+          preview={<MouseOnlyDropdown />}
+          language="html"
+          label="Bad Example 1 – Mouse-only Dropdown"
+          showCopyButton={false}
+          captionHeading="Why it's bad:"
+          captionColor="red"
+          caption={
+            <ul className="importantNote unListType margin-0">
+              <li>Not focusable with keyboard.</li>
+              <li>No semantic roles or states announced.</li>
+              <li>Fails WCAG 2.1.1 (Keyboard).</li>
+            </ul>
+          }
+        />
+
+        {/* GOOD EXAMPLE – Form Error Focus */}
+        <CodeSnippet
+          code={`<form onsubmit="...">
+  <label>Name: <input aria-describedby="err" /></label>
+  <span id="err">Name is required</span>
+</form>`}
+          preview={
+            <div style={{ border: "1px solid #ccc", padding: "8px" }}>
+              <FormExample />
+            </div>
+          }
+          language="html"
+          label="Good Example – Form Error Focus"
+          captionHeading="Why it's good:"
+          captionColor="green"
+          caption={
+            <ul className="importantNote unListType margin-0">
+              <li>Moves focus to the first invalid field.</li>
+              <li>
+                Error message is programmatically linked via{" "}
+                <code>aria-describedby</code>.
+              </li>
+              <li>Improves efficiency for keyboard users.</li>
+            </ul>
+          }
+        />
+
+        {/* BAD EXAMPLE – Form Error Without Focus */}
+        <CodeSnippet
+          code={`<form onsubmit="...">
+  <label>Name: <input /></label>
+  <span style="color:red">Name is required</span>
+</form>`}
+          preview={<BadErrorHandling />}
+          language="html"
+          label="Bad Example – Form Error Without Focus"
+          showCopyButton={false}
+          captionHeading="Why it's bad:"
+          captionColor="red"
+          caption={
+            <ul className="importantNote unListType margin-0">
+              <li>
+                Error message is only visual, not announced by screen readers.
+              </li>
+              <li>
+                Keyboard focus stays on the submit button instead of moving to
+                the error field.
+              </li>
+              <li>
+                Fails WCAG 3.3.1 (Error Identification) and 3.3.2 (Labels or
+                Instructions).
+              </li>
             </ul>
           }
         />

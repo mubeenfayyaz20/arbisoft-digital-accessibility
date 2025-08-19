@@ -3,7 +3,8 @@ import CodeSnippet from "@/app/components/CodeSnippet";
 import ImageWithCaption from "@/app/components/ImageWithCaption";
 import GoBackButton from "@/app/components/BackButton";
 import PageScrollTop from "@/app/components/PageScrollTop";
-import { GoodExample, BadExample } from "./GoodBadExamples";
+import Link from "next/link";
+import VideoTranscript from "@/app/components/VideoTranscript";
 
 export const metadata: Metadata = {
   title:
@@ -46,57 +47,66 @@ export default function Page() {
 
       <h2 className="sub-title">Good Example</h2>
       <CodeSnippet
-        preview={<GoodExample />}
-        code={`<video controls aria-describedby="video-transcript">
-  <source src="customer-support.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
-<div id="video-transcript">
-  <h3>Transcript</h3>
-  <p>
-   Hi, I’m having trouble logging into my account. It keeps saying my password is incorrect, even after I reset it.
-  </p>
-</div>`}
-        language="html"
-        label="Accessible Video with Transcript (Good Example)"
-        captionHeading="Why it's good:"
+        code={``}
+        preview={
+          <div>
+            <p>
+              <strong>Video Preview:</strong> Accessible Video with Transcript
+            </p>
+
+            <VideoTranscript />
+
+            <br />
+            <Link
+              target="_blank"
+              href="/transcripts/podcast-episode-1.txt"
+              download
+            >
+              Download Transcript (TXT)
+            </Link>
+            <br />
+            <details>
+              <summary>Read Transcript Inline</summary>
+              <p>
+                <strong>Transcript (Excerpt)</strong>
+              </p>
+              <p>Hi! My name is Shadi Abou-Zahra.</p>
+              <p>The Web is essential for many people’s daily life.</p>
+              <p>
+                Web accessibility means equal use for people with disabilities.
+              </p>
+              <p>Captions help people who cannot hear well.</p>
+            </details>
+          </div>
+        }
         captionColor="green"
+        language="jsx"
+        label="Good Example – Accessible Video Component"
+        captionHeading="Why it's good:"
         caption={
           <ul className="importantNote unListType margin-0">
-            <li>
-              Includes transcript for screen reader users and non-hearing users.
-            </li>
-            <li>
-              Transcript is programmatically associated using aria-describedby.
-            </li>
-            <li>Enhances accessibility and comprehension.</li>
+            <li>Video and transcript displayed side-by-side.</li>
+            <li>Transcript also available for download + inline reading.</li>
           </ul>
         }
       />
 
       <h2 className="sub-title">Bad Example</h2>
       <CodeSnippet
-        code={`<video controls>
-  <source src="customer-support.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>`}
-        preview={<BadExample />}
-        language="html"
-        label="Video Without Transcript (Bad Example)"
-        captionHeading="Why it's bad:"
+        code={``}
+        preview={
+          <div >
+            <VideoTranscript showCaptions={false} />
+          </div>
+        }
         captionColor="red"
+        language="jsx"
+        label="Good Example – Accessible Video Component"
+        captionHeading="Why it's good:"
         caption={
           <ul className="importantNote unListType margin-0">
-            <li>
-              No transcript or captions provided for users who can’t hear.
-            </li>
-            <li>
-              Doesn’t meet WCAG success criteria 1.2.1 (Audio-only and
-              Video-only).
-            </li>
-            <li>
-              Lacks semantic support for screen readers or assistive tech.
-            </li>
+            <li>Video and transcript displayed side-by-side.</li>
+            <li>Transcript also available for download + inline reading.</li>
           </ul>
         }
       />

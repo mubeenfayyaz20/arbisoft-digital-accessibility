@@ -97,7 +97,7 @@
       margin: 0;
       list-style: none;
       overflow-y: auto;
-    max-height: 190px;
+      max-height: 190px;
 
       li {
         margin: 5px;
@@ -119,13 +119,26 @@
 
             text-decoration: underline;
           }
-          &:focus{
+
+          &:focus {
             color: $white !important;
             background-color: $link-color;
+          }
+
+          &.activeLink {
+            outline-offset: 2px;
+            color: #fff !important;
+            background-color: #9b2318 !important;
+            outline: 2.5px dotted #9b2318 !important;
+
+            &:hover {
+              color: #fff !important;
+            }
           }
         }
       }
     }
+
   }
 
 }

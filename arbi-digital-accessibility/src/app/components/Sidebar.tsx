@@ -2,18 +2,36 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import styles from "../styles/components/Sidebar.module.scss";
 import Accordion from "./Accordion";
 import Button from "../components/Button";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import { ChevronRightOutlined } from "@mui/icons-material";
 
+// small helper to safely join classes
+const cx = (...tokens: Array<string | false | null | undefined>) =>
+  tokens.filter(Boolean).join(" ");
+
 const Sidebar = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const pathname = usePathname() || "";
 
   const handleToggle = (index: number) => {
     setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
   };
+
+  // ✅ safe helper to merge base + active styles (with fallbacks)
+  const getLinkClass = (href: string) => {
+    const isActive = pathname === href || pathname.startsWith(href + "/");
+
+    // If your SCSS module doesn't define these, we fall back to utility classes.
+    const base = styles?.sidebarLink || "block px-3 py-2 text-gray-700 hover:text-blue-700 rounded-md focus:outline-none focus-visible:ring";
+    const active = styles?.activeLink || "font-semibold text-blue-700 bg-blue-50 border-l-4 border-blue-600";
+
+    return cx(base, isActive && active);
+  };
+
   return (
     <div className={styles.sidebar}>
       <Link href="/" className={styles.logoWrap}>
@@ -31,6 +49,7 @@ const Sidebar = () => {
           <span className={styles.demoLabel}>
             <ListAltIcon fontSize="large" aria-hidden="true" /> Demo Resources
           </span>
+
           <div className="sidebarInnerLinks">
             <Accordion
               title="Common Checks"
@@ -40,42 +59,66 @@ const Sidebar = () => {
             >
               <ul>
                 <li>
-                  <Link href="/demo-resources/common-checks/image-alternative-text">
+                  <Link
+                    href="/demo-resources/common-checks/image-alternative-text"
+                    className={getLinkClass("/demo-resources/common-checks/image-alternative-text")}
+                  >
                     Image Alternative Text
                   </Link>
                 </li>
                 <li>
-                  <Link href="/demo-resources/common-checks/page-title">
+                  <Link
+                    href="/demo-resources/common-checks/page-title"
+                    className={getLinkClass("/demo-resources/common-checks/page-title")}
+                  >
                     Page Title
                   </Link>
                 </li>
                 <li>
-                  <Link href="/demo-resources/common-checks/heading-structure">
+                  <Link
+                    href="/demo-resources/common-checks/heading-structure"
+                    className={getLinkClass("/demo-resources/common-checks/heading-structure")}
+                  >
                     Heading Structure
                   </Link>
                 </li>
                 <li>
-                  <Link href="/demo-resources/common-checks/color-contrast">
+                  <Link
+                    href="/demo-resources/common-checks/color-contrast"
+                    className={getLinkClass("/demo-resources/common-checks/color-contrast")}
+                  >
                     Color Contrast
                   </Link>
                 </li>
                 <li>
-                  <Link href="/demo-resources/common-checks/skip-link">
+                  <Link
+                    href="/demo-resources/common-checks/skip-link"
+                    className={getLinkClass("/demo-resources/common-checks/skip-link")}
+                  >
                     Skip Link
                   </Link>
                 </li>
                 <li>
-                  <Link href="/demo-resources/common-checks/keyboard-focus">
+                  <Link
+                    href="/demo-resources/common-checks/keyboard-focus"
+                    className={getLinkClass("/demo-resources/common-checks/keyboard-focus")}
+                  >
                     Keyboard Focus
                   </Link>
                 </li>
                 <li>
-                  <Link href="/demo-resources/common-checks/language-of-page">
+                  <Link
+                    href="/demo-resources/common-checks/language-of-page"
+                    className={getLinkClass("/demo-resources/common-checks/language-of-page")}
+                  >
                     Language of Page
                   </Link>
                 </li>
                 <li>
-                  <Link href="/demo-resources/common-checks/zoom">
+                  <Link
+                    href="/demo-resources/common-checks/zoom"
+                    className={getLinkClass("/demo-resources/common-checks/zoom")}
+                  >
                     Zoom
                   </Link>
                 </li>
@@ -90,25 +133,30 @@ const Sidebar = () => {
             >
               <ul>
                 <li>
-                  <Link href="/demo-resources/forms-checks/general-form-patterns">
+                  <Link
+                    href="/demo-resources/audio-visual-checks/captions"
+                    className={getLinkClass("/demo-resources/audio-visual-checks/captions")}
+                  >
                     Captions
                   </Link>
                 </li>
                 <li>
-                  <Link href="/demo-resources/forms-checks/top-error-summary">
+                  <Link
+                    href="/demo-resources/audio-visual-checks/transcripts"
+                    className={getLinkClass("/demo-resources/audio-visual-checks/transcripts")}
+                  >
                     Transcripts
                   </Link>
                 </li>
                 <li>
-                  <Link href="/demo-resources/forms-checks/date-input-field">
+                  <Link
+                    href="/demo-resources/audio-visual-checks/audio-description"
+                    className={getLinkClass("/demo-resources/audio-visual-checks/audio-description")}
+                  >
                     Audio Description
                   </Link>
                 </li>
-                <li>
-                  <Link href="/demo-resources/forms-checks/age-input-field">
-                    Video Structure
-                  </Link>
-                </li>
+           
               </ul>
             </Accordion>
 
@@ -120,22 +168,34 @@ const Sidebar = () => {
             >
               <ul>
                 <li>
-                  <Link href="/demo-resources/forms-checks/general-form-patterns">
+                  <Link
+                    href="/demo-resources/forms-checks/general-form-patterns"
+                    className={getLinkClass("/demo-resources/forms-checks/general-form-patterns")}
+                  >
                     General Form Patterns
                   </Link>
                 </li>
                 <li>
-                  <Link href="/demo-resources/forms-checks/top-error-summary">
+                  <Link
+                    href="/demo-resources/forms-checks/top-error-summary"
+                    className={getLinkClass("/demo-resources/forms-checks/top-error-summary")}
+                  >
                     Top Error Summary
                   </Link>
                 </li>
                 <li>
-                  <Link href="/demo-resources/forms-checks/date-input-field">
+                  <Link
+                    href="/demo-resources/forms-checks/date-input-field"
+                    className={getLinkClass("/demo-resources/forms-checks/date-input-field")}
+                  >
                     Date Input Field
                   </Link>
                 </li>
                 <li>
-                  <Link href="/demo-resources/forms-checks/age-input-field">
+                  <Link
+                    href="/demo-resources/forms-checks/age-input-field"
+                    className={getLinkClass("/demo-resources/forms-checks/age-input-field")}
+                  >
                     Age Field
                   </Link>
                 </li>
@@ -143,6 +203,7 @@ const Sidebar = () => {
             </Accordion>
           </div>
         </div>
+
         <div className={styles.sidebarNotification}>
           <span className={styles.learnMore}>Learn More</span>
           <p className={styles.notificationText}>

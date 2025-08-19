@@ -47,6 +47,7 @@ export default function Page() {
         code={`<img alt="Two Cats chasing each other in a garden" src="cats.jpg" />`}
         language="html"
         label="Alt Correct Code Usage "
+        captionColor="green"
       />
       <CodeSnippet
         code={`<img src="chart.png" alt="Sales increase from Jan to June" aria-describedby="chart-data">`}
