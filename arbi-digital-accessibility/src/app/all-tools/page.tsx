@@ -10,7 +10,12 @@ export const metadata: Metadata = {
 const AllTools = () => {
   return (
     <>
-      <div className="text-center">
+      <div className="bookmark-nav">
+        <a href="#web">For Web</a>
+        <a href="#mobile">For Mobile</a>
+        <a href="#figma">For Figma</a>
+      </div>
+      <div className="text-center" id="web" style={{scrollMarginTop: '120px'}}>
         <h1
           className="text-center largeHeading"
           aria-label="Free Web Accessibility Testing Tools"
@@ -141,7 +146,39 @@ const AllTools = () => {
           buttonHref="https://achecks.org/achecker/#google_vignette"
         />
       </div>
-      <div className="text-center">
+      <div className="text-center" id="mobile" style={{scrollMarginTop: '120px'}}>
+        <h1
+          className="text-center largeHeading"
+          aria-label="Free Web Accessibility Testing Tools"
+        >
+          <span
+            aria-hidden="true"
+            className="flex gap-4 items-center justify-center"
+          >
+            Free Accessibility Tools & Plugins
+            <span className="pills">For Mobile</span>
+          </span>
+        </h1>
+      </div>
+      <div className="grid grid-cols-3 gap-8">
+        <Card
+          title="Accessibility scanner (Andriod) "
+          description="Google Accessibility Scanner is a free Android tool that helps developers identify accessibility issues in their apps. It analyzes the user interface and suggests improvements like: Adding content descriptions (labels)
+Increasing touch target size, Improving text contrast etc."
+          buttonText="Accessibility Scanner Download"
+          buttonHref="https://play.google.com/store/apps/details?id=com.google.android.apps.accessibility.auditor"
+          buttonTarget="_blank"
+        />
+        <Card
+          title="TalkBack Build In (Android)"
+          description="TalkBack is the Android screen reader that gives spoken feedback for everything on the screen, making the device accessible for users with low or no vision. Reads all visible UI elements: buttons, headings, form inputs, etc. Gesture-based navigation: swipe gestures to move between items, double-tap to activate. Provides feedback on focus, selection, and errors. How to Enable Settings → Accessibility → TalkBack"
+        />
+        <Card
+          title="VoiceOver Build In (iOS)"
+          description="VoiceOver is a built-in screen reader on all Apple devices, including iPhone and iPad. It allows visually impaired users to use their device without seeing the screen. Speaks aloud everything on the screen: buttons, text, icons, and more. Users navigate by swiping and tapping.Supports gestures like swipe left/right to move focus and double-tap to activate. How to Enable go to Settings → Accessibility → VoiceOver"
+        />
+      </div>
+      <div className="text-center" id="figma" style={{scrollMarginTop: '120px'}}>
         <h1
           className="text-center largeHeading"
           aria-label="Free Web Accessibility Testing Tools"
@@ -183,38 +220,6 @@ const AllTools = () => {
           buttonText="A11y Download"
           buttonTarget="_blank"
           buttonHref="https://www.figma.com/community/plugin/731310036968334777/a11y-focus-order"
-        />
-      </div>
-      <div className="text-center">
-        <h1
-          className="text-center largeHeading"
-          aria-label="Free Web Accessibility Testing Tools"
-        >
-          <span
-            aria-hidden="true"
-            className="flex gap-4 items-center justify-center"
-          >
-            Free Accessibility Tools & Plugins
-            <span className="pills">For Mobile</span>
-          </span>
-        </h1>
-      </div>
-      <div className="grid grid-cols-3 gap-8">
-        <Card
-          title="Accessibility scanner (Andriod) "
-          description="Google Accessibility Scanner is a free Android tool that helps developers identify accessibility issues in their apps. It analyzes the user interface and suggests improvements like: Adding content descriptions (labels)
-Increasing touch target size, Improving text contrast etc."
-          buttonText="Accessibility Scanner Download"
-          buttonHref="https://play.google.com/store/apps/details?id=com.google.android.apps.accessibility.auditor"
-          buttonTarget="_blank"
-        />
-        <Card
-          title="TalkBack Build In (Android)"
-          description="TalkBack is the Android screen reader that gives spoken feedback for everything on the screen, making the device accessible for users with low or no vision. Reads all visible UI elements: buttons, headings, form inputs, etc. Gesture-based navigation: swipe gestures to move between items, double-tap to activate. Provides feedback on focus, selection, and errors. How to Enable Settings → Accessibility → TalkBack"
-        />
-        <Card
-          title="VoiceOver Build In (iOS)"
-          description="VoiceOver is a built-in screen reader on all Apple devices, including iPhone and iPad. It allows visually impaired users to use their device without seeing the screen. Speaks aloud everything on the screen: buttons, text, icons, and more. Users navigate by swiping and tapping.Supports gestures like swipe left/right to move focus and double-tap to activate. How to Enable go to Settings → Accessibility → VoiceOver"
         />
       </div>
     </>

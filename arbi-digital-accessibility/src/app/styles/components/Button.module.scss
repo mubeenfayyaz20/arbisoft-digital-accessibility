@@ -1,15 +1,17 @@
 @use "../colors" as *;
 
 .buttonFilled {
-  background-color: $shakespeare;
+  background-color: $ebony-clay;
   padding: 5px;
   cursor: pointer;
-    font-size: 1.4rem;
+  font-size: 1.4rem;
   font-weight: 500;
+
   &:hover {
     background-color: $primary-color;
   }
-  &:focus{
+
+  &:focus {
     outline: 2.5px dotted;
     outline-offset: 1.2px;
     outline-color: $link-color;
@@ -19,22 +21,24 @@
 }
 
 .buttonOutline {
-  border:1px solid $border-color;
+  border: 1px solid $border-color;
   padding: 5px 12px;
   background-color: $white;
   cursor: pointer;
   font-size: 1.5rem;
   font-weight: 500;
   color: $primary-color;
+
   &:hover {
     background-color: $primary-color;
     color: $white;
   }
-  &:focus{
+
+  &:focus {
     outline: 2.5px dotted;
     outline-offset: 1.2px;
     outline-color: $link-color;
     padding: 5px 12px;
   }
- 
+
 }

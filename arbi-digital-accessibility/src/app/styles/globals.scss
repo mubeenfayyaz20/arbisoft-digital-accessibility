@@ -63,11 +63,11 @@ a {
 }
 
 .bg-color {
-  background-color: $primary-color;
+  background-color: $ebony-clay;
 }
 
 .link-color-blue {
-  color: $shakespeare;
+  color: $link-blue-color;
 
   &:hover {
     color: $tamarillo;
@@ -142,12 +142,13 @@ a {
     margin-bottom: 15px;
     width: 100%;
     border-radius: 8px;
-    background-color: #fff;
+    background-color: $white;
 
     button {
       padding: 10px;
       width: 100%;
       cursor: pointer;
+
     }
 
     span {
@@ -178,7 +179,7 @@ ul.innerList {
 
 pre {
   scrollbar-width: thin;
-  scrollbar-color: #4b5563 #1f2937;
+  scrollbar-color: $river-bed $ebony-clay;
 }
 
 .largeHeading {
@@ -202,14 +203,14 @@ pre {
     outline-color: $link-color;
     background-color: $link-color;
     padding: 6px 15px;
-    color: white;
+    color: $white;
   }
 }
 
 
 .pills {
-  color: $white;
-  background-color: $link-blue-color;
+  color: $ebony-clay;
+  background-color: $polar;
   border-radius: 2px;
   padding: 4px 15px;
   line-height: 30px;
@@ -269,9 +270,10 @@ pre {
   background-color: $polar;
   border: 1px solid $border-color;
   border-radius: 10px;
-  padding:10px 20px 20px 20px;
+  padding: 10px 20px 20px 20px;
   margin-bottom: 20px;
   gap: 20px;
+
   .mainIcon {
     background-color: #d5dff9;
     font-size: 80px;
@@ -288,3 +290,25 @@ pre {
 }
 
 
+/* Navigation links */
+.bookmark-nav {
+  text-align: center;
+  background: $link-blue-color;
+  padding: 10px;
+  position: sticky;
+  top: 68px;
+  z-index: 1;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.bookmark-nav a {
+  color: $white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.bookmark-nav a:hover {
+  text-decoration: underline;
+}

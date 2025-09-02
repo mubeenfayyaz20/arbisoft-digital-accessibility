@@ -55,6 +55,8 @@ const Button = ({
           className={classes}
         >
           {content}
+          <span className="sr-only">(opens in a new tab)</span>
+
         </a>
       );
     }

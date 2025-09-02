@@ -82,7 +82,7 @@
   overflow-y: auto;
   height: 400px;
   scrollbar-width: thin;
-  scrollbar-color: #4b5563 #1f2937;
+  scrollbar-color: $river-bed $ebony-clay;
 
   &::-webkit-scrollbar {
     width: 8px;
@@ -127,12 +127,12 @@
 
           &.activeLink {
             outline-offset: 2px;
-            color: #fff !important;
-            background-color: #9b2318 !important;
-            outline: 2.5px dotted #9b2318 !important;
+            color: $white !important;
+            background-color: $tamarillo !important;
+            outline: 2.5px dotted $link-color !important;
 
             &:hover {
-              color: #fff !important;
+              color: $white !important;
             }
           }
         }

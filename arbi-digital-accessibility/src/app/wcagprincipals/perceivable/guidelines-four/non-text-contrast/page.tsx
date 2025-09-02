@@ -27,6 +27,8 @@ export default function Page() {
         <li>Users with low vision who rely on visual cues to understand interface elements.</li>
         <li>Users in bright environments (e.g., sunlight) needing sufficient contrast.</li>
         <li>Users with cognitive impairments relying on color differences to identify actions.</li>
+        <li>Text to Background Contrast: Normal text requires a minimum ratio of 4.5:1, while large text requires 3:1.</li>
+        <li>Background to Background Contrast: Non-text UI elements (buttons, form fields, icons, focus indicators) require a minimum ratio of 3:1 against adjacent colors.</li>
       </ul>
 
       <h2 className="sub-title">Correct Example</h2>
