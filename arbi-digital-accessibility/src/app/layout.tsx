@@ -26,7 +26,7 @@ export default function RootLayout({
           <Navbar />
           <div className="mainWrapper d-flex">
             <Sidebar />
-            <main className="mainContent" id="main-content">
+            <main className="mainContent" id="main-content" tabIndex={-1}>
               {children}
             </main>
             <Footer />

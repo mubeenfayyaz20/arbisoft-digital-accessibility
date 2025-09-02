@@ -9,12 +9,19 @@ import SearchInput from "../components/SearchInput";
 const Navbar = () => {
   const pathname = usePathname();
 
-
   const isActive = (href: string) => pathname === href;
 
   return (
     <header className={styles.internalMainNav}>
-      <Link href="#main-content" className={styles.skipContent}>
+      <Link
+        href="#main-content"
+        className={styles.skipContent}
+        onClick={(e) => {
+          e.preventDefault();
+          const main = document.getElementById("main-content");
+          main?.focus();
+        }}
+      >
         Skip to main content
       </Link>
       <div className="flex items-center gap-2 justify-between">
