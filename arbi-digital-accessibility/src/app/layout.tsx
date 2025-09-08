@@ -28,6 +28,7 @@ export default function RootLayout({
             <Sidebar />
             <main className="mainContent" id="main-content">
               {children}
+              new
             </main>
             <Footer />
           </div>
