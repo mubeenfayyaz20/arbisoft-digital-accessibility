@@ -23,7 +23,7 @@ const AllTools = () => {
           </span>
         </h1>
       </div>
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid lg:grid-cols-1 lg:grid-cols-2 gap-8">
         <AccessibleTable
           caption="Basic VoiceOver Commands"
           headers={["Action", "Shortcut"]}

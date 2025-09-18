@@ -16,7 +16,7 @@ const page = () => {
     <>
       <PageScrollTop />
       <div className="text-center">
-        <div className="text-start absolute">
+        <div className="text-start md:relative lg:absolute">
           <GoBackButton />
         </div>
         <h1 className="text-center dark-color largeHeading">

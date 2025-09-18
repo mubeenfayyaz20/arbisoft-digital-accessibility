@@ -7,6 +7,7 @@ import Accordion from "./Accordion";
 import Button from "../components/Button";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import ChevronRightOutlined from "@mui/icons-material/ChevronRightOutlined";
+import CloseIcon from "@mui/icons-material/Close";
 
 // helper for class merging
 const cx = (...tokens: Array<string | false | null | undefined>) =>
@@ -17,7 +18,7 @@ interface SidebarProps {
   onClose?: () => void;
 }
 
-const Sidebar = ({ isOpen }: SidebarProps) => {
+const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const pathname = usePathname() || "";
 
@@ -47,6 +48,16 @@ const Sidebar = ({ isOpen }: SidebarProps) => {
     >
       <div className={styles.sidebarMenuWrap}>
         <div className={styles.sidebarLinksWrap}>
+          {/* use this close the sidebar form here too */}
+          {onClose && (
+            <button
+              onClick={onClose}
+              className={styles.closeButton}
+              aria-label="Close sidebar"
+            >
+              <CloseIcon fontSize="medium" />
+            </button>
+          )}
           <span className={styles.demoLabel}>
             <ListAltIcon fontSize="large" aria-hidden="true" /> Demo Resources
           </span>

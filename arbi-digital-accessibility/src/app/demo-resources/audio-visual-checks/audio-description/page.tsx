@@ -43,7 +43,7 @@ const page = () => {
         </li>
       </ul>
 
-      <div className="grid grid-cols-2 gap-8 mt-8">
+      <div className="grid lg:grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
         <CodeSnippet
           code={`<video
               width="400"

@@ -22,7 +22,7 @@ const OurGoals = () => {
           Why Arbi digital accessibility
         </h1>
       </div>
-      <div className="grid grid-cols-2 gap-8 ">
+      <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8 ">
         <Card
           icon={<SchoolOutlined />}
           title="Empowered Learning for All"

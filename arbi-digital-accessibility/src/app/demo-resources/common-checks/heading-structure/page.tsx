@@ -42,7 +42,7 @@ const page = () => {
         <li>Makes large pages more digestible by breaking them into logical sections.</li>
       </ul>
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid lg:grid-cols-1 lg:grid-cols-2 gap-8">
         {/* GOOD EXAMPLE – Proper Hierarchy */}
         <CodeSnippet
           code={`<h1>About Our Company</h1>

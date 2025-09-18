@@ -142,6 +142,16 @@ justify-content: center;
 svg{
   font-size: 20px;
 }
+
+&:focus{
+  outline: 2.5px dotted;
+  outline-offset: 1px;
+  outline-color: $link-color;
+  background-color: $link-color;
+  svg{
+    color: #fff;
+  }
+}
 }
   @media screen and (max-width: 992px) {
     .logoMainWrap {

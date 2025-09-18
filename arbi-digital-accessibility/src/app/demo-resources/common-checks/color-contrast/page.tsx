@@ -39,7 +39,7 @@ const page = () => {
         <li>Supports better overall design clarity and professionalism.</li>
       </ul>
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid lg:grid-cols-1 lg:grid-cols-2 gap-8">
         {/* GOOD EXAMPLE – High Contrast Text */}
         <CodeSnippet
           code={`<p style="color: #000000; background-color: #FFFFFF;">Black text on white background</p>`}

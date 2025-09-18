@@ -130,7 +130,7 @@ const page = () => {
         <li>Helps users with mobility impairments reach content faster.</li>
       </ul>
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid lg:grid-cols-1 lg:grid-cols-2 gap-8">
         <CodeSnippet
           code={`<a href="#maincontent" class="skip-link">Skip to main content</a>
 ...

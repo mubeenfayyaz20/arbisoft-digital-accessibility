@@ -14,7 +14,7 @@ const page = () => {
     <>
       <PageScrollTop />
       <div className="text-center">
-        <div className="text-start absolute">
+        <div className="text-start md:relative lg:absolute">
           <GoBackButton />
         </div>
         <h1 className="text-center dark-color largeHeading">
@@ -37,7 +37,7 @@ const page = () => {
           Clear labels, validation, and feedback help all users avoid mistakes.
         </li>
       </ul>
-      <div className="grid grid-cols-2 gap-8 ">
+      <div className="grid lg:grid-cols-1 lg:grid-cols-2 gap-8 ">
         <CodeSnippet
           code={`<label for="email">Email 
           <span aria-hidden="true">*</span>

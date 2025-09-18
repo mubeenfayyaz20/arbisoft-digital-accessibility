@@ -22,14 +22,14 @@ const AllTools = () => {
         >
           <span
             aria-hidden="true"
-            className="flex gap-4 items-center justify-center"
+            className="flex gap-4 items-center justify-center headingWithLabels"
           >
             Free Web Accessibility Testing Tools
             <span className="pills">For Web</span>
           </span>
         </h1>
       </div>
-      <div className="grid grid-cols-3 gap-8">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <Card
           title="Andi"
           description="Accessible Name & Description Inspector (ANDI) tool, a web accessibility inspection tool, which performs single page testing to automatically detect accessibility issues."
@@ -153,14 +153,14 @@ const AllTools = () => {
         >
           <span
             aria-hidden="true"
-            className="flex gap-4 items-center justify-center"
+            className="flex gap-4 items-center justify-center headingWithLabels"
           >
             Free Accessibility Tools & Plugins
             <span className="pills">For Mobile</span>
           </span>
         </h1>
       </div>
-      <div className="grid grid-cols-3 gap-8">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <Card
           title="Accessibility scanner (Andriod) "
           description="Google Accessibility Scanner is a free Android tool that helps developers identify accessibility issues in their apps. It analyzes the user interface and suggests improvements like: Adding content descriptions (labels)
@@ -185,14 +185,14 @@ Increasing touch target size, Improving text contrast etc."
         >
           <span
             aria-hidden="true"
-            className="flex gap-4 items-center justify-center"
+            className="flex gap-4 items-center justify-center headingWithLabels"
           >
             Free Accessibility Tools & Plugins
             <span className="pills">For Figma Empower User</span>
           </span>
         </h1>
       </div>
-      <div className="grid grid-cols-3 gap-8">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <Card
           title="Stark & Color Contrast "
           description="Tired of manually checking spreadsheets, messy handovers, and expensive retrofitting? The all-new Stark Suite is a powerful combination of integrated tools that help you streamline your accessibility workflow."

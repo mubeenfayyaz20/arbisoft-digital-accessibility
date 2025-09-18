@@ -40,7 +40,7 @@ export default function Home() {
         </div>
       </div>
       <div className="flex flex-col md:flex-row md:gap-8">
-        <div className="md:w-2/3">
+        <div className="sm:w-full lg:w-2/3 ">
           <div className="flex flex-col sm:flex-row sm:items-center gap-2">
             <h2 className="sub-title">Web Compliance</h2>
             <Link

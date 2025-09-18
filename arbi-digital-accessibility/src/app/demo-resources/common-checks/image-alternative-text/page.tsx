@@ -47,7 +47,7 @@ const page = () => {
         </li>
       </ul>
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid lg:grid-cols-1 lg:grid-cols-2 gap-8">
         {/* GOOD EXAMPLE - Descriptive Alt Text */}
         <CodeSnippet
           code={`<img src="/red-apple.jpg" alt="Fresh red apple on a wooden table" />`}

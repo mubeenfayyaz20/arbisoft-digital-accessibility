@@ -335,6 +335,27 @@ pre {
   display: none;
 }
 
+.navbarListData {
+  width: 150px;
+  border: 1px solid $border-color;
+  margin-top: 4px;
+  padding: 5px;
+
+  li {
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    margin: 5px;
+    font-size: 1.4rem;
+
+    a {
+      width: 100%;
+      display: flex;
+      font-size: 13px;
+    }
+
+  }
+}
+
 @media screen and (max-width: 992px) {
   .mainIconCard {
     svg {
@@ -348,7 +369,8 @@ pre {
     display: flex;
     justify-content: center;
     margin-bottom: 25px;
-    form{
+
+    form {
       max-width: 100%;
     }
   }
@@ -356,7 +378,12 @@ pre {
   .WCAGImage {
     display: none;
   }
-  .navMainTop{
-  justify-content: end;
-}
+
+  .navMainTop {
+    justify-content: end;
+  }
+
+  .headingWithLabels {
+    flex-direction: column;
+  }
 }

@@ -4,12 +4,14 @@ import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import styles from "@/app/styles/components/Navbar.module.scss";
+import { usePathname } from "next/navigation";
 const NavbarList: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const menuRef = useRef<HTMLUListElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
-
+  const pathname = usePathname();
+  const isActive = (href: string) => pathname === href;
   // Close when clicking outside (mobile-friendly)
   useEffect(() => {
     const onDocClick = (e: MouseEvent) => {
@@ -79,34 +81,21 @@ const NavbarList: React.FC = () => {
           ref={menuRef}
           role="menu"
           onKeyDown={handleKeyDown}
-          className="absolute right-0 mt-2  bg-white border border-gray-200 rounded-md shadow-lg z-50 "
+          className="absolute right-0 mt-2  bg-white border border-gray-200 rounded-md shadow-lg z-50 navbarListData"
         >
-          <li role="none">
-            <Link
-              href="/our-certifications"
-              role="menuitem"
-              className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 focus:bg-gray-100"
-            >
-              Overview
+          <li className={isActive("/our-goals") ? styles.active : ""}>
+            <Link href="/our-goals">Our Goals</Link>
+          </li>
+          <li>
+            <Link href="https://arbisoft.com/about" target="_blank">
+              About Us
             </Link>
           </li>
-          <li role="none">
-            <Link
-              href="/our-certifications/wcag"
-              role="menuitem"
-              className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 focus:bg-gray-100"
-            >
-              WCAG
-            </Link>
+          <li className={isActive("/all-tools") ? styles.active : ""}>
+            <Link href="/all-tools">All Tools</Link>
           </li>
-          <li role="none">
-            <Link
-              href="/our-certifications/section508"
-              role="menuitem"
-              className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 focus:bg-gray-100"
-            >
-              Section 508
-            </Link>
+          <li className={isActive("/our-certifications") ? styles.active : ""}>
+            <Link href="/our-certifications">Our Certifications</Link>
           </li>
         </ul>
       )}

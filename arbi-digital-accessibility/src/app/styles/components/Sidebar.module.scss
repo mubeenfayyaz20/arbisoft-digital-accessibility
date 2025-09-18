@@ -15,9 +15,11 @@
   z-index: 1100;
   left: -280px;
   overflow-y: auto;
-&.sidebar.open {
-  left: 0; // slide in
-}
+
+  &.sidebar.open {
+    left: 0; // slide in
+  }
+
   .logo {
     width: 80%;
   }
@@ -73,7 +75,10 @@
     height: 100%;
   }
 
+  @media screen and (max-width: 992px) {
+    top: 61px;
 
+  }
 
 }
 
@@ -140,6 +145,35 @@
 
   }
 
+  .closeButton {
+    border: 1px solid $border-color;
+    background-color: $white;
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    position: absolute;
+    top: 0;
+    right: 25px;
+
+    svg {
+      font-size: 20px;
+    }
+
+    &:focus {
+      outline: 2.5px dotted;
+      outline-offset: 1px;
+      outline-color: $link-color;
+      background-color: $link-color;
+
+      svg {
+        color: #fff;
+      }
+    }
+  }
 }
 
 

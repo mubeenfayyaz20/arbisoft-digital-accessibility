@@ -43,7 +43,7 @@ const page = () => {
         </li>
       </ul>
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid lg:grid-cols-1 lg:grid-cols-2 gap-8">
         <CodeSnippet
           code={`<form noValidate>
   <label htmlFor="age">Age</label>
