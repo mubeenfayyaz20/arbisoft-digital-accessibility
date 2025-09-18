@@ -17,7 +17,7 @@ interface SidebarProps {
   onClose?: () => void;
 }
 
-const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
+const Sidebar = ({ isOpen }: SidebarProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const pathname = usePathname() || "";
 

@@ -36,7 +36,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }: NavbarProps) => {
 
     // Cleanup on unmount
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [setIsSidebarOpen]);
   return (
     <header className={styles.internalMainNav}>
       <Link
