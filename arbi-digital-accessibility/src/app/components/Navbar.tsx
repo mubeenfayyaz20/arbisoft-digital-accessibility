@@ -5,12 +5,38 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "@/app/styles/components/Navbar.module.scss";
 import SearchInput from "../components/SearchInput";
+import Image from "next/image";
+import MenuOpenIcon from "@mui/icons-material/MenuOpen";
+import { useEffect } from "react";
+import NavbarList from "./NavbarList";
 
-const Navbar = () => {
+interface NavbarProps {
+  isSidebarOpen: boolean;
+  setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Navbar = ({ isSidebarOpen, setIsSidebarOpen }: NavbarProps) => {
   const pathname = usePathname();
-
   const isActive = (href: string) => pathname === href;
+  useEffect(() => {
+    // Function to check screen width
+    const handleResize = () => {
+      if (window.innerWidth <= 992) {
+        setIsSidebarOpen(false); // close sidebar
+      } else {
+        setIsSidebarOpen(true); // open sidebar on larger screens
+      }
+    };
 
+    // Run once on mount
+    handleResize();
+
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup on unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <header className={styles.internalMainNav}>
       <Link
@@ -24,9 +50,38 @@ const Navbar = () => {
       >
         Skip to main content
       </Link>
-      <div className="flex items-center gap-2 justify-between">
+
+      <div className={styles.logoMainWrap}>
+        {/* Toggle button */}
+        <button
+          onClick={() => setIsSidebarOpen((prev) => !prev)}
+          className={styles.menuIcon}
+          aria-label={isSidebarOpen ? "Close menu" : "Open menu"}
+        >
+          {isSidebarOpen ? (
+            <MenuOpenIcon />
+          ) : (
+            <MenuOpenIcon style={{ transform: "rotate(180deg)" }} />
+          )}
+        </button>
+
+        <Link href="/" className={styles.logoWrap}>
+          <Image
+            src="/accessibility-logo.svg"
+            className={styles.desktopLogo}
+            alt="Arbi Digital Accessibility logo"
+            width={160}
+            height={80}
+          />
+        </Link>
+      </div>
+
+      <div className="flex items-center gap-2 justify-between w-full navMainTop">
         <div className={styles.searchWrapper}>
           <SearchInput />
+        </div>
+        <div className={styles.mobileMenuList}>
+          <NavbarList />
         </div>
         <div className={styles.navContainer}>
           <nav>
@@ -39,7 +94,6 @@ const Navbar = () => {
                   Our Goals
                 </Link>
               </li>
-
               <li>
                 <Link href="https://arbisoft.com/about" target="_blank">
                   About Us

@@ -1,9 +1,14 @@
+"use client";
+
 import Head from "next/head";
 import { Roboto_Slab } from "next/font/google";
 import "@/app/styles/globals.scss";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Sidebar from "./components/Sidebar";
+import Sidebar from "./components/Sidebar"; // move here!
+import SearchInput from "./components/SearchInput";
+
+import { useState } from "react";
 
 const roboto_Slab = Roboto_Slab({
   variable: "--font-roboto-slab",
@@ -16,6 +21,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
   return (
     <html lang="en">
       <Head>
@@ -23,14 +30,35 @@ export default function RootLayout({
       </Head>
       <body className={`${roboto_Slab.variable}`}>
         <div className="bodyWrapper">
-          <Navbar />
+          {/* pass state & setter to Navbar */}
+          <Navbar
+            isSidebarOpen={isSidebarOpen}
+            setIsSidebarOpen={setIsSidebarOpen}
+          />
+
           <div className="mainWrapper d-flex">
-            <Sidebar />
-            <main className="mainContent" id="main-content" tabIndex={-1}>
+            {/* Sidebar lives here too */}
+            <Sidebar
+              isOpen={isSidebarOpen}
+              onClose={() => setIsSidebarOpen(false)}
+            />
+
+            {/* mainContent reacts to sidebar */}
+            <main
+              className={`mainContent ${!isSidebarOpen ? "fullWidth" : ""}`}
+              id="main-content"
+              tabIndex={-1}
+            >
+              <div className="mobileSearchInput">
+                <SearchInput />
+              </div>
               {children}
             </main>
-            <Footer />
           </div>
+
+          <Footer
+            className={`mainContent ${!isSidebarOpen ? "fullWidth" : ""}`}
+          />
         </div>
       </body>
     </html>

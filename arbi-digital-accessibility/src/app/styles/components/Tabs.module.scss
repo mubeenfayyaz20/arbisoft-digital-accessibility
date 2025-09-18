@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+
   .tabsLinks {
     background-color: $porcelain;
     padding: 12px;
@@ -11,6 +12,7 @@
     border: 1px solid $iron-color;
     display: flex;
     border-radius: 8px;
+
     button {
       padding: 10px 20px;
       border: 1px solid $border-color;
@@ -19,11 +21,18 @@
       font-weight: 700;
       cursor: pointer;
       border-radius: 6px;
+
       &:focus {
         outline: 2.5px dotted;
         outline-offset: 1.2px;
         outline-color: $link-color;
       }
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+    .tabsLinks {
+      flex-direction: column;
     }
   }
 }
@@ -36,10 +45,12 @@
     padding: 10px;
     border: 1px solid $border-color;
     border-radius: 4px;
-    img{
+
+    img {
       border-radius: 4px;
     }
   }
+
   .tabsLinks {
     border: 0;
     padding: 0;
@@ -53,6 +64,7 @@
       font-weight: 500;
       cursor: pointer;
       border-radius: 0;
+
       &:focus {
         outline: 2.5px dotted;
         outline-offset: 1.2px;

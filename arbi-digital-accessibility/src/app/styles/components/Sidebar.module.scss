@@ -2,7 +2,7 @@
 
 .sidebar {
   background-color: $white;
-  top: 0;
+  top: 69px;
   max-width: 280px;
   min-width: 280px;
   height: 100vh;
@@ -10,7 +10,14 @@
   border-right: 1px solid $border-color;
   padding: 10px 20px 20px 20px;
   z-index: 1;
-
+  background: #fff;
+  transition: left 0.3s ease-in-out;
+  z-index: 1100;
+  left: -280px;
+  overflow-y: auto;
+&.sidebar.open {
+  left: 0; // slide in
+}
   .logo {
     width: 80%;
   }
@@ -66,15 +73,7 @@
     height: 100%;
   }
 
-  .logoWrap {
-    padding: 0;
-    display: flex;
 
-    &:focus {
-      background-color: transparent;
-      width: fit-content;
-    }
-  }
 
 }
 
@@ -141,4 +140,15 @@
 
   }
 
+}
+
+
+
+.closeBtn {
+  display: block;
+  margin: 1rem;
+  font-size: 1.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
 }

@@ -7,20 +7,22 @@
   button {
     width: 100%;
     cursor: pointer;
-    &:focus{
+
+    &:focus {
       outline: 2.5px dotted;
-    outline-offset: 1.2px;
-    outline-color: $link-color;
-    background-color: $link-color;
-    color: $white !important;
+      outline-offset: 1.2px;
+      outline-color: $link-color;
+      background-color: $link-color;
+      color: $white !important;
+
       span {
-      color: $white;
+        color: $white;
 
-    }
+      }
 
-    svg {
-      color: $white;
-    }
+      svg {
+        color: $white;
+      }
     }
   }
 
@@ -36,6 +38,10 @@
 
     svg {
       color: $white;
+    }
+
+    &:focus {
+      background-color: $link-color !important;
     }
 
   }
@@ -58,5 +64,16 @@
   svg {
     cursor: pointer;
     margin-right: 5px;
+  }
+
+  @media screen and (max-width: 992px) {
+button {
+    .accordionTitle {
+svg{
+  display: none;
+}
+    }
+}
+
   }
 }

@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
+ 
       <div className="mainIconCard">
         <AccessibleOutlined className="mainIcon" />
         <div className="mainIconCard__inner">
@@ -29,7 +30,7 @@ export default function Home() {
           </p>
           <Button
             className="margin-top-20 mt-0 customButton"
-            text="Full Guidlines"
+            text="Full Guidelines"
             rounded={false}
             variant="outline"
             target="_blank"
@@ -58,7 +59,7 @@ export default function Home() {
             accessible content.
           </p>
         </div>
-        <div className="md:w-1/3 mt-4 md:mt-0 margin-bottom-20">
+        <div className="md:w-1/3 mt-4 md:mt-0 margin-bottom-20 WCAGImage">
           <Image
             src="/WCAG.svg"
             alt="Web Content Accessibility Guidelines (WCAG)"

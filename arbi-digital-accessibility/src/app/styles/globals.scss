@@ -13,6 +13,14 @@
   background-color: $body-bg;
 }
 
+.bodyWrapper.sidebar-open {
+  margin-left: 250px; // example when sidebar is visible
+}
+
+.bodyWrapper.sidebar-closed {
+  margin-left: 80px; // collapsed or hidden sidebar
+}
+
 html {
   font-size: 10px;
   scroll-behavior: smooth;
@@ -79,6 +87,16 @@ a {
   padding-top: 95px;
   width: 100%;
   padding-right: 30px;
+  transition: all 0.3s ease;
+
+  &.fullWidth {
+    padding-left: 30px;
+  }
+
+  @media screen and (max-width: 992px) {
+    padding-left: 30px;
+  }
+
 }
 
 .sub-title {
@@ -311,4 +329,34 @@ pre {
 
 .bookmark-nav a:hover {
   text-decoration: underline;
+}
+
+.mobileSearchInput {
+  display: none;
+}
+
+@media screen and (max-width: 992px) {
+  .mainIconCard {
+    svg {
+      display: none;
+
+    }
+  }
+
+  .mobileSearchInput {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+    form{
+      max-width: 100%;
+    }
+  }
+
+  .WCAGImage {
+    display: none;
+  }
+  .navMainTop{
+  justify-content: end;
+}
 }

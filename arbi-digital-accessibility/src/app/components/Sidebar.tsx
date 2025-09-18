@@ -1,19 +1,23 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import styles from "../styles/components/Sidebar.module.scss";
 import Accordion from "./Accordion";
 import Button from "../components/Button";
 import ListAltIcon from "@mui/icons-material/ListAlt";
-import { ChevronRightOutlined } from "@mui/icons-material";
+import ChevronRightOutlined from "@mui/icons-material/ChevronRightOutlined";
 
-// small helper to safely join classes
+// helper for class merging
 const cx = (...tokens: Array<string | false | null | undefined>) =>
   tokens.filter(Boolean).join(" ");
 
-const Sidebar = () => {
+interface SidebarProps {
+  isOpen: boolean;
+  onClose?: () => void;
+}
+
+const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const pathname = usePathname() || "";
 
@@ -21,29 +25,26 @@ const Sidebar = () => {
     setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 
-  // ✅ safe helper to merge base + active styles (with fallbacks)
   const getLinkClass = (href: string) => {
     const isActive = pathname === href || pathname.startsWith(href + "/");
 
-    // If your SCSS module doesn't define these, we fall back to utility classes.
-    const base = styles?.sidebarLink || "block px-3 py-2 text-gray-700 hover:text-blue-700 rounded-md focus:outline-none focus-visible:ring";
-    const active = styles?.activeLink || "font-semibold text-blue-700 bg-blue-50 border-l-4 border-blue-600";
+    const base =
+      styles?.sidebarLink ||
+      "block px-3 py-2 text-gray-700 hover:text-blue-700 rounded-md focus:outline-none focus-visible:ring";
+    const active =
+      styles?.activeLink ||
+      "font-semibold text-blue-700 bg-blue-50 border-l-4 border-blue-600";
 
     return cx(base, isActive && active);
   };
 
   return (
-    <div className={styles.sidebar}>
-      <Link href="/" className={styles.logoWrap}>
-        <Image
-          src="/accessibility-logo.svg"
-          className={styles.logo}
-          alt="Arbi Digital Accessibility logo"
-          width={180}
-          height={80}
-        />
-      </Link>
-
+    <aside
+      className={cx(styles.sidebar, isOpen && styles.open)}
+      aria-hidden={!isOpen}
+      // Update the type of inert
+      {...(!isOpen ? { inert: true } : {})}
+    >
       <div className={styles.sidebarMenuWrap}>
         <div className={styles.sidebarLinksWrap}>
           <span className={styles.demoLabel}>
@@ -51,6 +52,7 @@ const Sidebar = () => {
           </span>
 
           <div className="sidebarInnerLinks">
+            {/* Common Checks */}
             <Accordion
               title="Common Checks"
               isOpen={openIndex === 0}
@@ -61,7 +63,9 @@ const Sidebar = () => {
                 <li>
                   <Link
                     href="/demo-resources/common-checks/image-alternative-text"
-                    className={getLinkClass("/demo-resources/common-checks/image-alternative-text")}
+                    className={getLinkClass(
+                      "/demo-resources/common-checks/image-alternative-text"
+                    )}
                   >
                     Image Alternative Text
                   </Link>
@@ -69,7 +73,9 @@ const Sidebar = () => {
                 <li>
                   <Link
                     href="/demo-resources/common-checks/page-title"
-                    className={getLinkClass("/demo-resources/common-checks/page-title")}
+                    className={getLinkClass(
+                      "/demo-resources/common-checks/page-title"
+                    )}
                   >
                     Page Title
                   </Link>
@@ -77,7 +83,9 @@ const Sidebar = () => {
                 <li>
                   <Link
                     href="/demo-resources/common-checks/heading-structure"
-                    className={getLinkClass("/demo-resources/common-checks/heading-structure")}
+                    className={getLinkClass(
+                      "/demo-resources/common-checks/heading-structure"
+                    )}
                   >
                     Heading Structure
                   </Link>
@@ -85,7 +93,9 @@ const Sidebar = () => {
                 <li>
                   <Link
                     href="/demo-resources/common-checks/color-contrast"
-                    className={getLinkClass("/demo-resources/common-checks/color-contrast")}
+                    className={getLinkClass(
+                      "/demo-resources/common-checks/color-contrast"
+                    )}
                   >
                     Color Contrast
                   </Link>
@@ -93,7 +103,9 @@ const Sidebar = () => {
                 <li>
                   <Link
                     href="/demo-resources/common-checks/skip-link"
-                    className={getLinkClass("/demo-resources/common-checks/skip-link")}
+                    className={getLinkClass(
+                      "/demo-resources/common-checks/skip-link"
+                    )}
                   >
                     Skip Link
                   </Link>
@@ -101,7 +113,9 @@ const Sidebar = () => {
                 <li>
                   <Link
                     href="/demo-resources/common-checks/keyboard-focus"
-                    className={getLinkClass("/demo-resources/common-checks/keyboard-focus")}
+                    className={getLinkClass(
+                      "/demo-resources/common-checks/keyboard-focus"
+                    )}
                   >
                     Keyboard Focus
                   </Link>
@@ -109,7 +123,9 @@ const Sidebar = () => {
                 <li>
                   <Link
                     href="/demo-resources/common-checks/language-of-page"
-                    className={getLinkClass("/demo-resources/common-checks/language-of-page")}
+                    className={getLinkClass(
+                      "/demo-resources/common-checks/language-of-page"
+                    )}
                   >
                     Language of Page
                   </Link>
@@ -117,7 +133,9 @@ const Sidebar = () => {
                 <li>
                   <Link
                     href="/demo-resources/common-checks/zoom"
-                    className={getLinkClass("/demo-resources/common-checks/zoom")}
+                    className={getLinkClass(
+                      "/demo-resources/common-checks/zoom"
+                    )}
                   >
                     Zoom
                   </Link>
@@ -125,6 +143,7 @@ const Sidebar = () => {
               </ul>
             </Accordion>
 
+            {/* Audio/Visual Checks */}
             <Accordion
               title="Audio/Visual Checks"
               isOpen={openIndex === 1}
@@ -135,7 +154,9 @@ const Sidebar = () => {
                 <li>
                   <Link
                     href="/demo-resources/audio-visual-checks/captions"
-                    className={getLinkClass("/demo-resources/audio-visual-checks/captions")}
+                    className={getLinkClass(
+                      "/demo-resources/audio-visual-checks/captions"
+                    )}
                   >
                     Captions
                   </Link>
@@ -143,7 +164,9 @@ const Sidebar = () => {
                 <li>
                   <Link
                     href="/demo-resources/audio-visual-checks/transcripts"
-                    className={getLinkClass("/demo-resources/audio-visual-checks/transcripts")}
+                    className={getLinkClass(
+                      "/demo-resources/audio-visual-checks/transcripts"
+                    )}
                   >
                     Transcripts
                   </Link>
@@ -151,15 +174,17 @@ const Sidebar = () => {
                 <li>
                   <Link
                     href="/demo-resources/audio-visual-checks/audio-description"
-                    className={getLinkClass("/demo-resources/audio-visual-checks/audio-description")}
+                    className={getLinkClass(
+                      "/demo-resources/audio-visual-checks/audio-description"
+                    )}
                   >
                     Audio Description
                   </Link>
                 </li>
-           
               </ul>
             </Accordion>
 
+            {/* Form Checks */}
             <Accordion
               title="Form Checks"
               isOpen={openIndex === 2}
@@ -170,7 +195,9 @@ const Sidebar = () => {
                 <li>
                   <Link
                     href="/demo-resources/forms-checks/general-form-patterns"
-                    className={getLinkClass("/demo-resources/forms-checks/general-form-patterns")}
+                    className={getLinkClass(
+                      "/demo-resources/forms-checks/general-form-patterns"
+                    )}
                   >
                     General Form Patterns
                   </Link>
@@ -178,7 +205,9 @@ const Sidebar = () => {
                 <li>
                   <Link
                     href="/demo-resources/forms-checks/top-error-summary"
-                    className={getLinkClass("/demo-resources/forms-checks/top-error-summary")}
+                    className={getLinkClass(
+                      "/demo-resources/forms-checks/top-error-summary"
+                    )}
                   >
                     Top Error Summary
                   </Link>
@@ -186,7 +215,9 @@ const Sidebar = () => {
                 <li>
                   <Link
                     href="/demo-resources/forms-checks/date-input-field"
-                    className={getLinkClass("/demo-resources/forms-checks/date-input-field")}
+                    className={getLinkClass(
+                      "/demo-resources/forms-checks/date-input-field"
+                    )}
                   >
                     Date Input Field
                   </Link>
@@ -194,7 +225,9 @@ const Sidebar = () => {
                 <li>
                   <Link
                     href="/demo-resources/forms-checks/age-input-field"
-                    className={getLinkClass("/demo-resources/forms-checks/age-input-field")}
+                    className={getLinkClass(
+                      "/demo-resources/forms-checks/age-input-field"
+                    )}
                   >
                     Age Field
                   </Link>
@@ -219,7 +252,7 @@ const Sidebar = () => {
           />
         </div>
       </div>
-    </div>
+    </aside>
   );
 };
 
