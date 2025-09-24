@@ -11,8 +11,8 @@ import SearchInput from "./components/SearchInput";
 import { useState } from "react";
 
 const roboto_Slab = Roboto_Slab({
-  variable: "--font-roboto-slab",
   subsets: ["latin"],
+  variable: "--font-roboto-slab",
   display: "swap",
 });
 

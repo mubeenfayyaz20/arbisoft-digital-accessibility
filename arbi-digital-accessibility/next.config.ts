@@ -1,9 +1,7 @@
-import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  reactStrictMode: true,
+const nextConfig = {
   experimental: {
-    // Add only valid experimental options here
+    turbo: false, // disable Turbopack, use Webpack
   },
 };
 
