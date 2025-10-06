@@ -105,6 +105,7 @@ const page = () => {
           preview={
             <div style={{ border: "1px solid #ccc", padding: "8px" }}>
               <button
+                className="btnFocus"
                 style={{
                   backgroundColor: "#0055aa",
                   color: "#fff",
@@ -136,6 +137,7 @@ const page = () => {
           preview={
             <div style={{ border: "1px solid #ccc", padding: "8px" }}>
               <button
+                className="btnFocus"
                 style={{
                   backgroundColor: "#eee",
                   color: "#bbb",
@@ -338,6 +340,7 @@ const page = () => {
 </button>`}
           preview={
             <button
+              tabIndex={-1}
               style={{
                 border: "2px solid #333",
                 padding: "8px 12px",
@@ -369,6 +372,7 @@ const page = () => {
 </button>`}
           preview={
             <button
+              tabIndex={-1}
               style={{
                 border: "2px solid #ddd",
                 padding: "8px 12px",

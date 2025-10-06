@@ -99,12 +99,18 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }: NavbarProps) => {
                   About Us
                 </Link>
               </li>
+
+              <li>
+                <Link href="https://arbisoft.com/activity" target="_blank">
+                  Our Activity
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/all-tools"
                   className={isActive("/all-tools") ? styles.active : ""}
                 >
-                  All Tools
+                  Useful Tools
                 </Link>
               </li>
               <li>
@@ -117,6 +123,17 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }: NavbarProps) => {
                   Our Certifications
                 </Link>
               </li>
+                   <li>
+                <Link
+                  href="/our-blog"
+                  className={
+                    isActive("/our-blog") ? styles.active : ""
+                  }
+                >
+                  Our Blogs
+                </Link>
+              </li>
+            
             </ul>
           </nav>
         </div>

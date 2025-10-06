@@ -78,6 +78,10 @@
   @media screen and (max-width: 992px) {
     top: 60px;
 
+    .sidebarNotification {
+
+      display: none;
+    }
   }
 
 }
@@ -145,38 +149,42 @@
 
   }
 
-  .closeButton {
-    border: 1px solid $border-color;
-    background-color: $white;
-    border-radius: 100px;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 5px;
-    position: absolute;
-    top: 0;
-    right: 25px;
-    cursor: pointer;
+
+}
+
+.closeButton {
+  border: 1px solid $border-color;
+  background-color: $white;
+  border-radius: 100px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  position: absolute;
+  top: 0;
+  right: 25px;
+  cursor: pointer;
+  top: 10px;
+  right: 20px;
+  z-index: 1;
+
+  svg {
+    font-size: 20px;
+  }
+
+  &:focus {
+    outline: 2.5px dotted;
+    outline-offset: 1px;
+    outline-color: $link-color;
+    background-color: $link-color;
 
     svg {
-      font-size: 20px;
-    }
-
-    &:focus {
-      outline: 2.5px dotted;
-      outline-offset: 1px;
-      outline-color: $link-color;
-      background-color: $link-color;
-
-      svg {
-        color: #fff;
-      }
+      color: #fff;
     }
   }
 }
-
 
 
 .closeBtn {

@@ -33,7 +33,7 @@ export default function ScrollToTopButton() {
   if (!visible) return null;
 
   return (
-    <button onClick={handleScrollToTop} className="flex gap-2 cursor-pointer">
+    <button onClick={handleScrollToTop} className="flex gap-2 cursor-pointer btnFocus">
       <ArrowCircleUpOutlined fontSize="large"  aria-hidden="true" />
       Scroll Up
     </button>

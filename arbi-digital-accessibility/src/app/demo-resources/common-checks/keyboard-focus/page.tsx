@@ -67,6 +67,7 @@ const page = () => {
           preview={
             <div style={{ padding: "8px" }}>
               <button
+                tabIndex={-1}
                 style={{ outline: "3px solid #005fcc", outlineOffset: "2px" }}
               >
                 Button with clear focus
@@ -93,7 +94,7 @@ const page = () => {
 }`}
           preview={
             <div style={{ padding: "8px" }}>
-              <button style={{ outline: "none" }}>
+              <button style={{ outline: "none" }} tabIndex={-1}>
                 Button with no visible focus
               </button>
             </div>

@@ -17,7 +17,7 @@
 
     .cardIcon {
       svg {
-      font-size: 8rem;
+        font-size: 8rem;
 
       }
     }
@@ -80,4 +80,10 @@
     padding: 10px 20px;
     line-height: 20px;
   }
+}
+
+.cardImage {
+  object-fit: contain;
+  width: 100%;
+  border-radius: 10px;
 }

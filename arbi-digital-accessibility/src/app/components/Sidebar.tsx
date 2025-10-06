@@ -49,15 +49,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
       <div className={styles.sidebarMenuWrap}>
         <div className={styles.sidebarLinksWrap}>
           {/* use this close the sidebar form here too */}
-          {onClose && (
-            <button
-              onClick={onClose}
-              className={styles.closeButton}
-              aria-label="Close sidebar"
-            >
-              <CloseIcon fontSize="medium" />
-            </button>
-          )}
+
           <span className={styles.demoLabel}>
             <ListAltIcon fontSize="large" aria-hidden="true" /> Demo Resources
           </span>
@@ -262,6 +254,15 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
             href="/best-references-link"
           />
         </div>
+        {onClose && (
+          <button
+            onClick={onClose}
+            className={styles.closeButton}
+            aria-label="Close sidebar"
+          >
+            <CloseIcon fontSize="medium" />
+          </button>
+        )}
       </div>
     </aside>
   );
