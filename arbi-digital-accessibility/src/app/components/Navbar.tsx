@@ -99,12 +99,15 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }: NavbarProps) => {
                   About Us
                 </Link>
               </li>
-
-              <li>
-                <Link href="https://arbisoft.com/activity" target="_blank">
-                  Our Activity
+   <li>
+                <Link
+                  href="/our-activity"
+                  className={isActive("/our-activity") ? styles.active : ""}
+                >
+                     Our Activity
                 </Link>
               </li>
+            
               <li>
                 <Link
                   href="/all-tools"
