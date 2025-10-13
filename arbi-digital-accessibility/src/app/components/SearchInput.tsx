@@ -5,17 +5,20 @@ import { searchIndex } from "../data/searchIndex";
 import { SearchSharp } from "@mui/icons-material";
 import styles from "../styles/components/Formfields.module.scss";
 
-
 export default function SearchBar() {
   const [query, setQuery] = useState("");
- const [filtered, setFiltered] = useState<{ title: string; href: string; }[]>([]);
+  const [filtered, setFiltered] = useState<{ title: string; href: string }[]>(
+    []
+  );
   const [submitted, setSubmitted] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(-1); // for arrow navigation
+  const [activeIndex, setActiveIndex] = useState(-1);
+
   const wrapperRef = useRef<HTMLFormElement>(null);
   const resultsRef = useRef<HTMLUListElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
-  // Live filtering when typing
+  // Live filtering
   useEffect(() => {
     if (query.trim() === "") {
       setFiltered([]);
@@ -29,28 +32,40 @@ export default function SearchBar() {
     );
     setFiltered(results);
     setSubmitted(true);
-    setActiveIndex(-1); // reset selection
+    setActiveIndex(-1);
   }, [query]);
 
-  // Close dropdown on Escape
+  // Handle global keyboard events
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setSubmitted(false);
-        setActiveIndex(-1);
-      }
-
       if (!submitted || filtered.length === 0) return;
 
-      // Arrow navigation
-      if (e.key === "ArrowDown") {
-        e.preventDefault();
-        setActiveIndex((prev) => Math.min(prev + 1, filtered.length - 1));
-      } else if (e.key === "ArrowUp") {
-        e.preventDefault();
-        setActiveIndex((prev) => Math.max(prev - 1, 0));
-      } else if (e.key === "Enter" && activeIndex >= 0) {
-        window.location.href = filtered[activeIndex].href;
+      switch (e.key) {
+        case "Escape":
+          e.preventDefault();
+          setSubmitted(false);
+          setActiveIndex(-1);
+          inputRef.current?.focus();
+          break;
+
+        case "ArrowDown":
+          e.preventDefault();
+          setActiveIndex((prev) => (prev < filtered.length - 1 ? prev + 1 : 0));
+          break;
+
+        case "ArrowUp":
+          e.preventDefault();
+          setActiveIndex((prev) => (prev > 0 ? prev - 1 : filtered.length - 1));
+          break;
+
+        case "Enter":
+          if (activeIndex >= 0) {
+            window.location.href = filtered[activeIndex].href;
+          }
+          break;
+
+        default:
+          break;
       }
     };
 
@@ -58,7 +73,7 @@ export default function SearchBar() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [filtered, submitted, activeIndex]);
 
-  // Close dropdown on outside click
+  // Close on outside click
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (
@@ -69,7 +84,6 @@ export default function SearchBar() {
         setActiveIndex(-1);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
@@ -83,6 +97,7 @@ export default function SearchBar() {
     setQuery("");
     setSubmitted(false);
     setActiveIndex(-1);
+    inputRef.current?.focus();
   };
 
   return (
@@ -90,9 +105,14 @@ export default function SearchBar() {
       ref={wrapperRef}
       onSubmit={handleSubmit}
       aria-label="Search for Anything"
-      className="relative w-full max-w-md flex"
+      className="relative w-full  flex"
     >
       <label htmlFor="search-input" className={styles.inputLabel}>
+        <SearchSharp
+          className="icon-color"
+          aria-hidden="true"
+          fontSize="large"
+        />
         <span aria-hidden>Search</span>
       </label>
 
@@ -110,13 +130,6 @@ export default function SearchBar() {
           role="combobox"
           autoComplete="off"
         />
-        <button
-          className={styles.searchButton}
-          aria-label="Search"
-          type="submit"
-        >
-          <SearchSharp className="icon-color"  aria-hidden="true" fontSize="large" />
-        </button>
       </div>
 
       {submitted && filtered.length > 0 && (
@@ -134,11 +147,9 @@ export default function SearchBar() {
                 role="menuitem"
                 onClick={handleResultClick}
                 className={`block px-4 py-2 focus:outline-none ${
-                  index === activeIndex
-                    ? "bg-gray-200"
-                    : "hover:bg-gray-100"
+                  index === activeIndex ? "bg-gray-200" : "hover:bg-gray-100"
                 }`}
-                tabIndex={-1}
+                tabIndex={0} // all items are tabbable in natural order
               >
                 {item.title}
               </Link>

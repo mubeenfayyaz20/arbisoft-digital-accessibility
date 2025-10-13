@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "../styles/components/Sidebar.module.scss";
@@ -16,9 +16,10 @@ const cx = (...tokens: Array<string | false | null | undefined>) =>
 interface SidebarProps {
   isOpen: boolean;
   onClose?: () => void;
+  sidebarRef: React.RefObject<HTMLElement | null>;
 }
 
-const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
+const Sidebar = ({ isOpen, onClose, sidebarRef }: SidebarProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const pathname = usePathname() || "";
 
@@ -28,34 +29,43 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
 
   const getLinkClass = (href: string) => {
     const isActive = pathname === href || pathname.startsWith(href + "/");
-
     const base =
       styles?.sidebarLink ||
       "block px-3 py-2 text-gray-700 hover:text-blue-700 rounded-md focus:outline-none focus-visible:ring";
     const active =
       styles?.activeLink ||
       "font-semibold text-blue-700 bg-blue-50 border-l-4 border-blue-600";
-
     return cx(base, isActive && active);
   };
 
   return (
     <aside
+      id="sidebar"
+      ref={sidebarRef}
       className={cx(styles.sidebar, isOpen && styles.open)}
-      aria-hidden={!isOpen}
-      // Update the type of inert
-      {...(!isOpen ? { inert: true } : {})}
+      aria-hidden={isOpen ? "false" : "true"}
     >
       <div className={styles.sidebarMenuWrap}>
-        <div className={styles.sidebarLinksWrap}>
-          {/* use this close the sidebar form here too */}
+        {/* ✅ Close button at the top for predictable first focus */}
+        {onClose && (
+          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+            <button
+              onClick={onClose}
+              className={styles.closeButton}
+              aria-label="Close sidebar"
+            >
+              <CloseIcon fontSize="medium" />
+            </button>
+          </div>
+        )}
 
+        <div className={styles.sidebarLinksWrap}>
           <span className={styles.demoLabel}>
             <ListAltIcon fontSize="large" aria-hidden="true" /> Demo Resources
           </span>
 
           <div className="sidebarInnerLinks">
-            {/* Common Checks */}
+            {/* ✅ 1. Common Checks */}
             <Accordion
               title="Common Checks"
               isOpen={openIndex === 0}
@@ -146,7 +156,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
               </ul>
             </Accordion>
 
-            {/* Audio/Visual Checks */}
+            {/* ✅ 2. Audio/Visual Checks */}
             <Accordion
               title="Audio/Visual Checks"
               isOpen={openIndex === 1}
@@ -187,7 +197,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
               </ul>
             </Accordion>
 
-            {/* Form Checks */}
+            {/* ✅ 3. Form Checks */}
             <Accordion
               title="Form Checks"
               isOpen={openIndex === 2}
@@ -240,6 +250,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
           </div>
         </div>
 
+        {/* ✅ Bottom Notification Section */}
         <div className={styles.sidebarNotification}>
           <span className={styles.learnMore}>Learn More</span>
           <p className={styles.notificationText}>
@@ -254,15 +265,6 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
             href="/best-references-link"
           />
         </div>
-        {onClose && (
-          <button
-            onClick={onClose}
-            className={styles.closeButton}
-            aria-label="Close sidebar"
-          >
-            <CloseIcon fontSize="medium" />
-          </button>
-        )}
       </div>
     </aside>
   );

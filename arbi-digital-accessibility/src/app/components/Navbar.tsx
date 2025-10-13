@@ -1,42 +1,76 @@
 "use client";
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import "@/app/styles/globals.scss";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "@/app/styles/components/Navbar.module.scss";
-import SearchInput from "../components/SearchInput";
 import Image from "next/image";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
-import { useEffect } from "react";
-import NavbarList from "./NavbarList";
 
 interface NavbarProps {
   isSidebarOpen: boolean;
-  setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  toggleSidebar: () => void;
+  toggleButtonRef: React.RefObject<HTMLButtonElement | null>;
 }
 
-const Navbar = ({ isSidebarOpen, setIsSidebarOpen }: NavbarProps) => {
+const Navbar = ({ isSidebarOpen, toggleSidebar, toggleButtonRef }: NavbarProps) => {
   const pathname = usePathname();
   const isActive = (href: string) => pathname === href;
-  useEffect(() => {
-    // Function to check screen width
-    const handleResize = () => {
-      if (window.innerWidth <= 992) {
-        setIsSidebarOpen(false); // close sidebar
-      } else {
-        setIsSidebarOpen(true); // open sidebar on larger screens
-      }
+  const lastNavLinkRef = useRef<HTMLElement | null>(null);
+
+  const focusMain = () => {
+    const main = document.getElementById("main-content") as HTMLElement | null;
+    if (!main) return;
+    main.setAttribute("tabindex", "-1");
+    main.focus();
+    const onBlur = () => {
+      main.removeAttribute("tabindex");
+      main.removeEventListener("blur", onBlur);
     };
+    main.addEventListener("blur", onBlur);
+  };
 
-    // Run once on mount
-    handleResize();
+  useEffect(() => {
+    const sidebar = document.getElementById("sidebar");
+    if (!sidebar) return;
 
-    // Add event listener
-    window.addEventListener("resize", handleResize);
+    const focusableSelector =
+      'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, [tabindex]';
+    const focusables = Array.from(
+      sidebar.querySelectorAll<HTMLElement>(focusableSelector)
+    );
 
-    // Cleanup on unmount
-    return () => window.removeEventListener("resize", handleResize);
-  }, [setIsSidebarOpen]);
+    if (isSidebarOpen) {
+      sidebar.removeAttribute("aria-hidden");
+      sidebar.removeAttribute("inert");
+      try {
+        (sidebar as any).inert = false;
+      } catch (e) {}
+
+      focusables.forEach((el) => {
+        const orig = el.getAttribute("data-orig-tabindex");
+        if (orig !== null) {
+          el.setAttribute("tabindex", orig);
+          el.removeAttribute("data-orig-tabindex");
+        } else {
+          if (el.getAttribute("tabindex") === "-1") el.removeAttribute("tabindex");
+        }
+      });
+    } else {
+      sidebar.setAttribute("aria-hidden", "true");
+      sidebar.setAttribute("inert", "");
+      try {
+        (sidebar as any).inert = true;
+      } catch (e) {}
+
+      focusables.forEach((el) => {
+        const cur = el.getAttribute("tabindex");
+        if (cur !== null) el.setAttribute("data-orig-tabindex", cur);
+        el.setAttribute("tabindex", "-1");
+      });
+    }
+  }, [isSidebarOpen]);
+
   return (
     <header className={styles.internalMainNav}>
       <Link
@@ -44,19 +78,20 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }: NavbarProps) => {
         className={styles.skipContent}
         onClick={(e) => {
           e.preventDefault();
-          const main = document.getElementById("main-content");
-          main?.focus();
+          focusMain();
         }}
       >
         Skip to main content
       </Link>
 
       <div className={styles.logoMainWrap}>
-        {/* Toggle button */}
         <button
-          onClick={() => setIsSidebarOpen((prev) => !prev)}
+          ref={toggleButtonRef}
+          onClick={toggleSidebar}
           className={styles.menuIcon}
           aria-label={isSidebarOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isSidebarOpen}
+          aria-controls="sidebar"
         >
           {isSidebarOpen ? (
             <MenuOpenIcon />
@@ -76,13 +111,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }: NavbarProps) => {
         </Link>
       </div>
 
-      <div className="flex items-center gap-2 justify-between w-full navMainTop">
-        <div className={styles.searchWrapper}>
-          <SearchInput />
-        </div>
-        <div className={styles.mobileMenuList}>
-          <NavbarList />
-        </div>
+      <div className="flex items-center gap-2 justify-end w-full navMainTop">
         <div className={styles.navContainer}>
           <nav>
             <ul>
@@ -94,20 +123,22 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }: NavbarProps) => {
                   Our Goals
                 </Link>
               </li>
+
               <li>
                 <Link href="https://arbisoft.com/about" target="_blank">
                   About Us
                 </Link>
               </li>
-   <li>
+
+              <li>
                 <Link
                   href="/our-activity"
                   className={isActive("/our-activity") ? styles.active : ""}
                 >
-                     Our Activity
+                  Our Activity
                 </Link>
               </li>
-            
+
               <li>
                 <Link
                   href="/all-tools"
@@ -116,27 +147,32 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }: NavbarProps) => {
                   Useful Tools
                 </Link>
               </li>
+
               <li>
                 <Link
                   href="/our-certifications"
-                  className={
-                    isActive("/our-certifications") ? styles.active : ""
-                  }
+                  className={isActive("/our-certifications") ? styles.active : ""}
                 >
                   Our Certifications
                 </Link>
               </li>
-                   <li>
+
+              {/* ✅ LAST LINK */}
+              <li>
                 <Link
                   href="/our-blog"
-                  className={
-                    isActive("/our-blog") ? styles.active : ""
-                  }
+                  ref={lastNavLinkRef as any}
+                  className={isActive("/our-blog") ? styles.active : ""}
+                  onKeyDown={(e) => {
+                    if (e.key === "Tab" && !e.shiftKey) {
+                      e.preventDefault();
+                      focusMain();
+                    }
+                  }}
                 >
                   Our Blogs
                 </Link>
               </li>
-            
             </ul>
           </nav>
         </div>
