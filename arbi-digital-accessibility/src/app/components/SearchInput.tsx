@@ -16,7 +16,6 @@ export default function SearchBar() {
   const wrapperRef = useRef<HTMLFormElement>(null);
   const resultsRef = useRef<HTMLUListElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
 
   // Live filtering
   useEffect(() => {

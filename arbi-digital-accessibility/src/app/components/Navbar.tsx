@@ -16,13 +16,15 @@ interface NavbarProps {
 const Navbar = ({ isSidebarOpen, toggleSidebar, toggleButtonRef }: NavbarProps) => {
   const pathname = usePathname();
   const isActive = (href: string) => pathname === href;
-  const lastNavLinkRef = useRef<HTMLElement | null>(null);
+  const lastNavLinkRef = useRef<HTMLAnchorElement | null>(null);
 
   const focusMain = () => {
     const main = document.getElementById("main-content") as HTMLElement | null;
     if (!main) return;
+
     main.setAttribute("tabindex", "-1");
     main.focus();
+
     const onBlur = () => {
       main.removeAttribute("tabindex");
       main.removeEventListener("blur", onBlur);
@@ -31,7 +33,7 @@ const Navbar = ({ isSidebarOpen, toggleSidebar, toggleButtonRef }: NavbarProps) 
   };
 
   useEffect(() => {
-    const sidebar = document.getElementById("sidebar");
+    const sidebar = document.getElementById("sidebar") as HTMLElement | null;
     if (!sidebar) return;
 
     const focusableSelector =
@@ -43,25 +45,22 @@ const Navbar = ({ isSidebarOpen, toggleSidebar, toggleButtonRef }: NavbarProps) 
     if (isSidebarOpen) {
       sidebar.removeAttribute("aria-hidden");
       sidebar.removeAttribute("inert");
-      try {
-        (sidebar as any).inert = false;
-      } catch (e) {}
+      // Some browsers support `HTMLElement.inert`
+      (sidebar as HTMLElement & { inert?: boolean }).inert = false;
 
       focusables.forEach((el) => {
         const orig = el.getAttribute("data-orig-tabindex");
         if (orig !== null) {
           el.setAttribute("tabindex", orig);
           el.removeAttribute("data-orig-tabindex");
-        } else {
-          if (el.getAttribute("tabindex") === "-1") el.removeAttribute("tabindex");
+        } else if (el.getAttribute("tabindex") === "-1") {
+          el.removeAttribute("tabindex");
         }
       });
     } else {
       sidebar.setAttribute("aria-hidden", "true");
       sidebar.setAttribute("inert", "");
-      try {
-        (sidebar as any).inert = true;
-      } catch (e) {}
+      (sidebar as HTMLElement & { inert?: boolean }).inert = true;
 
       focusables.forEach((el) => {
         const cur = el.getAttribute("tabindex");
@@ -76,8 +75,8 @@ const Navbar = ({ isSidebarOpen, toggleSidebar, toggleButtonRef }: NavbarProps) 
       <Link
         href="#main-content"
         className={styles.skipContent}
-        onClick={(e) => {
-          e.preventDefault();
+        onClick={(event) => {
+          event.preventDefault();
           focusMain();
         }}
       >
@@ -161,7 +160,7 @@ const Navbar = ({ isSidebarOpen, toggleSidebar, toggleButtonRef }: NavbarProps) 
               <li>
                 <Link
                   href="/our-blog"
-                  ref={lastNavLinkRef as any}
+                  ref={lastNavLinkRef}
                   className={isActive("/our-blog") ? styles.active : ""}
                   onKeyDown={(e) => {
                     if (e.key === "Tab" && !e.shiftKey) {
