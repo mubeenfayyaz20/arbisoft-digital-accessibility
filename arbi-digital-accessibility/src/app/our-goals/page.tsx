@@ -1,12 +1,10 @@
 import React from "react";
 import { Metadata } from "next";
 import Card from "../components/CustomCard";
-import {
-  SchoolOutlined,
-  VisibilityOutlined,
-  Launch,
-  AcUnitOutlined,
-} from "@mui/icons-material";
+import SchoolOutlined from "@mui/icons-material/SchoolOutlined";
+import VisibilityOutlined from "@mui/icons-material/VisibilityOutlined";
+import Launch from "@mui/icons-material/Launch";
+import AcUnitOutlined from "@mui/icons-material/AcUnitOutlined";
 
 export const metadata: Metadata = {
   title: "Our Goals | Arbi Digital Accessibility",

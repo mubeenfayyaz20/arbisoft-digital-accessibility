@@ -156,6 +156,15 @@ const Navbar = ({ isSidebarOpen, toggleSidebar, toggleButtonRef }: NavbarProps) 
                 </Link>
               </li>
 
+                    <li>
+                <Link
+                  href="/our-team"
+                  className={isActive("/our-team") ? styles.active : ""}
+                >
+                  Our Team
+                </Link>
+              </li>
+
               {/* ✅ LAST LINK */}
               <li>
                 <Link

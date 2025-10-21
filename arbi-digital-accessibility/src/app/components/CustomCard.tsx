@@ -9,18 +9,21 @@ import { ChevronRightOutlined } from "@mui/icons-material";
 
 interface CardProps {
   title: string;
+  titlePosition?: "top" | "bottom" | "both";
   description?: string;
   imageSrc?: string | StaticImageData;
-  icon?: React.ReactNode; // MUI icon component
+  imageAlt?: string;
+  icon?: React.ReactNode;
   buttonText?: string;
   buttonHref?: string;
   buttonTarget?: "_blank" | "_self";
   className?: string;
-  imageAlt?: string;
+  socialLinks?: React.ReactNode; // ✅ supports multiple icons
 }
 
 const Card = ({
   title,
+  titlePosition = "top", // ✅ Default same as old behavior
   description,
   imageSrc,
   icon,
@@ -29,20 +32,23 @@ const Card = ({
   buttonTarget = "_self",
   className = "",
   imageAlt = "Card image",
+  socialLinks,
 }: CardProps) => {
   return (
     <div className={`${styles.card} ${className}`}>
       <div className={styles.topBar}></div>
+
       <div className={styles.contentCard}>
-        {icon && (
-          <div className={styles.cardIcon}>
-            {icon}
-          </div>
+        {/* Optional Icon */}
+        {icon && <div className={styles.cardIcon}>{icon}</div>}
+
+        {/* ✅ Title on TOP */}
+        {(titlePosition === "top" || titlePosition === "both") && (
+          <div className={styles.title}>{title}</div>
         )}
 
-        <div className={styles.title}>{title}</div>
-
-        {imageSrc ? (
+        {/* ✅ Image */}
+        {imageSrc && (
           <Image
             src={imageSrc}
             alt={imageAlt}
@@ -50,10 +56,18 @@ const Card = ({
             width={400}
             height={300}
           />
-        ) : (
-          description && <div className={styles.description}>{description}</div>
         )}
 
+
+
+        {/* ✅ Title on BOTTOM */}
+        {(titlePosition === "bottom" || titlePosition === "both") && (
+          <div className={styles.title}>{title}</div>
+        )}
+                {/* ✅ Description (even if image exists) */}
+        {description && <div className={styles.description}>{description}</div>}
+
+        {/* ✅ Button */}
         {buttonText && buttonHref && (
           <Button
             className="mt-4 mb-4"
@@ -65,6 +79,9 @@ const Card = ({
             target={buttonTarget}
           />
         )}
+
+        {/* ✅ Social Links (any number of icons) */}
+        {socialLinks && <div className={styles.socialLinks}>{socialLinks}</div>}
       </div>
     </div>
   );
