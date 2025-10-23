@@ -122,14 +122,7 @@ const Navbar = ({
         <div className={styles.navContainer}>
           <nav>
             <ul className="flex items-center gap-6">
-              <li>
-                <Link
-                  href="/our-goals"
-                  className={isActive("/our-goals") ? styles.active : ""}
-                >
-                  Our Goals
-                </Link>
-              </li>
+            
 
               {/* ✅ Accessible Dropdown */}
               <li className="relative" ref={dropdownRef}>

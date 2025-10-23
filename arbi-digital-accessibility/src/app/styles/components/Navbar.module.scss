@@ -27,8 +27,10 @@
       border: 1px solid $border-color;
       border-radius: 10px;
       width: 120px;
-          background-color: $white;
-          padding: 10px 10px;
+      background-color: $white;
+      padding: 10px 10px;
+      top: 40px;
+
       li {
 
         &:hover,
@@ -66,20 +68,20 @@
 
           &:hover,
           &:focus {
-            background-color: $link-color;
+            // background-color: $link-color;
             text-decoration: none;
-            color: $white;
+            color: $link-color !important;
             outline: 2.5px dotted;
             outline-offset: 2px;
             outline-color: $link-color;
           }
 
           &.active {
-            background-color: $link-color;
-            outline: 2.5px dotted;
-            outline-offset: 2px;
-            outline-color: $link-color;
-            color: $white;
+            color: $link-color !important;
+            background-color: transparent !important;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-thickness: 2px;
           }
         }
       }
