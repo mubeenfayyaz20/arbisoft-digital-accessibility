@@ -1,16 +1,13 @@
 "use client";
 
 import Card from "../components/CustomCard";
-import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import XIcon from "@mui/icons-material/X";
 import Link from "next/link";
 
 export default function TeamCard() {
   return (
     <>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
-      
         <Card
           title="SQA Engineer & Accessibility Analyst"
           titlePosition="bottom"
@@ -19,19 +16,17 @@ export default function TeamCard() {
           imageAlt="Sami Ullah"
           socialLinks={
             <div className="flex gap-2 justify-center">
-              <Link href="https://facebook.com">
-                <FacebookIcon sx={{ fontSize: "3rem" }} />
-              </Link>
-              <Link href="https://linkedin.com">
+              <Link
+                href="https://www.linkedin.com/in/muhd-sami-ullah/"
+                target="_blank"
+                aria-label="LinkedIn"
+              >
                 <LinkedInIcon sx={{ fontSize: "3rem" }} />
-              </Link>
-              <Link href="https://github.com">
-                <XIcon sx={{ fontSize: "3rem" }} />
               </Link>
             </div>
           }
         />
-          <Card
+        <Card
           title="Frontend HTML Developer & Certified Web Accessibility Specialist"
           titlePosition="bottom"
           description="Frontend Developer & Accessibility Specialist with 6+ years of experience in building inclusive, user-friendly web interfaces. Skilled in implementing accessibility best practices (WCAG, Section 508) and experienced with assistive technologies such as screen readers. I collaborate closely with design teams to ensure UI/UX design is both visually engaging and accessible."
@@ -39,14 +34,12 @@ export default function TeamCard() {
           imageAlt="Mubeen Fayyaz"
           socialLinks={
             <div className="flex gap-2 justify-center">
-              <Link href="https://facebook.com">
-                <FacebookIcon sx={{ fontSize: "3rem" }} />
-              </Link>
-              <Link href="https://linkedin.com">
+              <Link
+                href="https://www.linkedin.com/in/mubeen-fayyaz-84b687106/"
+                target="_blank"
+                aria-label="LinkedIn"
+              >
                 <LinkedInIcon sx={{ fontSize: "3rem" }} />
-              </Link>
-              <Link href="https://github.com">
-                <XIcon sx={{ fontSize: "3rem" }} />
               </Link>
             </div>
           }
@@ -59,19 +52,17 @@ export default function TeamCard() {
           imageAlt="Ahmad Hassan"
           socialLinks={
             <div className="flex gap-2 justify-center">
-              <Link href="https://facebook.com">
-                <FacebookIcon sx={{ fontSize: "3rem" }} />
-              </Link>
-              <Link href="https://linkedin.com">
+              <Link
+                href="https://www.linkedin.com/in/ahmad-hassan-700561182/"
+                target="_blank"
+                aria-label="LinkedIn"
+              >
                 <LinkedInIcon sx={{ fontSize: "3rem" }} />
-              </Link>
-              <Link href="https://github.com">
-                <XIcon sx={{ fontSize: "3rem" }} />
               </Link>
             </div>
           }
         />
-          <Card
+        <Card
           title="Senior SQA Engineer"
           titlePosition="bottom"
           description="Senior SQA Engineer with 8 years of QA experience, including 2 years as an Accessibility Associate. Experienced in manual and automation testing, test strategy and quality process improvement. Specializes in accessibility compliance aligned with WCAG and Section 508 standards. DHS Trusted Tester certified professional ensuring digital products meet inclusive design and accessibility requirements."
@@ -79,19 +70,17 @@ export default function TeamCard() {
           imageAlt="Tanveer Khan"
           socialLinks={
             <div className="flex gap-2 justify-center">
-              <Link href="https://facebook.com">
-                <FacebookIcon sx={{ fontSize: "3rem" }} />
-              </Link>
-              <Link href="https://linkedin.com">
+              <Link
+                href="https://www.linkedin.com/in/jamil-hussain-183bb61a2/"
+                target="_blank"
+                aria-label="LinkedIn"
+              >
                 <LinkedInIcon sx={{ fontSize: "3rem" }} />
-              </Link>
-              <Link href="https://github.com">
-                <XIcon sx={{ fontSize: "3rem" }} />
               </Link>
             </div>
           }
         />
-           <Card
+        <Card
           title="QA Automation & Accessibility Tester"
           titlePosition="bottom"
           description="QA Automation & Accessibility Tester with 4+ years of experience making digital experiences seamless and inclusive. Specialize in test automation, accessibility compliance (WCAG, ADA, Section 508), and bridging the gap between development and testing to deliver user-friendly solutions."
@@ -99,14 +88,12 @@ export default function TeamCard() {
           imageAlt="Jamal Hussain"
           socialLinks={
             <div className="flex gap-2 justify-center">
-              <Link href="https://facebook.com">
-                <FacebookIcon sx={{ fontSize: "3rem" }} />
-              </Link>
-              <Link href="https://linkedin.com">
+              <Link
+                href="https://www.linkedin.com/in/tanveer-khan-71811124a/"
+                target="_blank"
+                aria-label="LinkedIn"
+              >
                 <LinkedInIcon sx={{ fontSize: "3rem" }} />
-              </Link>
-              <Link href="https://github.com">
-                <XIcon sx={{ fontSize: "3rem" }} />
               </Link>
             </div>
           }
