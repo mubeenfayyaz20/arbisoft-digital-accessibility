@@ -12,36 +12,45 @@
       outline: 2.5px dotted;
       outline-offset: 1.2px;
       outline-color: $link-color;
-      background-color: $link-color;
-      color: $white !important;
+      color: $link-color !important;
+            text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 2px;
 
       span {
-        color: $white;
+        color: $link-color;
 
       }
 
       svg {
-        color: $white;
+        color: $link-color;
       }
     }
   }
 
   button[aria-expanded="true"] {
     border-bottom: 1px solid $border-color;
-    background-color: $link-blue-color;
     outline: unset;
 
     span {
-      color: $white;
+      color: $link-blue-color;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 2px;
 
     }
 
     svg {
-      color: $white;
+      color: $link-blue-color;
     }
 
     &:focus {
-      background-color: $link-color !important;
+
+      span,
+      svg {
+
+        color: $tamarillo !important;
+      }
     }
 
   }
@@ -67,13 +76,13 @@
   }
 
   @media screen and (max-width: 992px) {
-button {
-    .accordionTitle {
-svg{
-  display: none;
-}
+    button {
+      .accordionTitle {
+        svg {
+          display: none;
+        }
+      }
     }
-}
 
   }
 }

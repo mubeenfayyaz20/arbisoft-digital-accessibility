@@ -31,7 +31,8 @@ body {
   line-height: 25px;
 }
 
-a, .btnFocus {
+a,
+.btnFocus {
   padding: 1px 4px;
 
   &:focus {
@@ -211,17 +212,19 @@ pre {
   color: $white;
   border-radius: 4px;
   padding: 6px 15px;
-  border: 1px solid $link-blue-color;
   background-color: $link-blue-color;
   cursor: pointer;
+  margin-top: 4px;
+  margin-right: 4px;
 
   &:focus {
     outline: 2.5px dotted;
     outline-offset: 1.2px;
     outline-color: $link-color;
-    background-color: $link-color;
     padding: 6px 15px;
-    color: $white;
+    background-color: transparent !important;
+    box-shadow: none;
+    color: $link-color !important;
   }
 }
 
@@ -332,7 +335,7 @@ pre {
 }
 
 .mobileSearchInput {
- margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .navbarListData {

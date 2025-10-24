@@ -30,14 +30,6 @@
       background-color: $white;
       padding: 10px 10px;
       top: 40px;
-
-      li {
-
-        &:hover,
-        &:focus {
-          background-color: $light-gray;
-        }
-      }
     }
   }
 
@@ -68,7 +60,6 @@
 
           &:hover,
           &:focus {
-            // background-color: $link-color;
             text-decoration: none;
             color: $link-color !important;
             outline: 2.5px dotted;
@@ -101,6 +92,9 @@
     &:focus {
       opacity: 1;
       top: 8px;
+
+      background-color: $white;
+      color: $tamarillo !important;
     }
 
     &:focus-visible {
@@ -148,10 +142,9 @@
         outline: 2.5px dotted;
         outline-offset: 2px;
         outline-color: $link-color;
-        background-color: $link-color;
 
         svg {
-          color: #fff;
+          color: $link-color;
         }
       }
     }

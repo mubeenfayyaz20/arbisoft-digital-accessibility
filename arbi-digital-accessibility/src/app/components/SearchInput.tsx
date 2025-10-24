@@ -105,6 +105,7 @@ export default function SearchBar() {
       onSubmit={handleSubmit}
       aria-label="Search for Anything"
       className="relative w-full  flex"
+
     >
       <label htmlFor="search-input" className={styles.inputLabel}>
         <SearchSharp

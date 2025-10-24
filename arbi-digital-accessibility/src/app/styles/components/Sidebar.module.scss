@@ -128,19 +128,29 @@
             text-decoration: underline;
           }
 
+          &:hover {
+            background-color: $polar !important;
+          }
+
           &:focus {
-            color: $white !important;
-            background-color: $link-color;
+            color: $link-color !important;
+            background-color: transparent;
+            box-shadow: none !important;
           }
 
           &.activeLink {
-            outline-offset: 2px;
-            color: $white !important;
-            background-color: $tamarillo !important;
-            outline: 2.5px dotted $link-color !important;
+            text-decoration: underline;
+            color: $tamarillo;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
 
             &:hover {
-              color: $white !important;
+              background-color: $polar !important;
+            }
+
+            &:focus {
+              color: $link-color !important;
+              background-color: transparent !important;
             }
           }
         }
@@ -178,10 +188,9 @@
     outline: 2.5px dotted;
     outline-offset: 1px;
     outline-color: $link-color;
-    background-color: $link-color;
 
     svg {
-      color: #fff;
+      color: $tamarillo;
     }
   }
 }

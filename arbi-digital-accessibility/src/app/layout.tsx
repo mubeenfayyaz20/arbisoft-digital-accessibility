@@ -16,7 +16,11 @@ const roboto_Slab = Roboto_Slab({
   display: "swap",
 });
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   // ✅ 1. Default CLOSED
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [openedByUser, setOpenedByUser] = useState(false);
@@ -38,7 +42,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     const els = Array.from(container.querySelectorAll<HTMLElement>(selector));
     return els.filter((el) => {
       try {
-        return el.offsetWidth > 0 || el.offsetHeight > 0 || el.getClientRects().length > 0;
+        return (
+          el.offsetWidth > 0 ||
+          el.offsetHeight > 0 ||
+          el.getClientRects().length > 0
+        );
       } catch {
         return false;
       }
