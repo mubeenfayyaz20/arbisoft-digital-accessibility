@@ -98,6 +98,24 @@ export default function TeamCard() {
             </div>
           }
         />
+         <Card
+          title="Accessibility Tester"
+          titlePosition="bottom"
+          description="A dedicated Accessibility Tester having 2+ years of experience in accessibility and 4+ years of experience in E-learning technical development. I am a DHS Trusted Tester certified professional and specialize in evaluating websites, applications, and digital products like simulations, scrollables, interactive hotspots etc for compliance with accessibility standards such as WCAG 2.2, and Section 508 guidelines."
+          imageSrc="/team-members/iqra-ejaz.jpg"
+          imageAlt="Iqra Ejaz"
+          socialLinks={
+            <div className="flex gap-2 justify-center">
+              <Link
+                href="https://www.linkedin.com/in/tanveer-khan-71811124a/"
+                target="_blank"
+                aria-label="LinkedIn"
+              >
+                <LinkedInIcon sx={{ fontSize: "3rem" }} />
+              </Link>
+            </div>
+          }
+        />
       </div>
     </>
   );
