@@ -155,7 +155,7 @@ a:focus {
       <CodeSnippet
         code={`input:focus {
   outline: none;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
 }`}
         captionHeading="Why it's bad:"
         captionColor="red"

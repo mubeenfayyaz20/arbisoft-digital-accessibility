@@ -258,7 +258,7 @@ const Sidebar = ({ isOpen, onClose, sidebarRef }: SidebarProps) => {
           </p>
           <Button
             className="mt-2"
-            text="View Reference Materials"
+            text="Reference Materials"
             rounded={false}
             variant="filled"
             icon={<ChevronRightOutlined fontSize="large" />}

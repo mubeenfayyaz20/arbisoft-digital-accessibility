@@ -2,7 +2,7 @@
 
 .sidebar {
   background-color: $white;
-  top: 69px;
+  top: 75px;
   max-width: 280px;
   min-width: 280px;
   height: 100vh;
@@ -25,7 +25,7 @@
   }
 
   .demoLabel {
-    color: $primary-color;
+    color: $pale-sky;
     margin: 8px 0;
     display: block;
     width: max-content;
@@ -47,7 +47,7 @@
     font-size: 1.4rem;
     margin-bottom: 60px;
     margin-top: auto;
-    border: 1px solid $border-color;
+    border: 2px solid $border-color;
 
     .learnMore {
       color: $primary-color;
@@ -163,7 +163,7 @@
 }
 
 .closeButton {
-  border: 1px solid $border-color;
+  border: 2px solid $border-color;
   background-color: $white;
   border-radius: 100px;
   width: 30px;

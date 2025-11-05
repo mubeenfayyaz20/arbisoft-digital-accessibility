@@ -78,7 +78,7 @@ export const Tabs: React.FC<TabsContainerProps> = ({ children }) => {
             className={`py-2 px-4 text-sm font-medium outline-none ${
               index === activeIndex
                 ? "text-white bg-color"
-                : "bg-white text-black hover:bg-blue-700 hover:text-white"
+                : "bg-white text-black hover:text-white"
             }`}
             role="tab"
             aria-selected={index === activeIndex}

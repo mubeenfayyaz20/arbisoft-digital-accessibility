@@ -111,8 +111,8 @@ const Navbar = ({
             src="/accessibility-logo.svg"
             className={styles.desktopLogo}
             alt="Arbi Digital Accessibility logo"
-            width={160}
-            height={80}
+            width={220}
+            height={110}
           />
         </Link>
       </div>
