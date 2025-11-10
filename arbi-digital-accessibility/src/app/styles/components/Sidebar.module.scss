@@ -41,7 +41,7 @@
   }
 
   .sidebarNotification {
-    background-color: $polar;
+    background-color: $porcelain;
     border-radius: 10px;
     padding: 15px;
     font-size: 1.4rem;
@@ -111,12 +111,11 @@
         margin: 5px;
 
         a {
-          padding: 5px 10px;
-          background-color: $polar;
+          padding: 2px 10px;
           width: 100%;
           color: $primary-color;
           text-decoration: none;
-          font-size: 1.4rem;
+          font-size: 1.2rem;
           display: block;
           border-radius: 4px;
 
@@ -129,7 +128,8 @@
           }
 
           &:hover {
-            background-color: $polar !important;
+            background-color: $regent-gray !important;
+            color: $white !important;
           }
 
           &:focus {
@@ -146,6 +146,7 @@
 
             &:hover {
               background-color: $polar !important;
+              color: $primary-color !important;
             }
 
             &:focus {
@@ -166,18 +167,15 @@
   border: 2px solid $border-color;
   background-color: $white;
   border-radius: 100px;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 5px;
   position: absolute;
-  top: 0;
-  right: 25px;
+  top: 5px;
+  right: 5px;
   cursor: pointer;
-  top: 10px;
-  right: 20px;
   z-index: 1;
 
   svg {

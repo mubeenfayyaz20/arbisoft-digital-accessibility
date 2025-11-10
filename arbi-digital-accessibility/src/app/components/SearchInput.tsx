@@ -104,7 +104,7 @@ export default function SearchBar() {
       ref={wrapperRef}
       onSubmit={handleSubmit}
       aria-label="Search for Anything"
-      className="relative w-full  flex"
+      className="relative w-full  flex flex-col"
 
     >
       <label htmlFor="search-input" className={styles.inputLabel}>

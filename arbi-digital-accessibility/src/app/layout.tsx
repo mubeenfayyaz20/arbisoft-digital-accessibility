@@ -1,19 +1,20 @@
 "use client";
 
 import Head from "next/head";
-import { Roboto_Slab } from "next/font/google";
+import { Inter } from "next/font/google";
 import "@/app/styles/globals.scss";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Sidebar from "./components/Sidebar";
-import SearchInput from "./components/SearchInput";
+
 
 import React, { useEffect, useRef, useCallback, useState } from "react";
 
-const roboto_Slab = Roboto_Slab({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-roboto-slab",
+  variable: "--font-inter-slab",
   display: "swap",
+    weight: ["400", "500", "600", "700"], // optional: choose your needed weights
 });
 
 export default function RootLayout({
@@ -139,7 +140,7 @@ export default function RootLayout({
       <Head>
         <link rel="icon" href="../../public/favicon.ico" />
       </Head>
-      <body className={`${roboto_Slab.variable}`}>
+      <body className={`${inter.variable}`}>
         <div className="bodyWrapper">
           <Navbar
             isSidebarOpen={isSidebarOpen}
@@ -160,9 +161,7 @@ export default function RootLayout({
               tabIndex={-1}
               ref={mainContentRef as React.RefObject<HTMLElement>}
             >
-              <div className="mobileSearchInput">
-                <SearchInput />
-              </div>
+          
               {children}
             </main>
           </div>
