@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import styles from "../styles/components/Sidebar.module.scss";
 import Accordion from "./Accordion";
 import Button from "../components/Button";
-import ListAltIcon from "@mui/icons-material/ListAlt";
 import SearchInput from "./SearchInput";
 import ChevronRightOutlined from "@mui/icons-material/ChevronRightOutlined";
 import CloseIcon from "@mui/icons-material/Close";
@@ -106,7 +105,7 @@ const Sidebar = ({ isOpen, onClose, sidebarRef }: SidebarProps) => {
         className={cx(styles.sidebar, isOpen && styles.open)}
         aria-hidden={isOpen ? "false" : "true"}
       >
-          <SearchInput />
+        <SearchInput />
         <div className={styles.sidebarMenuWrap}>
           {onClose && (
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
@@ -171,7 +170,9 @@ const Sidebar = ({ isOpen, onClose, sidebarRef }: SidebarProps) => {
                     <li key={href}>
                       <Link href={href} legacyBehavior passHref>
                         <a
-                          ref={(el) => (sidebarLinksRef.current[i] = el)}
+                          ref={(el) => {
+                            sidebarLinksRef.current[i] = el;
+                          }}
                           className={getLinkClass(href)}
                           onClick={handleLinkAction}
                         >
@@ -208,7 +209,9 @@ const Sidebar = ({ isOpen, onClose, sidebarRef }: SidebarProps) => {
                     <li key={href}>
                       <Link href={href} legacyBehavior passHref>
                         <a
-                          ref={(el) => (sidebarLinksRef.current[10 + i] = el)} // offset index
+                          ref={(el) => {
+                            sidebarLinksRef.current[i] = el;
+                          }}
                           className={getLinkClass(href)}
                           onClick={handleLinkAction}
                         >
@@ -249,7 +252,9 @@ const Sidebar = ({ isOpen, onClose, sidebarRef }: SidebarProps) => {
                     <li key={href}>
                       <Link href={href} legacyBehavior passHref>
                         <a
-                          ref={(el) => (sidebarLinksRef.current[20 + i] = el)} // offset index
+                          ref={(el) => {
+                            sidebarLinksRef.current[20 + i] = el; // offset index
+                          }}
                           className={getLinkClass(href)}
                           onClick={handleLinkAction}
                         >
