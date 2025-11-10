@@ -14,7 +14,6 @@
   transition: left 0.3s ease-in-out;
   z-index: 1100;
   left: -280px;
-  overflow-y: auto;
 
   &.sidebar.open {
     left: 0; // slide in
@@ -87,7 +86,6 @@
 }
 
 .sidebarLinksWrap {
-  overflow-y: auto;
   height: 400px;
   scrollbar-width: thin;
   scrollbar-color: $river-bed $ebony-clay;
