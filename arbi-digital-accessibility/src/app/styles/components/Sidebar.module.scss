@@ -16,11 +16,14 @@
   left: -280px;
   overflow: auto;
   scrollbar-width: thin;
-  scrollbar-color: $river-bed $ebony-clay;
+ scrollbar-color: $river-bed transparent;
 
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
+
+/* Hide scrollbar background / track */
+&::-webkit-scrollbar {
+  width: 8px; /* or 0 if you want to hide completely */
+}
+
 
   &.sidebar.open {
     left: 0; // slide in
@@ -95,10 +98,10 @@
 .sidebarLinksWrap {
   height: 400px;
   scrollbar-width: thin;
-  scrollbar-color: $river-bed $ebony-clay;
+ scrollbar-color: $river-bed transparent;
 
   &::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
 
 

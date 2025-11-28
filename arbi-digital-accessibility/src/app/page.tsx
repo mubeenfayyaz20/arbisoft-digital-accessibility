@@ -19,7 +19,7 @@ export default function Home() {
       <div className="mainIconCard">
         <AccessibleOutlined className="mainIcon" />
         <div className="mainIconCard__inner">
-          <h2 className="sub-title">WCAG Document</h2>
+          <h2 className="sub-title pt-2">WCAG Document</h2>
           <p className="plainText">
             These guidelines explain how to make web content more accessible to
             people with various abilities and disabilities. People involved in
